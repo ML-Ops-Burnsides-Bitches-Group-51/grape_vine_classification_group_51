@@ -8,7 +8,7 @@ Note that we do not use pre-trained models, as we want to focus on making a comp
 ## Data description
 There are five different species of grapes each with 100 unique images of a leaf. The original data is in RGB, but since all the leaves are similar in color, we have decided to convert the images to black and white to reduce the training time. Furthermore we have split the data into a training and a testing set. Note that since we only have 100 images of each species, we might have to augment our data, which we will do using AlbumentationsX.
 
-The dataset can be found at : \url{https://www.kaggle.com/datasets/muratkokludataset/grapevine-leaves-image-dataset}
+The dataset can be found at : https://www.kaggle.com/datasets/muratkokludataset/grapevine-leaves-image-dataset
 
 Note that the data is not included in the repository, and must thus be loaded using src/grape_vine_classification/import_data.py which downloads the data from kaggle into the data folder.
 
