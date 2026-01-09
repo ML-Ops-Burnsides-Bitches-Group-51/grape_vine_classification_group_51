@@ -1,0 +1,16 @@
+hyperparameters:
+  batch_size: 100
+  hidden_dim: 400
+  latent_dim: 20
+  epochs: 20
+  seed: 1
+
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 1e-3
+  betas: [0.9, 0.999]
+  eps: 1e-8
+  weight_decay: 0
+
+data:
+  path: data/processed # Finish this
