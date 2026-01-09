@@ -20,4 +20,4 @@ ENV UV_LINK_MODE=copy
 RUN --mount=type=cache,target=/root/.cache/uv uv sync
 
 
-ENTRYPOINT ["uv", "run", "src/s2_cnn_mnist/evaluate.py"]
+ENTRYPOINT ["uv", "run", "src/grape_vine_classification/evaluate.py"]
