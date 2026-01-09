@@ -3,6 +3,9 @@ docs/site/
 # Folders
 data/
 
+# temporarily ignore models folder
+models/
+
 # test cache
 manual_test/
 

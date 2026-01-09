@@ -1,23 +1,22 @@
+from pathlib import Path
 from grape_vine_classification.model import SimpleCNN
-from grape_vine_classification.data import MyDataset
 import matplotlib.pyplot as plt
 import torch
 import typer
+import sys
 
-base_dir = Path(__file__).parent.parent.parent
-data_path = base_dir / "data" / "raw_data" / "Grapevine_Leaves_Image_Dataset"
-
+data_dir = Path(__file__).parent.parent.parent / "data" / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
-def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
+def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 100) -> None:
     """Train the model"""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
 
     model = SimpleCNN().to(DEVICE)
-    train_set, _ = MyDataset()
+    train_data = torch.load(data_dir / "train_data.pt")
 
-    train_dataloader = torch.utils.data.DataLoader(train_set, batch_size=batch_size)
+    train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -51,4 +50,5 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
 
 
 if __name__ == "__main__":
-    typer.run(train)
+    #typer.run(train)
+    train()
