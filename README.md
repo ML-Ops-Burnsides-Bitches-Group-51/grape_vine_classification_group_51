@@ -7,7 +7,7 @@ Note that we do not use pre-trained models, as we want to focus on making a comp
 We haven't worked with data version control yet, so have not made any decesion about how it should be done.
 
 ## Data description
-There are five different species of grapes each with 100 unique images of a leaf. The original data is in RGB, but since all the leaves are similar in color, we have decided to convert the images to black and white to reduce the training time. Furthermore we have split the data into a training and a testing set. Note that since we only have 100 images of each species, we might have to augment our data, which we will do using AlbumentationsX.
+There are five different species of grapes each with 100 unique images of a leaf. The original data is in RGB, but since all the leaves are similar in color, we have decided to convert the images to black and white and reduce the size from 512x512 to 128x128 to reduce the training time. Furthermore we have split the data into a training and a testing set. Note that since we only have 100 images of each species, we might have to augment our data, which we will do using AlbumentationsX.
 
 The dataset can be found at : https://www.kaggle.com/datasets/muratkokludataset/grapevine-leaves-image-dataset
 
