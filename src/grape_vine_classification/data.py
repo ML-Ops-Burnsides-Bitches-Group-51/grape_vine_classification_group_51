@@ -2,9 +2,11 @@ from pathlib import Path
 from torch.utils.data import DataLoader, Dataset
 import torchvision.transforms as T
 import typer
-from torch.utils.data import Dataset
-from torch import manual_seed
-
+from torch.utils.data import Dataset, random_split
+from torch import manual_seed, save
+from torchvision import datasets, transforms
+import matplotlib.pyplot as plt
+import os
 
 class MyDataset(Dataset):
     """My custom dataset."""
@@ -28,44 +30,25 @@ def preprocess(raw_dir, processed_dir):
     # Preprocess the data
 
     transform = T.Compose([
-    T.Resize((224, 224)), # Temp not correct size
+    transforms.Grayscale(num_output_channels=1),
     T.ToTensor(),])
     # Load images
-    train_images, train_target = [], []
+    # base_dir
 
-    loader = DataLoader()
-    for 
+    full_dataset = datasets.ImageFolder(root=raw_dir, transform=transform)
 
-    
-    # We must first split data in training and testing
-    test_share = 0.2
+    train_size = int(0.8 * len(full_dataset))
+    test_size = len(full_dataset) - train_size
 
-    
+    train_dataset, test_dataset = random_split(full_dataset, [train_size, test_size])
 
 
-    for i in range(6):
-        train_images.append(torch.load(f"{raw_dir}/train_images_{i}.pt"))
-        train_target.append(torch.load(f"{raw_dir}/train_target_{i}.pt"))
-    train_images = torch.cat(train_images)
-    train_target = torch.cat(train_target)
+    if not os.path.exists(processed_dir):
+        os.makedirs(processed_dir)
+    save(train_dataset,f"{processed_dir}/train_data.pt")
+    save(test_dataset,f"{processed_dir}/test_data.pt")
 
-    test_images: torch.Tensor = torch.load(f"{raw_dir}/test_images.pt")
-    test_target: torch.Tensor = torch.load(f"{raw_dir}/test_target.pt")
 
-    train_images = train_images.unsqueeze(1).float()
-    test_images = test_images.unsqueeze(1).float()
-    train_target = train_target.long()
-    test_target = test_target.long()
 
-    # The images are now saved in the processed data folder
-
-    train_images = normalize(train_images)
-    test_images = normalize(test_images)
-
-    torch.save(train_images, f"{processed_dir}/train_images.pt")
-    torch.save(train_target, f"{processed_dir}/train_target.pt")
-
-    torch.save(test_images, f"{processed_dir}/test_images.pt")
-    torch.save(test_target, f"{processed_dir}/test_target.pt")
 if __name__ == "__main__":
-    typer.run(preprocess)
+    preprocess("data/raw_data//Grapevine_Leaves_Image_Dataset","data/proccesed_data/")
