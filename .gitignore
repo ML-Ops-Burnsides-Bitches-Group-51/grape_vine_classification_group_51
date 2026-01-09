@@ -1,5 +1,8 @@
 docs/site/
 
+# Folders
+data/
+
 # test cache
 manual_test/
 
