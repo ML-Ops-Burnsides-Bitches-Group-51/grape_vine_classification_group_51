@@ -1,6 +1,10 @@
-# grape_vine_classification
+# Grapevine leaf classification
+## Project description
+In this project we seek to classify grapevine leaves using a convolutional neural network (CNN). 
 
-grape vine classification using ML
+## Data description
+There are five different species of grapes each with 100 unique images of a leaf. The original data is in RGB, but since all the leaves are similar in color, we have decided to convert the images to black and white to reduce the training time. 
+
 
 ## Project structure
 
