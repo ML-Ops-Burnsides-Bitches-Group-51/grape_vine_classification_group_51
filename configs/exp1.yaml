@@ -1,22 +1,8 @@
-program: src/grape_vine_classification/train_lightning.py
+# Simple configuration for a single run
+project: grape_vine_classification
 name: normal_run
-project: grape_vine_classifocation
-method: bayes
-
-metric:
-  name: acc
-  goal: minimize
-
-parameters:
-  optim:
-    values: ["Adam"]
-  lr:
-    values: [1e-3]
-
-  batch_size:
-    values: [16]
-
-  epochs:
-    values: [20]
-
-run_cap: 10
+optim: "Adam"
+lr: 0.001
+batch_size: 16
+epochs: 20
+patience: 21

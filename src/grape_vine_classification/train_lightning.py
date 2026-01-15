@@ -21,7 +21,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 batch_size = 16
 max_epochs = 10
 
-def train(batch_size: int = 16, max_epochs: int = 10) -> None:
+def train(config_path: str = "configs/exp1.yaml") -> None:
     # Load model and Data
     run = wandb.init(
         entity = "Burnsides_Bitches",
@@ -29,26 +29,27 @@ def train(batch_size: int = 16, max_epochs: int = 10) -> None:
     )
     config = wandb.config
 
-    if not config:
-        # If config is empty (local run), load your exp1.yaml
-        config_path = Path("configs/exp1.yaml")
-        with open(config_path, 'r') as f:
-            local_config = yaml.safe_load(f)
-        
-        # Update wandb with the local file's values
-        wandb.config.update(local_config)
-        config = wandb.config
+    path = Path(config_path)
 
+    if not path.exists():
+        print(f"Error: Config file {config_path} not found.")
+        raise typer.Exit(code=1)
+        
+
+    with open(path, 'r') as f:
+        local_config = yaml.safe_load(f)
+
+    # If a sweeps is enabled then it will override the existing config (exp1.yaml)
+    wandb.config.update(local_config, allow_val_change=True)
+    config = wandb.config
+
+    max_epochs = config.epochs
 
     model = SimpleCNN(config)  # this is our LightningModule
     train_data = torch.load(data_dir / "train_data.pt")
     test_data = torch.load(data_dir / "test_data.pt")
-
-
-
-
     
-    max_epochs = config.epochs
+    
 
 
     train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
@@ -56,7 +57,7 @@ def train(batch_size: int = 16, max_epochs: int = 10) -> None:
 
     # Define trainer and train model
     early_stopping_callback = EarlyStopping(
-        monitor="val_loss", patience=3, verbose=True, mode="min"
+        monitor="acc", patience=config["patience"], verbose=True, mode="min"
     )
     checkpoint_callback = ModelCheckpoint(
         dirpath="./models", monitor="val_loss", mode="min"
@@ -66,5 +67,5 @@ def train(batch_size: int = 16, max_epochs: int = 10) -> None:
 
 
 if __name__ == "__main__":
-    #typer.run(train)
-    train()
+    typer.run(train)
+    # train()

@@ -20,5 +20,7 @@ parameters:
 
   epochs:
     values: [5]
+  pateince:
+    values: [3]
 
 run_cap: 10

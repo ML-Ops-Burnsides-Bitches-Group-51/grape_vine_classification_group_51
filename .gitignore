@@ -4,6 +4,7 @@ docs/site/
 data/
 reports/figures/
 lightning_logs/
+wandb/
 
 # temporarily ignore models folder
 models/
