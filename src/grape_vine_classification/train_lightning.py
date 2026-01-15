@@ -1,5 +1,5 @@
 from pathlib import Path
-from grape_vine_classification.model import SimpleCNN
+from grape_vine_classification.model_lightning import SimpleCNN
 import matplotlib.pyplot as plt
 import torch
 import typer
