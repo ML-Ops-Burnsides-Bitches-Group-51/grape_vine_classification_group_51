@@ -7,7 +7,6 @@ RUN apt update && \
 COPY uv.lock uv.lock
 COPY pyproject.toml pyproject.toml
 
-#RUN uv sync --frozen --no-install-project
 
 COPY src/ src/
 COPY data/ data/
