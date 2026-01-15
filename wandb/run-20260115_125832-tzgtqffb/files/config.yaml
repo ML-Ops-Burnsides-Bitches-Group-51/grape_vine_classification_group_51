@@ -1,0 +1,51 @@
+_wandb:
+    value:
+        cli_version: 0.24.0
+        e:
+            2cbkb3c9uqzjjjq6drjhb9k727fb3mxp:
+                args:
+                    - --batch_size=32
+                    - --epochs=5
+                    - --lr=0.040430816448686416
+                    - --optim=Adam
+                codePath: src/grape_vine_classification/train.py
+                codePathLocal: src/grape_vine_classification/train.py
+                email: antonespholm@gmail.com
+                executable: /home/anton_linux/grape_vine_classification_group_51/.venv/bin/python
+                git:
+                    commit: a1ee7a704d9f01ecc6ce8d6ce88af9ba1fb41dc3
+                    remote: https://github.com/ML-Ops-Burnsides-Bitches-Group-51/grape_vine_classification_group_51.git
+                host: DESKTOP-4UR0G19
+                os: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+                program: /home/anton_linux/grape_vine_classification_group_51/src/grape_vine_classification/train.py
+                python: CPython 3.12.3
+                root: /home/anton_linux/grape_vine_classification_group_51
+                startedAt: "2026-01-15T11:58:32.207108Z"
+                writerId: 2cbkb3c9uqzjjjq6drjhb9k727fb3mxp
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+                - 105
+            "2":
+                - 1
+                - 5
+                - 53
+                - 105
+            "3":
+                - 14
+            "4": 3.12.3
+            "5": 0.24.0
+            "12": 0.24.0
+            "13": linux-x86_64
+batch_size:
+    value: 32
+epochs:
+    value: 5
+lr:
+    value: 0.040430816448686416
+optim:
+    value: Adam

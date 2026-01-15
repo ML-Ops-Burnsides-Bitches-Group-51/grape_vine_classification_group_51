@@ -1,0 +1,10 @@
+wandb_version: 1
+
+batch_size:
+  value: 32
+epochs:
+  value: 5
+lr:
+  value: 0.00014889898462231297
+optim:
+  value: SGD
