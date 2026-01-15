@@ -20,7 +20,7 @@
 - [ ] Use profiling to optimize your code (M12)
 - [ ] Use logging to log important events in your code (M14)
 - [ ] Use Weights & Biases to log training progress and artifacts (M14) - Anton
-- [ ] Consider running a hyperparameter optimization sweep (M14)
+- [ ] Consider running a hyperparameter optimization sweep (M14) - Anton
 - [ ] Use PyTorch Lightning if applicable (M15) - Clara
 
 ## ✅ Week 2
