@@ -37,7 +37,7 @@
 - [ ] Create GCP Bucket for data and link with DVC (M21)
 - [ ] Create workflow to automatically build Docker images (M21)
 - [ ] Train model on GCP using Engine or Vertex AI (M21)
-- [ ] Create FastAPI inference application (M22)
+- [ ] Create FastAPI inference application (M22) - Viktor
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
