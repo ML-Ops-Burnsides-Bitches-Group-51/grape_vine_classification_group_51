@@ -21,7 +21,6 @@ COPY src/ src/
 COPY data/ data/
 COPY models/ models/
 
-
 #RUN uv sync --frozen --no-install-project
 
 RUN --mount=type=cache,target=/root/.cache/uv uv sync
