@@ -1,0 +1,34 @@
+{
+  "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.3",
+  "startedAt": "2026-01-15T13:24:14.685822Z",
+  "args": [
+    "--batch_size=16",
+    "--epochs=5",
+    "--lr=0.005610766701492218",
+    "--optim=SGD"
+  ],
+  "program": "/home/anton_linux/grape_vine_classification_group_51/src/grape_vine_classification/train_lightning.py",
+  "codePath": "src/grape_vine_classification/train_lightning.py",
+  "codePathLocal": "src/grape_vine_classification/train_lightning.py",
+  "git": {
+    "remote": "https://github.com/ML-Ops-Burnsides-Bitches-Group-51/grape_vine_classification_group_51.git",
+    "commit": "9b198afeb1b09c996cd6786219a5ec8110934c4e"
+  },
+  "email": "antonespholm@gmail.com",
+  "root": "/home/anton_linux/grape_vine_classification_group_51",
+  "host": "DESKTOP-4UR0G19",
+  "executable": "/home/anton_linux/grape_vine_classification_group_51/.venv/bin/python",
+  "cpu_count": 6,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "1081101176832",
+      "used": "16929230848"
+    }
+  },
+  "memory": {
+    "total": "16403087360"
+  },
+  "writerId": "0cbbsc1o5ewcn3xvtzoe17ovpj1r6fqq"
+}
