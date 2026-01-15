@@ -4,14 +4,14 @@ import torch
 from torch.utils.data import random_split
 from torchvision import datasets, transforms
 import matplotlib.image
+from grape_vine_classification import PATH_DATA
 
 def preprocess():
     torch.manual_seed(1)
 
     # finding data directory from file directory
-    base_dir = Path(__file__).parent.parent.parent
-    raw_data_dir = base_dir / "data" / "Grapevine_Leaves_Image_Dataset"
-    processed_data_dir = base_dir / "data" / "processed_dataset"
+    raw_data_dir = PATH_DATA / "Grapevine_Leaves_Image_Dataset"
+    processed_data_dir = PATH_DATA / "processed_dataset"
 
     # transform images
     transform = transforms.Compose([
@@ -35,7 +35,7 @@ def preprocess():
     # save a sample image
     sample_img, _ = train_dataset[0]
     sample_img = sample_img[0].numpy()
-    matplotlib.image.imsave(base_dir / "data" / "processed_sample.png", sample_img)
+    matplotlib.image.imsave(PATH_DATA / "processed_sample.png", sample_img)
 
 if __name__ == "__main__":
     preprocess()
