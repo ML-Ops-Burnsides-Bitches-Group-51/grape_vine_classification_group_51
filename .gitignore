@@ -3,6 +3,7 @@ docs/site/
 # Folders
 data/
 reports/figures/
+lightning_logs/
 
 # temporarily ignore models folder
 models/
