@@ -1,0 +1,24 @@
+program: src/grape_vine_classification/train_lightning.py
+name: sweep1
+project: grape_vine_classifocation
+method: bayes
+
+metric:
+  name: acc
+  goal: minimize
+
+parameters:
+  optim:
+    values: ["Adam","SGD"]
+  lr:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.1
+
+  batch_size:
+    values: [16]
+
+  epochs:
+    values: [5]
+
+run_cap: 10

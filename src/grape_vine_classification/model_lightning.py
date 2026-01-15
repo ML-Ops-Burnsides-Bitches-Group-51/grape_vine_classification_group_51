@@ -5,7 +5,8 @@ from pytorch_lightning import LightningModule
 class SimpleCNN(LightningModule):
     """My awesome model."""
 
-    def __init__(self) -> None:
+    def __init__(self,config) -> None:
+        self.config = config
         super().__init__()
         self.backbone = nn.Sequential(
             nn.Conv2d(1, 16, 3, 1),
@@ -53,7 +54,10 @@ class SimpleCNN(LightningModule):
 
 
     def configure_optimizers(self):
-        return optim.Adam(self.parameters(), lr = 1e-3)
+        if self.config["optim"] == "Adam":
+            return optim.Adam(self.parameters(), lr = self.config["lr"])
+        elif self.config["optim"] == "SGD":
+            return optim.SGD(self.parameters(), lr = self.config["lr"],momentum = 0.9) # Note hardcoded learning rate, this could be a parameter
     
    
 
