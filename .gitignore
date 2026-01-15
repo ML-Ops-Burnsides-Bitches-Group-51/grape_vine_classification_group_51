@@ -2,6 +2,7 @@ docs/site/
 
 # Folders
 data/
+reports/figures/
 
 # temporarily ignore models folder
 models/
