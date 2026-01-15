@@ -4,12 +4,38 @@ import matplotlib.pyplot as plt
 import torch
 import typer
 import sys
+from pytorch_lightning import Trainer 
+from pytorch_lightning.callbacks import Callback, EarlyStopping, ModelCheckpoint
 
 data_dir = Path(__file__).parent.parent.parent / "data" / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
+
+# Hyperparamters
+## Change this to load from config file
+batch_size = 16
+max_epochs = 10
+
+# Load model and Data
+model = SimpleCNN()  # this is our LightningModule
+train_data = torch.load(data_dir / "train_data.pt")
+test_data = torch.load(data_dir / "test_data.pt")
+train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
+test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
+
+# Define trainer and train model
+early_stopping_callback = EarlyStopping(
+    monitor="val_loss", patience=3, verbose=True, mode="min"
+)
+checkpoint_callback = ModelCheckpoint(
+    dirpath="./models", monitor="val_loss", mode="min"
+)
+trainer = Trainer(max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
+trainer.fit(model, train_dataloader, test_dataloader)
+
+"""
 def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 100) -> None:
-    """Train the model"""
+    # Train the model
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}")
 
@@ -47,8 +73,8 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 100) -> None:
     axs[1].plot(statistics["train_accuracy"])
     axs[1].set_title("Train accuracy")
     fig.savefig("reports/figures/training_statistics.png")
+"""
 
-
-if __name__ == "__main__":
+#if __name__ == "__main__":
     #typer.run(train)
-    train()
+    #train()
