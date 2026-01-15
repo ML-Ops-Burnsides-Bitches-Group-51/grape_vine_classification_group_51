@@ -25,7 +25,7 @@
 [//]: # "- [ ] Use Hydra to load configurations and manage hyperparameters (M11)"
 ## ✅ Week 2
 
-- [ ] Write unit tests for data-related code (M16)
+- [x] Write unit tests for data-related code (M16)
 - [ ] Write unit tests for model construction and/or training (M16)
 - [ ] Calculate code coverage (M16)
 - [ ] Setup continuous integration on GitHub (M17) - Karl
