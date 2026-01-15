@@ -5,6 +5,8 @@ from torch.utils.data import random_split
 from torchvision import datasets, transforms
 import matplotlib.image
 from grape_vine_classification import PATH_DATA
+from sklearn.model_selection import train_test_split
+from torch.utils.data import Subset
 
 def preprocess():
     torch.manual_seed(1)
@@ -22,10 +24,17 @@ def preprocess():
     # load images (each subfolder is interpreted as a class)
     full_dataset = datasets.ImageFolder(root=raw_data_dir, transform=transform)
 
-    # split dataset
-    train_size = int(0.8 * len(full_dataset))
-    test_size = len(full_dataset) - train_size
-    train_dataset, test_dataset = random_split(full_dataset, [train_size, test_size])
+    indices = list(range(len(full_dataset)))
+    labels = [label for _, label in full_dataset.samples]
+
+    # stratified split
+    train_indices, test_indices = train_test_split(
+        indices, test_size=0.2, stratify=labels, random_state=42
+    )
+
+    # create subsets
+    train_dataset = Subset(full_dataset, train_indices)
+    test_dataset = Subset(full_dataset, test_indices)
 
     # save test and train datasets
     os.makedirs(processed_data_dir, exist_ok=True)
