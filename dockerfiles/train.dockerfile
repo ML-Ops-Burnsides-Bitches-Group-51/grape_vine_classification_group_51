@@ -5,20 +5,26 @@ RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
+WORKDIR /
+
+# Set environment variables
+ENV UV_LINK_MODE=copy
+
+# Copy dependencies
 COPY uv.lock uv.lock
 COPY pyproject.toml pyproject.toml
+COPY README.md README.md
 
-#RUN uv sync --frozen --no-install-project
-
+# Copy source code
 COPY src/ src/
 COPY data/ data/
 COPY models/ models/
 
 
+#RUN uv sync --frozen --no-install-project
 
-WORKDIR /
-ENV UV_LINK_MODE=copy
 RUN --mount=type=cache,target=/root/.cache/uv uv sync
 
 
-ENTRYPOINT ["uv", "run", "src/s2_cnn_mnist/train.py"]
+ENTRYPOINT ["uv", "run", "src/grape_vine_classification/train.py"]
