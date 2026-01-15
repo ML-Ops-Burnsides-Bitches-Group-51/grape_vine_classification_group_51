@@ -9,7 +9,7 @@ from grape_vine_classification import PATH_DATA
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
-def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: int = 10) -> None:
+def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: int = 5) -> None:
     """Train the model"""
     print("Training day and night")
     print(f"{lr=}, {batch_size=}, {epochs=}, {val_iter=}")
@@ -19,7 +19,7 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
     test_data = torch.load(data_dir / "test_data.pt")
 
     train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
-    test_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
+    test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
@@ -53,7 +53,8 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
             val_cum_accuracy = torch.zeros(1)
             for i, (img, target) in enumerate(test_dataloader):
                 img, target = img.to(DEVICE), target.to(DEVICE)
-                y_pred = model(img)
+                with torch.no_grad():
+                    y_pred = model(img)
                 val_loss = loss_fn(y_pred, target)
                 val_cum_loss += val_loss
                 val_accuracy = (y_pred.argmax(dim=1) == target).float().mean()
@@ -64,8 +65,8 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
             statistics["test_loss"][1].append(val_loss_avg)
             statistics["test_accuracy"][0].append(current_iteration)
             statistics["test_accuracy"][1].append(val_accuracy_avg)
-            print(f"Validation loss, epoch {epoch}, loss: {val_loss_avg}")
-            print(f"Validation accuracy, epoch {epoch}, loss: {val_accuracy_avg}")
+            print(f"Epoch {epoch}, validation loss: {val_loss_avg}")
+            print(f"Epoch {epoch}, validation acc: {val_accuracy_avg}")
 
     print("Training complete")
     torch.save(model.state_dict(), "models/model.pth")
