@@ -19,7 +19,7 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
     test_data = torch.load(data_dir / "test_data.pt")
 
     train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
-    test_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
+    test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
