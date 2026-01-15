@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 import torch
 import typer
 import sys
+from grape_vine_classification import PATH_DATA
 
-data_dir = Path(__file__).parent.parent.parent / "data" / "processed_dataset"
+data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 100) -> None:
