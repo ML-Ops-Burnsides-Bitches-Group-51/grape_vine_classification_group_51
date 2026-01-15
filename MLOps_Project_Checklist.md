@@ -16,13 +16,13 @@
 - [ ] Construct one or multiple Dockerfiles for your code (M10)
 - [ ] Build the Docker images locally and verify they work (M10)
 - [ ] Write one or multiple configuration files for experiments (M11)
-- [ ] Use Hydra to load configurations and manage hyperparameters (M11)
 - [ ] Use profiling to optimize your code (M12)
 - [ ] Use logging to log important events in your code (M14)
 - [ ] Use Weights & Biases to log training progress and artifacts (M14) - Anton
 - [ ] Consider running a hyperparameter optimization sweep (M14)
-- [ ] Use PyTorch Lightning if applicable (M15) - Clara
+- [x] Use PyTorch Lightning if applicable (M15) - Clara
 
+[//]: # "- [ ] Use Hydra to load configurations and manage hyperparameters (M11)"
 ## ✅ Week 2
 
 - [ ] Write unit tests for data-related code (M16)
