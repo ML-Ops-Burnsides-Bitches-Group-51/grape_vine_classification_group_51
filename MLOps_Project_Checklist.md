@@ -42,7 +42,7 @@
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
 - [ ] Create specialized deployment API using ONNX and/or BentoML (M25)
-- [ ] Create frontend for the API (M26)
+- [x] Create frontend for the API (M26)
 
 ## ✅ Week 3
 
