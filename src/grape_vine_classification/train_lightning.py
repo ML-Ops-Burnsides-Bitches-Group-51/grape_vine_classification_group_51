@@ -52,18 +52,16 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
     test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
 
     # Define trainer and train model
-    early_stopping_callback = EarlyStopping(
-        monitor="acc", patience=patience, verbose=True, mode="max"
-    )
-    checkpoint_callback = ModelCheckpoint(
-        dirpath="./models", monitor="acc", mode="max"
-    )
+    callbacks = [
+        EarlyStopping(monitor="val_loss", patience=patience, mode="min"),
+        ModelCheckpoint(dirpath="./models", monitor="val_loss", mode="min"),
+    ]
 
     if logger:
         logger = pl.loggers.WandbLogger(project=config.get("project"),
                                             log_model="all")
         
-    trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
+    trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
     torch.save(model,"models/"+model_name)
