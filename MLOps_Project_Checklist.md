@@ -15,11 +15,11 @@
 - [ ] Add command line interfaces and project commands where it makes sense (M9)
 - [ ] Construct one or multiple Dockerfiles for your code (M10)
 - [ ] Build the Docker images locally and verify they work (M10)
-- [ ] Write one or multiple configuration files for experiments (M11)
+- [x] Write one or multiple configuration files for experiments (M11)
 - [ ] Use profiling to optimize your code (M12)
 - [ ] Use logging to log important events in your code (M14)
-- [ ] Use Weights & Biases to log training progress and artifacts (M14) - Anton
-- [ ] Consider running a hyperparameter optimization sweep (M14)
+- [x] Use Weights & Biases to log training progress and artifacts (M14) - Anton
+- [x] Consider running a hyperparameter optimization sweep (M14)
 - [x] Use PyTorch Lightning if applicable (M15) - Clara
 
 [//]: # "- [ ] Use Hydra to load configurations and manage hyperparameters (M11)"
