@@ -6,7 +6,10 @@ reports/figures/
 lightning_logs/
 wandb/
 
-# temporarily ignore models folder
+# Files
+MLOps_Project_Checklist.md
+
+# Temporarily ignore models folder
 models/
 
 # test cache
