@@ -18,8 +18,6 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 
 # Hyperparamters
 ## Change this to load from config file
-batch_size = 16
-max_epochs = 10
 
 def train(config_path: str = "configs/exp1.yaml") -> None:
     # Load model and Data
@@ -43,7 +41,17 @@ def train(config_path: str = "configs/exp1.yaml") -> None:
     wandb.config.update(local_config, allow_val_change=True)
     config = wandb.config
 
-    max_epochs = config.epochs
+    batch_size = config.get("batch_size")
+    max_epochs = config.get("epochs")
+    patience = config.get("patience")
+
+    checkpoint_callback = ModelCheckpoint(
+        dirpath="./models", 
+        filename="best-checkpoint", 
+        monitor="acc",               
+        mode="max",                 
+        save_top_k=1,                
+    )
 
     model = SimpleCNN(config)  # this is our LightningModule
     train_data = torch.load(data_dir / "train_data.pt")
@@ -57,12 +65,15 @@ def train(config_path: str = "configs/exp1.yaml") -> None:
 
     # Define trainer and train model
     early_stopping_callback = EarlyStopping(
-        monitor="acc", patience=config["patience"], verbose=True, mode="min"
+        monitor="acc", patience=patience, verbose=True, mode="max"
     )
     checkpoint_callback = ModelCheckpoint(
         dirpath="./models", monitor="val_loss", mode="min"
     )
-    trainer = Trainer(logger=pl.loggers.WandbLogger(project="grape_vine_classification"),max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
+
+    wandb_logger = pl.loggers.WandbLogger(project="grape_vine_classification",
+                                          log_model="all")
+    trainer = Trainer(logger=wandb_logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
     trainer.fit(model, train_dataloader, test_dataloader)
 
 

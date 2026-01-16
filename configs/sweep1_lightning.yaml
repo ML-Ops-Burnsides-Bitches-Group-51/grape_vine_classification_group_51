@@ -3,17 +3,23 @@ name: sweep1
 project: grape_vine_classifocation
 method: bayes
 
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+
 metric:
   name: acc
-  goal: minimize
+  goal: maximize
 
 parameters:
   optim:
     values: ["Adam","SGD"]
   lr:
-    distribution: log_uniform_values
-    min: 0.0001
-    max: 0.1
+    values: [1e-4,1e-3,5e-3]
+    # distribution: log_uniform_values
+    # min: 0.0001
+    # max: 0.1
 
   batch_size:
     values: [16]
