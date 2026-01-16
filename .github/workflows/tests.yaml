@@ -3,10 +3,10 @@ name: Unit Tests
 on:
   push:
     branches:
-      - main
+      - Anton_Ting
   pull_request:
     branches:
-      - main
+      - Anton_Ting
 
 jobs:
   pytest:
