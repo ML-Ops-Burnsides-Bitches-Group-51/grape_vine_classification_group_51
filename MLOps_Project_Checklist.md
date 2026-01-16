@@ -26,7 +26,7 @@
 ## ✅ Week 2
 
 - [x] Write unit tests for data-related code (M16)
-- [ ] Write unit tests for model construction and/or training (M16)
+- [x] Write unit tests for model construction and/or training (M16)
 - [ ] Calculate code coverage (M16)
 - [ ] Setup continuous integration on GitHub (M17) - Karl
 - [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
@@ -42,7 +42,7 @@
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
 - [ ] Create specialized deployment API using ONNX and/or BentoML (M25)
-- [ ] Create frontend for the API (M26)
+- [x] Create frontend for the API (M26)
 
 ## ✅ Week 3
 
