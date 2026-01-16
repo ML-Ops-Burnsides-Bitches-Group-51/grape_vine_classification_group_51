@@ -49,4 +49,4 @@ def serve_docs(ctx: Context) -> None:
     ctx.run("uv run mkdocs serve --config-file docs/mkdocs.yaml", echo=True, pty=not WINDOWS)
 
 # test
-# test
+# test of rule
