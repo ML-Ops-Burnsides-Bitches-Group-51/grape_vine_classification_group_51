@@ -3,6 +3,7 @@ project: grape_vine_classification
 name: normal_run
 optim: "Adam"
 lr: 0.001
+momentum: 0.9
 batch_size: 16
 epochs: 20
 patience: 21
