@@ -1,6 +1,6 @@
 program: src/grape_vine_classification/train.py
 name: sweep1
-project: grape_vine_classifocation
+project: grape_vine_classification
 method: bayes
 
 metric:

@@ -1,6 +1,6 @@
 program: src/grape_vine_classification/train_lightning.py
 name: sweep1
-project: grape_vine_classifocation
+project: grape_vine_classification
 method: bayes
 
 command:

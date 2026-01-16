@@ -35,7 +35,7 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
 
     run = wandb.init(
         entity = "Burnsides_Bitches",
-        project = "grape_classefier"
+        project = "grape_vine_classification"
     )
     config = wandb.config
     # If a sweeps is enabled then it will override the existing config (exp1.yaml)
