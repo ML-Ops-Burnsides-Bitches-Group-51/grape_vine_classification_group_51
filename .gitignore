@@ -1,7 +1,7 @@
 docs/site/
 
 # Folders
-data/
+data/Grapevine_Leaves_Image_Dataset
 reports/figures/
 lightning_logs/
 wandb/
