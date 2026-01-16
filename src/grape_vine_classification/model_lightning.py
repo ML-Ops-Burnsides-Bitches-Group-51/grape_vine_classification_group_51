@@ -34,6 +34,12 @@ class SimpleCNN(LightningModule):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Forward pass."""
+        # value errors for unit testing
+        if x.ndim != 4:
+            raise ValueError("Expected input to have 4 dimensions")
+        if x.shape[1:] != torch.Size([1, 128, 128]):
+            raise ValueError("Expected sample to have size [1, 128, 128]")
+
         return self.classifier(self.backbone(x))
 
     def training_step(self, batch, batch_idx: int) -> float:
