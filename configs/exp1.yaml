@@ -12,6 +12,8 @@ parameters:
     values: ["Adam"]
   lr:
     values: [1e-3]
+  momentum:
+    momentum: 0.9
 
   batch_size:
     values: [16]
