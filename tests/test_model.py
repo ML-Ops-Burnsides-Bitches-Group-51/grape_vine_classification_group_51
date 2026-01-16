@@ -8,4 +8,4 @@ def test_model_output_shape():
     model = SimpleCNN(model_config)
     x = torch.randn(1, 1, 128, 128)
     y = model(x)
-    assert y.shape == (1, 5)
+    assert y.shape == (1, 5), "Model output has wrong shape"
