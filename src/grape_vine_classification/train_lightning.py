@@ -19,13 +19,9 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 # Hyperparamters
 ## Change this to load from config file
 
-def train(config_path: str = "configs/exp1.yaml") -> None:
+def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "model.pth") -> None:
     # Load model and Data
-    run = wandb.init(
-        entity = "Burnsides_Bitches",
-        project = "grape_classefier"
-    )
-    config = wandb.config
+
 
     path = Path(config_path)
 
@@ -37,9 +33,16 @@ def train(config_path: str = "configs/exp1.yaml") -> None:
     with open(path, 'r') as f:
         local_config = yaml.safe_load(f)
 
+    run = wandb.init(
+        entity = "Burnsides_Bitches",
+        project = "grape_classefier"
+    )
+    config = wandb.config
     # If a sweeps is enabled then it will override the existing config (exp1.yaml)
     wandb.config.update(local_config, allow_val_change=True)
     config = wandb.config
+
+    
 
     batch_size = config.get("batch_size")
     max_epochs = config.get("epochs")
@@ -75,6 +78,10 @@ def train(config_path: str = "configs/exp1.yaml") -> None:
                                           log_model="all")
     trainer = Trainer(logger=wandb_logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
     trainer.fit(model, train_dataloader, test_dataloader)
+
+    torch.save(model,"models/"+model_name)
+
+
 
 
 if __name__ == "__main__":
