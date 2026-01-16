@@ -1,6 +1,4 @@
 # Simple configuration for a single run
-wandb_mode: "disabled"
-project: grape_vine_classification
 name: normal_run
 optim: "Adam"
 lr: 0.001

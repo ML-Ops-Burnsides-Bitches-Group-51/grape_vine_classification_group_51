@@ -2,7 +2,6 @@ from pathlib import Path
 from grape_vine_classification.model_lightning import SimpleCNN
 import matplotlib.pyplot as plt
 import torch
-import typer
 import sys
 from pytorch_lightning import Trainer 
 from pytorch_lightning.callbacks import Callback, EarlyStopping, ModelCheckpoint
@@ -11,6 +10,7 @@ import pytorch_lightning as pl
 
 import wandb
 import yaml
+import os
 
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -19,42 +19,27 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 # Hyperparamters
 ## Change this to load from config file
 
-def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "model.pth") -> None:
-    # Load model and Data
-
+def train(config_path: str = "configs/exp1.yaml", model_name: str = "model.pth", logger: bool = True, sweep: bool = False) -> None:
 
     path = Path(config_path)
+    config = {}
+    if path.exists():
+        with open(path, 'r') as f:
+            config = yaml.safe_load(f)
 
-    if not path.exists():
-        print(f"Error: Config file {config_path} not found.")
-        raise typer.Exit(code=1)
-        
+    if "WANDB_SWEEP_ID" in os.environ:
+        run = wandb.init(
+                entity="Burnsides_Bitches",
+                project="vine_grape_classefier"
+            )
+        wandb.config.update(config, allow_val_change=True)
+        config = wandb.config
 
-    with open(path, 'r') as f:
-        local_config = yaml.safe_load(f)
-
-    run = wandb.init(
-        entity = "Burnsides_Bitches",
-        project = "grape_vine_classification"
-    )
-    config = wandb.config
-    # If a sweeps is enabled then it will override the existing config (exp1.yaml)
-    wandb.config.update(local_config, allow_val_change=True)
-    config = wandb.config
-
-    
+ 
 
     batch_size = config.get("batch_size")
     max_epochs = config.get("epochs")
     patience = config.get("patience")
-
-    checkpoint_callback = ModelCheckpoint(
-        dirpath="./models", 
-        filename="best-checkpoint", 
-        monitor="acc",               
-        mode="max",                 
-        save_top_k=1,                
-    )
 
     model = SimpleCNN(config)  # this is our LightningModule
     train_data = torch.load(data_dir / "train_data.pt")
@@ -71,12 +56,14 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
         monitor="acc", patience=patience, verbose=True, mode="max"
     )
     checkpoint_callback = ModelCheckpoint(
-        dirpath="./models", monitor="val_loss", mode="min"
+        dirpath="./models", monitor="acc", mode="max"
     )
 
-    wandb_logger = pl.loggers.WandbLogger(project="grape_vine_classification",
-                                          log_model="all")
-    trainer = Trainer(logger=wandb_logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
+    if logger:
+        logger = pl.loggers.WandbLogger(project="grape_vine_classification",
+                                            log_model="all")
+        
+    trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
     trainer.fit(model, train_dataloader, test_dataloader)
 
     torch.save(model,"models/"+model_name)
@@ -85,5 +72,5 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
 
 
 if __name__ == "__main__":
-    typer.run(train)
-    # train()
+    train()
+
