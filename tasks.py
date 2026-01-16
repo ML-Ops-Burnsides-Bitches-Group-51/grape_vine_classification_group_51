@@ -51,3 +51,4 @@ def serve_docs(ctx: Context) -> None:
 # test rule, us rule enforced , mabye
 # another test
 # agin bad, more
+# this time it definetly works
