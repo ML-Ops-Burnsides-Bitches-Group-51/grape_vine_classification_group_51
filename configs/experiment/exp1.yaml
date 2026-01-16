@@ -1,6 +1,10 @@
 # Simple configuration for a single run
 project: grape_vine_classification
-name: normal_run
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
+
 optim: "Adam"
 lr: 0.001
 momentum: 0.9

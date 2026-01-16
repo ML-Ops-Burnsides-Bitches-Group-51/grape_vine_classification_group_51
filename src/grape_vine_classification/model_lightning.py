@@ -58,9 +58,9 @@ class SimpleCNN(LightningModule):
         self.log("acc", acc, on_epoch=True)
 
     def configure_optimizers(self):
-        if self.config["optim"] == "Adam":
+        if self.config.get("optim") == "Adam":
             return optim.Adam(self.parameters(), lr = self.config["lr"])
-        elif self.config["optim"] == "SGD":
+        elif self.config.get("optim") == "SGD":
             return optim.SGD(self.parameters(), lr = self.config["lr"], momentum = self.config["momentum"])
     
    

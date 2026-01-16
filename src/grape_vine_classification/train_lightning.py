@@ -11,6 +11,7 @@ import pytorch_lightning as pl
 import wandb
 import yaml
 import os
+import typer
 
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -19,19 +20,18 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.ba
 # Hyperparamters
 ## Change this to load from config file
 
-def train(config_path: str = "configs/exp1.yaml", model_name: str = "model.pth", logger: bool = True, sweep: bool = False) -> None:
+def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "model.pth", logger: bool = True, sweep: bool = False) -> None:
 
     path = Path(config_path)
     config = {}
     if path.exists():
         with open(path, 'r') as f:
             config = yaml.safe_load(f)
+    else:
+        raise Warning("The config path is not valid")
 
     if "WANDB_SWEEP_ID" in os.environ:
-        run = wandb.init(
-                entity="Burnsides_Bitches",
-                project="vine_grape_classefier"
-            )
+        wandb.init()
         wandb.config.update(config, allow_val_change=True)
         config = wandb.config
 
@@ -60,7 +60,7 @@ def train(config_path: str = "configs/exp1.yaml", model_name: str = "model.pth",
     )
 
     if logger:
-        logger = pl.loggers.WandbLogger(project="grape_vine_classification",
+        logger = pl.loggers.WandbLogger(project=config.get("project"),
                                             log_model="all")
         
     trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=[early_stopping_callback, checkpoint_callback])
@@ -72,5 +72,5 @@ def train(config_path: str = "configs/exp1.yaml", model_name: str = "model.pth",
 
 
 if __name__ == "__main__":
-    train()
+    typer(train())
 
