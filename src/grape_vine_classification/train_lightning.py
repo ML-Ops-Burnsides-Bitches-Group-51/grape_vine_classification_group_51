@@ -72,5 +72,5 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
 
 
 if __name__ == "__main__":
-    typer(train())
+    typer.run(train)
 
