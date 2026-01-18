@@ -25,24 +25,24 @@
 [//]: # "- [ ] Use Hydra to load configurations and manage hyperparameters (M11)"
 ## ✅ Week 2
 
-- [x] Write unit tests for data-related code (M16)
-- [x] Write unit tests for model construction and/or training (M16)
+- [x] Write unit tests for data-related code (M16) - Karl 
+- [x] Write unit tests for model construction and/or training (M16) - Karl
 - [ ] Calculate code coverage (M16)
-- [x] Setup continuous integration on GitHub (M17) - Karl
+- [x] Setup continuous integration on GitHub (M17) - Anton + Karl
 - [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
 - [ ] Add linting to CI (M17)
 - [ ] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
 - [ ] Add workflow triggered when model registry changes (M19)
-- [x] Create GCP Bucket for data and link with DVC (M21)
+- [x] Create GCP Bucket for data and link with DVC (M21) - Clara
 - [ ] Create workflow to automatically build Docker images (M21)
 - [ ] Train model on GCP using Engine or Vertex AI (M21)
 - [ ] Create FastAPI inference application (M22) - Viktor
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
-- [ ] Create specialized deployment API using ONNX and/or BentoML (M25)
-- [x] Create frontend for the API (M26)
+- [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
+- [x] Create frontend for the API (M26) - Victor
 
 ## ✅ Week 3
 

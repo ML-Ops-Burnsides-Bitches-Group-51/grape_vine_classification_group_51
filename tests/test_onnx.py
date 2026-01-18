@@ -1,9 +1,10 @@
-import onnxruntime as rt 
+import onnxruntime as rt
 import numpy as np 
 import torch 
 import pytest
+import os
 
-from grape_vine_classification.model_lightning import SimpleCNN
+from src.grape_vine_classification.model_lightning import SimpleCNN
 from tests import model_config
 
 DEVICE = torch.device( "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu" ) 
@@ -11,6 +12,7 @@ DEVICE = torch.device( "cuda" if torch.cuda.is_available() else "mps" if torch.b
 onnx_filepath = "models/simple_cnn.onnx" 
 pt_filepath = "models/simple_cnn.pth" 
 
+@pytest.mark.skipif((not os.path.exists(onnx_filepath)) or (not os.path.exists(pt_filepath)), reason="One of the models is not found")
 @pytest.mark.parametrize("onnx_model_file,pytorch_model_file", [(onnx_filepath, pt_filepath)]) 
 def test_onnx_model( onnx_model_file: str, pytorch_model_file: str, rtol: float = 1e-03, atol: float = 1e-05, ) -> None: 
     random_input = torch.randn(1, 1, 128, 128) 

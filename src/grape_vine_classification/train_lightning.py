@@ -1,17 +1,12 @@
 from pathlib import Path
 from grape_vine_classification.model_lightning import SimpleCNN
-import matplotlib.pyplot as plt
 import torch
-import sys
 from pytorch_lightning import Trainer 
-from pytorch_lightning.callbacks import Callback, EarlyStopping, ModelCheckpoint
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from grape_vine_classification import PATH_DATA
-import pytorch_lightning as pl
+from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, TensorDataset
-
-import wandb
 import yaml
-import os
 import typer
 
 data_dir = PATH_DATA / "processed_dataset"
