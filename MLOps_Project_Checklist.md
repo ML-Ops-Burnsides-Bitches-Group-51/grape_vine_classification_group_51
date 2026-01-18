@@ -11,7 +11,7 @@
 - [x] Fill out requirements.txt / requirements_dev.txt or keep pyproject.toml / uv.lock up to date (M2+M6)
 - [x] Comply with good coding practices (PEP8) (M7)
 - [ ] Document essential parts of your code (M7)
-- [ ] Setup version control for your data or part of your data (M8)
+- [x] Setup version control for your data or part of your data (M8)
 - [ ] Add command line interfaces and project commands where it makes sense (M9)
 - [ ] Construct one or multiple Dockerfiles for your code (M10)
 - [ ] Build the Docker images locally and verify they work (M10)
@@ -41,8 +41,8 @@
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
-- [ ] Create specialized deployment API using ONNX and/or BentoML (M25)
-- [x] Create frontend for the API (M26)
+- [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
+- [x] Create frontend for the API (M26) - Victor
 
 ## ✅ Week 3
 

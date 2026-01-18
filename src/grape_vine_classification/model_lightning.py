@@ -1,6 +1,8 @@
 from torch import nn, optim
 import torch
 from pytorch_lightning import LightningModule
+import yaml
+from pathlib import Path
 
 class SimpleCNN(LightningModule):
     """My awesome model."""
@@ -67,10 +69,25 @@ class SimpleCNN(LightningModule):
 
 
 if __name__ == "__main__":
-    model = SimpleCNN()
+    config_path = "configs/experiment/exp1.yaml"
+    path = Path(config_path)
+    
+    if path.exists():
+        with open(path, 'r') as f:
+            config = yaml.safe_load(f)
+    else:
+        raise RuntimeError("The config path is not valid")
+    
+    model = SimpleCNN(config)
     print(f"Model architecture: {model}")
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
 
     dummy_input = torch.randn(1, 1, 128, 128)
     output = model(dummy_input)
     print(f"Output shape: {output.shape}")
+
+    #Save pytorch model
+    torch.save(model.state_dict(), "models/simple_cnn.pth")
+
+    #Save onnx model
+    model.to_onnx("models/simple_cnn.onnx", dummy_input)
