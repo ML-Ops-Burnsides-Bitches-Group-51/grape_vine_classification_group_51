@@ -33,6 +33,7 @@ dependencies = [
     "wandb>=0.24.0",
     "onnx>=1.20.1",
     "onnxruntime>=1.23.2",
+    "timeout-decorator>=0.5.0",
 ]
 
 [dependency-groups]
