@@ -48,9 +48,3 @@ def serve_docs(ctx: Context) -> None:
     """Serve documentation."""
     ctx.run("uv run mkdocs serve --config-file docs/mkdocs.yaml", echo=True, pty=not WINDOWS)
 
-# test rule, us rule enforced , mabye
-# another test
-# agin bad, more
-# this time it definetly works
-# I have faith and hope
-# Surely I can't fail agin what are the odds?
