@@ -52,3 +52,4 @@ def serve_docs(ctx: Context) -> None:
 # another test
 # agin bad, more
 # this time it definetly works
+# I have faith and hope
