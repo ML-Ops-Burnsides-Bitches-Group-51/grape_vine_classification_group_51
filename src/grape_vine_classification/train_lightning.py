@@ -18,25 +18,9 @@ data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 
-# Hyperparamters
-## Change this to load from config file
+def train(config: dict = {}, logger = False, output_model_name: str = "model.pth") -> None:
 
-def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "model.pth", logger: bool = True, sweep: bool = False) -> None:
-
-    path = Path(config_path)
-    config = {}
-    if path.exists():
-        with open(path, 'r') as f:
-            config = yaml.safe_load(f)
-    else:
-        raise Warning("The config path is not valid")
-
-    if "WANDB_SWEEP_ID" in os.environ:
-        wandb.init()
-        wandb.config.update(config, allow_val_change=True)
-        config = wandb.config
-
- 
+    # raise errors if config does not contain neccesary variables
 
     batch_size = config.get("batch_size")
     max_epochs = config.get("epochs")
@@ -58,19 +42,23 @@ def train(config_path: str = "configs/experiment/exp1.yaml", model_name: str = "
         EarlyStopping(monitor="val_loss", patience=patience, mode="min"),
         ModelCheckpoint(dirpath="./models", monitor="val_loss", mode="min"),
     ]
-
-    if logger:
-        logger = pl.loggers.WandbLogger(project=config.get("project"),
-                                            log_model="all")
         
     trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
-    torch.save(model,"models/"+model_name)
+    torch.save(model, "models/" + output_model_name)
 
-
+def main(config_path: str = "configs/experiment/exp1.yaml"):
+    path = Path(config_path)
+    if path.exists():
+        with open(path, 'r') as f:
+            config = yaml.safe_load(f)
+    else:
+        raise RuntimeError("The config path is not valid")
+    logger = WandbLogger(project = "runs", entity = "Burnsides_Bitches", config = config)
+    train(config, logger = logger)
 
 
 if __name__ == "__main__":
-    typer.run(train)
+    typer.run(main)
 
