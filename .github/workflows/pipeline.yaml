@@ -1,0 +1,36 @@
+name: Master_CI
+
+on:
+  push:
+    branches:
+      - Anton_Ting
+  pull_request:
+    branches:
+      - Anton_Ting
+
+jobs:
+  pytest:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ["ubuntu-latest"]
+        python-version: ["3.12"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          uv sync --dev
+
+      - name: Run tests & coverage
+        run: |
+          uv run coverage run -m pytest
+          uv run coverage report -m
