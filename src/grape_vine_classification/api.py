@@ -16,7 +16,7 @@ from torchvision import transforms
 
 
 # ----------------------------
-# Paths that match your repo
+# Paths that match repo
 # ----------------------------
 # This file lives at: src/grape_vine_classification/api.py
 PKG_DIR = Path(__file__).resolve().parent                   # .../src/grape_vine_classification
@@ -29,7 +29,7 @@ LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
 # From your README: you convert to B/W and downsize to 128x128
 IMG_SIZE = int(os.getenv("IMG_SIZE", "128"))
-TOP_K_DEFAULT = int(os.getenv("TOP_K_DEFAULT", "3"))
+TOP_K_DEFAULT = int(os.getenv("#_TOP_PREDS_DEFAULT", "3"))
 
 ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp"}
 
@@ -38,9 +38,14 @@ ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp"}
 # Response schema
 # ----------------------------
 class PredictionResponse(BaseModel):
+    filename: str
     predicted_label: str
     confidence: float
     top_k: Optional[List[Dict[str, Any]]] = None
+
+class BatchPredictionResponse(BaseModel):
+    results: List[PredictionResponse]
+
 
 
 # ----------------------------
@@ -50,13 +55,12 @@ _device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 _model: Optional[torch.nn.Module] = None
 _labels: List[str] = []
 
-# Grayscale + 128x128 as described in your README
+# Grayscale + 128x128 as described in README
 _preprocess = transforms.Compose([
     transforms.Resize((IMG_SIZE, IMG_SIZE)),
     transforms.Grayscale(num_output_channels=1),
     transforms.ToTensor(),  # -> [1, H, W] float in [0,1]
-    # If you normalized during training, add it here (example):
-    # transforms.Normalize(mean=[0.5], std=[0.5]),
+    
 ])
 
 
@@ -81,9 +85,8 @@ def load_model() -> None:
         raise RuntimeError(f"MODEL_PATH not found: {MODEL_PATH}")
 
     # 1) Build the architecture (matches model_lightning.py)
-    #    IMPORTANT: adjust this import path to where the file lives in your repo.
-    #    If model_lightning.py is in src/grape_vine_classification/, this is correct:
-    from grape_vine_classification.model_lightning import SimpleCNN  # <-- uses your file :contentReference[oaicite:1]{index=1}
+    #    IMPORTANT: adjust this import path to where the file lives in repo.
+    from grape_vine_classification.model_lightning import SimpleCNN  # <-- uses the file :contentReference[oaicite:1]{index=1}
 
     # config is only used for optimizers; for inference it can be minimal
     config = {"optim": "Adam", "lr": 1e-3}
@@ -124,7 +127,7 @@ def predict_pil(img: Image.Image, top_k: int) -> Tuple[str, float, List[Tuple[st
     if _model is None:
         raise RuntimeError("Model not loaded")
 
-    # Convert to RGB first to avoid odd modes, then preprocess forces grayscale anyway.
+    # Convert to RGB first to avoid odd modes, then preprocess forces grayscale anyway. To prevent bugs.
     if img.mode != "RGB":
         img = img.convert("RGB")
 
@@ -177,30 +180,66 @@ def health():
     }
 
 
-@app.post("/predict", response_model=PredictionResponse)
-async def predict(file: UploadFile = File(...), top_k: int = TOP_K_DEFAULT):
-    if file.content_type not in ALLOWED_CONTENT_TYPES:
-        raise HTTPException(status_code=400, detail=f"Unsupported content type: {file.content_type}")
+# @app.post("/predict", response_model=PredictionResponse)
+# async def predict(file: UploadFile = File(...), num_predictions: int = TOP_K_DEFAULT):
+#     if file.content_type not in ALLOWED_CONTENT_TYPES:
+#         raise HTTPException(status_code=400, detail=f"Unsupported content type: {file.content_type}")
 
-    try:
-        data = await file.read()
-        img = Image.open(BytesIO(data))
-    except UnidentifiedImageError:
-        raise HTTPException(status_code=400, detail="Invalid image file (cannot decode).")
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=f"Failed reading image: {e}")
+#     try:
+#         data = await file.read()
+#         img = Image.open(BytesIO(data))
+#     except UnidentifiedImageError:
+#         raise HTTPException(status_code=400, detail="Invalid image file (cannot decode).")
+#     except Exception as e:
+#         raise HTTPException(status_code=400, detail=f"Failed reading image: {e}")
 
-    try:
-        label, conf, top_list = predict_pil(img, top_k=top_k)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Inference failed: {e}")
+#     try:
+#         label, conf, top_list = predict_pil(img, top_k=num_predictions)
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=f"Inference failed: {e}")
+    
+#     return PredictionResponse(
+#         filename=file.filename,
+#         predicted_label=label,
+#         confidence=conf,
+#         top_k=[{"label": l, "score": s} for l, s in top_list],
+#     )
 
-    return PredictionResponse(
-        predicted_label=label,
-        confidence=conf,
-        top_k=[{"label": l, "score": s} for l, s in top_list],
-    )
+@app.post("/predict", response_model=BatchPredictionResponse)
+async def predict(
+    files: List[UploadFile] = File(...),
+    num_predictions: int = 3,
+):
+    results: List[PredictionResponse] = []
+
+    for file in files:
+        # --- validate ---
+        if file.content_type not in ALLOWED_CONTENT_TYPES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Unsupported content type: {file.content_type}",
+            )
+
+        try:
+            data = await file.read()
+            img = Image.open(BytesIO(data))
+        except UnidentifiedImageError:
+            raise HTTPException(status_code=400, detail=f"Invalid image: {file.filename}")
+
+        # --- inference ---
+        label, conf, top_list = predict_pil(img, top_k=num_predictions)
+
+        results.append(
+            PredictionResponse(
+                filename=file.filename,
+                predicted_label=label,
+                confidence=conf,
+                top_k=[{"label": l, "score": s} for l, s in top_list],
+            )
+        )
+
+    return BatchPredictionResponse(results=results)
 
 
 # To run the app, use:
-# uvicorn --reload --port 8000 src.grape_vine_classification.api:app -- host
+# uvicorn --reload --port 8000 src.grape_vine_classification.api:app
