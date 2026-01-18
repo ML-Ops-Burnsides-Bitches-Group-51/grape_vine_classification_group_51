@@ -7,7 +7,7 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import Callback, EarlyStopping, ModelCheckpoint
 from grape_vine_classification import PATH_DATA
 import pytorch_lightning as pl
-from pytorch_lightning.loggers import WandbLogger
+from torch.utils.data import DataLoader, TensorDataset
 
 import wandb
 import yaml
@@ -27,11 +27,15 @@ def train(config: dict = {}, logger = False, output_model_name: str = "model.pth
     patience = config.get("patience")
 
     model = SimpleCNN(config)  # this is our LightningModule
-    train_data = torch.load(data_dir / "train_data.pt")
-    test_data = torch.load(data_dir / "test_data.pt")
 
-    train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
-    test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
+    train_data = torch.load(data_dir / "train_data.pt", map_location=DEVICE)
+    test_data = torch.load(data_dir / "test_data.pt", map_location=DEVICE)
+
+    train_data = TensorDataset(train_data["images"],train_data["labels"])
+    test_data = TensorDataset(test_data["images"],test_data["labels"])
+
+    train_dataloader = DataLoader(train_data, batch_size=batch_size)
+    test_dataloader = DataLoader(test_data, batch_size=1)
 
     # Define trainer and train model
     callbacks = [
