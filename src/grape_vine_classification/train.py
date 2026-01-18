@@ -5,6 +5,7 @@ import torch
 import typer
 import sys
 from grape_vine_classification import PATH_DATA
+from torch.utils.data import DataLoader,TensorDataset
 
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -15,11 +16,14 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
     print(f"{lr=}, {batch_size=}, {epochs=}, {val_iter=}")
 
     model = SimpleCNN().to(DEVICE)
-    train_data = torch.load(data_dir / "train_data.pt")
-    test_data = torch.load(data_dir / "test_data.pt")
+    train_data = torch.load(data_dir / "train_data.pt", map_location=DEVICE)
+    test_data = torch.load(data_dir / "test_data.pt", map_location=DEVICE)
 
-    train_dataloader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
-    test_dataloader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
+    train_data = TensorDataset(train_data["images"],train_data["labels"])
+    test_data = TensorDataset(test_data["images"],test_data["labels"])
+
+    train_dataloader = DataLoader(train_data, batch_size=batch_size)
+    test_dataloader = DataLoader(test_data, batch_size=batch_size)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
