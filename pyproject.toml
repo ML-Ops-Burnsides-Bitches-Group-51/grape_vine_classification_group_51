@@ -24,7 +24,6 @@ dependencies = [
     "torchvision==0.18.1",
     "typer==0.15.1",
     "uvicorn==0.34.0",
-    "torchvision==0.18.1",
     "matplotlib>=3.10.8",
     "google-api-python-client>=2.187.0",
     "dvc-gs>=3.0.2",
@@ -32,6 +31,8 @@ dependencies = [
     "pytest>=8.3.4",
     "scikit-learn>=1.8.0",
     "wandb>=0.24.0",
+    "onnx>=1.20.1",
+    "onnxruntime>=1.23.2",
 ]
 
 [dependency-groups]
