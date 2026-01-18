@@ -3,10 +3,10 @@ name: Master_CI
 on:
   push:
     branches:
-      - Anton_Ting
+      - master
   pull_request:
     branches:
-      - Anton_Ting
+      - master
   workflow_dispatch:
 
 jobs:
