@@ -16,11 +16,15 @@ def test_error_on_wrong_shape():
 
 @timeout_decorator.timeout(10) # time out after a 10 seconds incase RuntimeError is not raised
 def call_train_main(config_path):
-    train_main(config_path=config_path)
+    train_main(config_path = config_path)
+
+@timeout_decorator.timeout(10) # time out after a 10 seconds incase RuntimeError is not raised
+def call_sweep_main(config_path):
+    sweep_main(config_path = config_path)
 
 def test_error_on_invalid_config_path():
     dummy_path = "this_is_not_a_real_path/i_hope"
     with pytest.raises(RuntimeError, match = "The config path is not valid"):
         call_train_main(dummy_path)
     with pytest.raises(RuntimeError, match = "The config path is not valid"):
-        call_train_main(dummy_path)
+        call_sweep_main(dummy_path)
