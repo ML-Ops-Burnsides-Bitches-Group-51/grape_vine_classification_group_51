@@ -12,14 +12,25 @@ import typer
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
+def validify_config(config: dict):
+    # {'batch_size': 16, 'epochs': 5, 'lr': 0.001, 'momentum': 0.9, 'optim': 'Adam', 'patience': 3}
+    mandatory_hyperparameters = ["lr", "epochs", "patience", "optim"]
+    for param in mandatory_hyperparameters:
+        if param not in config:
+            raise ValueError(f"Config does not contain: {param}")
+    if "optim" in config:
+        optim = config["optim"]
+        if optim not in ["Adam", "SGD"]:
+            raise ValueError(f"Specified optim is not supported: {optim}")
+        if (optim == "SGD") and ("momentum" not in config):
+            raise ValueError("Optim set to SGD, but config does not contain momentum")
 
 def train(config: dict = {}, logger = False, output_model_name: str = "model.pth") -> None:
 
-    # raise errors if config does not contain neccesary variables
-
-    batch_size = config.get("batch_size")
-    max_epochs = config.get("epochs")
-    patience = config.get("patience")
+    validify_config(config)
+    batch_size = config["batch_size"]
+    max_epochs = config["epochs"]
+    patience = config["patience"]
 
     model = SimpleCNN(config)  # this is our LightningModule
 
@@ -43,13 +54,14 @@ def train(config: dict = {}, logger = False, output_model_name: str = "model.pth
 
     torch.save(model, "models/" + output_model_name)
 
-def main(config_path: str = "configs/experiment/exp1.yaml"):
-    path = Path(config_path)
-    if path.exists():
-        with open(path, 'r') as f:
-            config = yaml.safe_load(f)
-    else:
-        raise RuntimeError("The config path is not valid")
+def main(config_path: str = "configs/experiment/exp1.yaml", config = None):
+    if not config:
+        path = Path(config_path)
+        if path.exists():
+            with open(path, 'r') as f:
+                config = yaml.safe_load(f)
+        else:
+            raise RuntimeError("The config path is not valid")
     logger = WandbLogger(project = "runs", entity = "Burnsides_Bitches", config = config)
     train(config, logger = logger)
 
