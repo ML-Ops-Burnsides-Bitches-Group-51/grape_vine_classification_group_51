@@ -65,3 +65,6 @@ The directory structure of the project looks like this:
 Created using [mlops_template](https://github.com/SkafteNicki/mlops_template),
 a [cookiecutter template](https://github.com/cookiecutter/cookiecutter) for getting
 started with Machine Learning Operations (MLOps).
+# Sync
+# Trigger
+# Connection Sync Sun Jan 18 14:19:28 CET 2026
