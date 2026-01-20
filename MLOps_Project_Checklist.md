@@ -37,12 +37,12 @@
 - [ ] Create GCP Bucket for data and link with DVC (M21)
 - [ ] Create workflow to automatically build Docker images (M21)
 - [ ] Train model on GCP using Engine or Vertex AI (M21)
-- [ ] Create FastAPI inference application (M22) - Viktor
+- [x] Create FastAPI inference application (M22)
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
 - [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
-- [x] Create frontend for the API (M26) - Victor
+- [x] Create frontend for the API (M26)
 
 ## ✅ Week 3
 
