@@ -12,6 +12,8 @@ def test_train_dataset():
     train_set = torch.load(processed_data_path / "train_data.pt")
     assert isinstance(train_set, dict), "Train dataset is wrong class"
     assert len(train_set) == 2, "Train dataset has the wrong number of keys"
+    assert len(train_set["images"]) == 400, "Train dataset does not have 400 images"
+    assert len(train_set["labels"]) == 400, "Train dataset does not have 400 labels"
 
     label_counts = [0,0,0,0,0]
     train_set = TensorDataset(train_set["images"], train_set["labels"])
@@ -28,6 +30,8 @@ def test_test_dataset():
     test_set = torch.load(processed_data_path / "test_data.pt")
     assert isinstance(test_set, dict), "Test dataset is wrong class"
     assert len(test_set) == 2, "Test dataset has the wrong number of keys"
+    assert len(test_set["images"]) == 100, "Test dataset does not have 400 images"
+    assert len(test_set["labels"]) == 100, "Test dataset does not have 400 labels"
 
     label_counts = [0,0,0,0,0]
     test_set = TensorDataset(test_set["images"], test_set["labels"])
