@@ -1,7 +1,7 @@
 from pathlib import Path
 from grape_vine_classification.model_lightning import SimpleCNN
 import torch
-from pytorch_lightning import Trainer 
+from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
 from grape_vine_classification import PATH_DATA
 from pytorch_lightning.loggers import WandbLogger
@@ -11,6 +11,7 @@ import typer
 
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+
 
 def validify_config(config: dict):
     # {'batch_size': 16, 'epochs': 5, 'lr': 0.001, 'momentum': 0.9, 'optim': 'Adam', 'patience': 3}
@@ -25,8 +26,8 @@ def validify_config(config: dict):
         if (optim == "SGD") and ("momentum" not in config):
             raise ValueError("Optim set to SGD, but config does not contain momentum")
 
-def train(config: dict = {}, logger = False, output_model_name: str = "model.pth") -> None:
 
+def train(config: dict = {}, logger=False, output_model_name: str = "model.pth") -> None:
     validify_config(config)
     batch_size = config["batch_size"]
     max_epochs = config["epochs"]
@@ -37,8 +38,8 @@ def train(config: dict = {}, logger = False, output_model_name: str = "model.pth
     train_data = torch.load(data_dir / "train_data.pt", map_location=DEVICE)
     test_data = torch.load(data_dir / "test_data.pt", map_location=DEVICE)
 
-    train_data = TensorDataset(train_data["images"],train_data["labels"])
-    test_data = TensorDataset(test_data["images"],test_data["labels"])
+    train_data = TensorDataset(train_data["images"], train_data["labels"])
+    test_data = TensorDataset(test_data["images"], test_data["labels"])
 
     train_dataloader = DataLoader(train_data, batch_size=batch_size)
     test_dataloader = DataLoader(test_data, batch_size=1)
@@ -48,24 +49,24 @@ def train(config: dict = {}, logger = False, output_model_name: str = "model.pth
         EarlyStopping(monitor="val_loss", patience=patience, mode="min"),
         ModelCheckpoint(dirpath="./models", monitor="val_loss", mode="min"),
     ]
-        
-    trainer = Trainer(logger=logger,max_epochs=max_epochs, callbacks=callbacks)
+
+    trainer = Trainer(logger=logger, max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
     torch.save(model, "models/" + output_model_name)
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config = None):
+
+def main(config_path: str = "configs/experiment/exp1.yaml", config=None):
     if not config:
         path = Path(config_path)
         if path.exists():
-            with open(path, 'r') as f:
+            with open(path, "r") as f:
                 config = yaml.safe_load(f)
         else:
             raise RuntimeError("The config path is not valid")
-    logger = WandbLogger(project = "runs", entity = "Burnsides_Bitches", config = config)
-    train(config, logger = logger)
+    logger = WandbLogger(project="runs", entity="Burnsides_Bitches", config=config)
+    train(config, logger=logger)
 
 
 if __name__ == "__main__":
     typer.run(main)
-

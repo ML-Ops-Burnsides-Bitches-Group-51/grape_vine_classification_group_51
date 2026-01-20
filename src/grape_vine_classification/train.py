@@ -1,14 +1,12 @@
-from pathlib import Path
 from grape_vine_classification.model import SimpleCNN
 import matplotlib.pyplot as plt
 import torch
-import typer
-import sys
 from grape_vine_classification import PATH_DATA
-from torch.utils.data import DataLoader,TensorDataset
+from torch.utils.data import DataLoader, TensorDataset
 
 data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+
 
 def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: int = 5) -> None:
     """Train the model"""
@@ -19,8 +17,8 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
     train_data = torch.load(data_dir / "train_data.pt", map_location=DEVICE)
     test_data = torch.load(data_dir / "test_data.pt", map_location=DEVICE)
 
-    train_data = TensorDataset(train_data["images"],train_data["labels"])
-    test_data = TensorDataset(test_data["images"],test_data["labels"])
+    train_data = TensorDataset(train_data["images"], train_data["labels"])
+    test_data = TensorDataset(test_data["images"], test_data["labels"])
 
     train_dataloader = DataLoader(train_data, batch_size=batch_size)
     test_dataloader = DataLoader(test_data, batch_size=batch_size)
@@ -50,7 +48,7 @@ def train(lr: float = 1e-3, batch_size: int = 16, epochs: int = 20, val_iter: in
 
             if i % 100 == 0:
                 print(f"Epoch {epoch}, iter {i}, loss: {loss.item()}")
-        
+
         if (epoch % val_iter == 0 and val_iter) or (epoch + 1 == epochs):
             model.eval()
             val_cum_loss = torch.zeros(1)

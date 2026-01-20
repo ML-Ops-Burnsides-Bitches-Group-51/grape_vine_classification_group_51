@@ -19,8 +19,8 @@ from torchvision import transforms
 # Paths that match repo
 # ----------------------------
 # This file lives at: src/grape_vine_classification/api.py
-PKG_DIR = Path(__file__).resolve().parent                   # .../src/grape_vine_classification
-REPO_ROOT = PKG_DIR.parents[1]                              # repo root (two levels up)
+PKG_DIR = Path(__file__).resolve().parent  # .../src/grape_vine_classification
+REPO_ROOT = PKG_DIR.parents[1]  # repo root (two levels up)
 MODELS_DIR = REPO_ROOT / "models"
 
 # You can override these with env vars when deploying
@@ -43,9 +43,9 @@ class PredictionResponse(BaseModel):
     confidence: float
     top_k: Optional[List[Dict[str, Any]]] = None
 
+
 class BatchPredictionResponse(BaseModel):
     results: List[PredictionResponse]
-
 
 
 # ----------------------------
@@ -56,12 +56,13 @@ _model: Optional[torch.nn.Module] = None
 _labels: List[str] = []
 
 # Grayscale + 128x128 as described in README
-_preprocess = transforms.Compose([
-    transforms.Resize((IMG_SIZE, IMG_SIZE)),
-    transforms.Grayscale(num_output_channels=1),
-    transforms.ToTensor(),  # -> [1, H, W] float in [0,1]
-    
-])
+_preprocess = transforms.Compose(
+    [
+        transforms.Resize((IMG_SIZE, IMG_SIZE)),
+        transforms.Grayscale(num_output_channels=1),
+        transforms.ToTensor(),  # -> [1, H, W] float in [0,1]
+    ]
+)
 
 
 def _load_labels(path: Path) -> List[str]:
@@ -86,7 +87,9 @@ def load_model() -> None:
 
     # 1) Build the architecture (matches model_lightning.py)
     #    IMPORTANT: adjust this import path to where the file lives in repo.
-    from grape_vine_classification.model_lightning import SimpleCNN  # <-- uses the file :contentReference[oaicite:1]{index=1}
+    from grape_vine_classification.model_lightning import (
+        SimpleCNN,
+    )  # <-- uses the file :contentReference[oaicite:1]{index=1}
 
     # config is only used for optimizers; for inference it can be minimal
     config = {"optim": "Adam", "lr": 1e-3}
@@ -110,9 +113,9 @@ def load_model() -> None:
     for k, v in state.items():
         nk = k
         if nk.startswith("model."):
-            nk = nk[len("model."):]
+            nk = nk[len("model.") :]
         if nk.startswith("module."):
-            nk = nk[len("module."):]
+            nk = nk[len("module.") :]
         cleaned[nk] = v
 
     missing, unexpected = model.load_state_dict(cleaned, strict=False)
@@ -197,13 +200,14 @@ def health():
 #         label, conf, top_list = predict_pil(img, top_k=num_predictions)
 #     except Exception as e:
 #         raise HTTPException(status_code=500, detail=f"Inference failed: {e}")
-    
+
 #     return PredictionResponse(
 #         filename=file.filename,
 #         predicted_label=label,
 #         confidence=conf,
 #         top_k=[{"label": l, "score": s} for l, s in top_list],
 #     )
+
 
 @app.post("/predict", response_model=BatchPredictionResponse)
 async def predict(
@@ -234,7 +238,7 @@ async def predict(
                 filename=file.filename,
                 predicted_label=label,
                 confidence=conf,
-                top_k=[{"label": l, "score": s} for l, s in top_list],
+                top_k=[{"label": lbl, "score": s} for lbl, s in top_list],
             )
         )
 
