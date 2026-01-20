@@ -1,13 +1,13 @@
 import kagglehub
 import shutil
 import os
-from pathlib import Path
+
+from grape_vine_classification import PATH_DATA
 
 # 1. Download to default cache
 cache_path = kagglehub.dataset_download("muratkokludataset/grapevine-leaves-image-dataset")
 
 # 2. Define your target folder
-from grape_vine_classification import PATH_DATA
 os.makedirs(PATH_DATA, exist_ok=True)
 
 # 3. Move files from cache to your folder

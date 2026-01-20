@@ -1,6 +1,7 @@
 from torch import nn
 import torch
 
+
 class SimpleCNN(nn.Module):
     """My awesome model."""
 
