@@ -4,6 +4,7 @@ from pytorch_lightning import LightningModule
 import yaml
 from pathlib import Path
 
+
 class SimpleCNN(LightningModule):
     """My awesome model."""
 
@@ -15,23 +16,16 @@ class SimpleCNN(LightningModule):
             nn.BatchNorm2d(16),
             nn.ReLU(),
             nn.MaxPool2d(3, 3),
-
             nn.Conv2d(16, 32, 3, 1),
             nn.BatchNorm2d(32),
             nn.ReLU(),
             nn.MaxPool2d(3, 3),
-
             nn.Conv2d(32, 64, 3, 1),
             nn.BatchNorm2d(64),
             nn.ReLU(),
             nn.MaxPool2d(3, 3),
         )
-        self.classifier = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(576, 128),
-            nn.Dropout(0.2),
-            nn.Linear(128, 5)
-        )
+        self.classifier = nn.Sequential(nn.Flatten(), nn.Linear(576, 128), nn.Dropout(0.2), nn.Linear(128, 5))
         self.criterium = nn.CrossEntropyLoss()
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -49,7 +43,7 @@ class SimpleCNN(LightningModule):
         preds = self(data)
         loss = self.criterium(preds, target)
         return loss
-   
+
     def validation_step(self, batch, batch_idx: int) -> None:
         # this is the validation loop
         data, target = batch
@@ -61,23 +55,21 @@ class SimpleCNN(LightningModule):
 
     def configure_optimizers(self):
         if self.config.get("optim") == "Adam":
-            return optim.Adam(self.parameters(), lr = self.config["lr"])
+            return optim.Adam(self.parameters(), lr=self.config["lr"])
         elif self.config.get("optim") == "SGD":
-            return optim.SGD(self.parameters(), lr = self.config["lr"], momentum = self.config["momentum"])
-    
-   
+            return optim.SGD(self.parameters(), lr=self.config["lr"], momentum=self.config["momentum"])
 
 
 if __name__ == "__main__":
     config_path = "configs/experiment/exp1.yaml"
     path = Path(config_path)
-    
+
     if path.exists():
-        with open(path, 'r') as f:
+        with open(path, "r") as f:
             config = yaml.safe_load(f)
     else:
         raise RuntimeError("The config path is not valid")
-    
+
     model = SimpleCNN(config)
     print(f"Model architecture: {model}")
     print(f"Number of parameters: {sum(p.numel() for p in model.parameters())}")
@@ -86,8 +78,8 @@ if __name__ == "__main__":
     output = model(dummy_input)
     print(f"Output shape: {output.shape}")
 
-    #Save pytorch model
+    # Save pytorch model
     torch.save(model.state_dict(), "models/simple_cnn.pth")
 
-    #Save onnx model
+    # Save onnx model
     model.to_onnx("models/simple_cnn.onnx", dummy_input)

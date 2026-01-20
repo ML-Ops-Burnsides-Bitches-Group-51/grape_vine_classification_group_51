@@ -2802,7 +2802,7 @@ outs:
       remote_storage:
         etag: 08f5ba8ad18a9592031001
         version_id: '1768739106364789'
-  - relpath: 
+  - relpath:
       Grapevine_Leaves_Image_Dataset/Grapevine_Leaves_Image_Dataset_Citation_Request.txt
     md5: 4d02ec1871524534dca6ee77caa87cf6
     size: 2608

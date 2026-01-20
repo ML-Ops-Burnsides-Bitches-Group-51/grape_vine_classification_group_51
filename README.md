@@ -3,7 +3,7 @@
 In this project we seek to classify grapevine leaves and to build an mlops pipeline around the model, to ensure reproducibility. We want to start with a simple convolution neural network (CNN) to check that everything runs as expected and then integrate torchvision into the framework, such that we are able to play around with different models and architechtures.
 
 Note that we do not use pre-trained models, as we want to focus on making a complete pipeline including model training, and thus we want to integrate torchvision into the training framework. This decesion may change depending on the peformance of the model. If we are unable to achive an accurate model within resonable training time, we may choose to refine a pretrained convolutional image recognition model. Furthermore we use pytorch lightning to ease the training, reduce boilerplate code and to easily switch between cpu and gpu. We will use Weights and Bias for experiment logging and hydra to write configuration files.
- 
+
 We haven't worked with data version control yet, so have not made any decesion about how it should be done.
 
 ## Data description
@@ -13,7 +13,7 @@ The dataset can be found at : https://www.kaggle.com/datasets/muratkokludataset/
 
 Note that the data is not included in the repository, and must thus be loaded using src/grape_vine_classification/import_data.py which downloads the data from kaggle into the data folder.
 
-  
+
 ## Project structure
 
 The directory structure of the project looks like this:
