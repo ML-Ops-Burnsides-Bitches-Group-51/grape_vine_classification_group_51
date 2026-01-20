@@ -31,7 +31,7 @@
 - [x] Setup continuous integration on GitHub (M17) - Anton
 - [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
 - [ ] Add linting to CI (M17)
-- [ ] Add pre-commit hooks (M18) - Viktor
+- [x] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
 - [x] Add workflow triggered when model registry changes (M19)
 - [ ] Create GCP Bucket for data and link with DVC (M21)
