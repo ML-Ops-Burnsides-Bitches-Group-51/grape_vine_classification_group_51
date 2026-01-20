@@ -1,0 +1,3533 @@
+outs:
+- hash: md5
+  path: data
+  files:
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (1).png
+    md5: e3fefd30eb05e41c8b9523cce0bd077e
+    size: 82409
+    cloud:
+      remote_storage:
+        etag: 08addfbbd48a9592031001
+        version_id: '1768739113463725'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (10).png
+    md5: daa163d228d7447ea7ff4194d5dcf320
+    size: 120623
+    cloud:
+      remote_storage:
+        etag: 08c6d4d3d48a9592031001
+        version_id: '1768739113855558'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (100).png
+    md5: 262c724e06e13e835c34493b375e09f6
+    size: 204438
+    cloud:
+      remote_storage:
+        etag: 08c5c194d58a9592031001
+        version_id: '1768739114918085'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (11).png
+    md5: 436dce92ba60249492b2c85c2e76d0a8
+    size: 320960
+    cloud:
+      remote_storage:
+        etag: 08fa9cc3d58a9592031001
+        version_id: '1768739115683450'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (12).png
+    md5: 6695ccca337b2bde6e7f7b65c1edbd28
+    size: 113495
+    cloud:
+      remote_storage:
+        etag: 08afd284d58a9592031001
+        version_id: '1768739114658095'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (13).png
+    md5: eb89c96ef176e96544ca27ff1a27efa8
+    size: 283302
+    cloud:
+      remote_storage:
+        etag: 08b6e3b6d58a9592031001
+        version_id: '1768739115479478'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (14).png
+    md5: 4376896e192c386f95ac6e87e9072b43
+    size: 111328
+    cloud:
+      remote_storage:
+        etag: 08dcdb9ad58a9592031001
+        version_id: '1768739115019740'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (15).png
+    md5: a238c9bb878083c7952fa0a4b383ef01
+    size: 230239
+    cloud:
+      remote_storage:
+        etag: 0894d689d58a9592031001
+        version_id: '1768739114740500'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (16).png
+    md5: 301fb3d8ea0cb99f956be10407a1d462
+    size: 175107
+    cloud:
+      remote_storage:
+        etag: 08d5d3a2d58a9592031001
+        version_id: '1768739115149781'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (17).png
+    md5: 6efd5c5383cdc43fbc397775759c9aec
+    size: 251080
+    cloud:
+      remote_storage:
+        etag: 08a4fbe8d48a9592031001
+        version_id: '1768739114204580'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (18).png
+    md5: 19c2358cc6c38d33fda2f62d058be600
+    size: 147515
+    cloud:
+      remote_storage:
+        etag: 08b5e3f2d48a9592031001
+        version_id: '1768739114365365'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (19).png
+    md5: db2b23bc6800a9cf78016dd28f1e2059
+    size: 88863
+    cloud:
+      remote_storage:
+        etag: 08a6b1cbd48a9592031001
+        version_id: '1768739113719974'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (2).png
+    md5: 8be09c3f29354640658e0ad23b28565b
+    size: 298708
+    cloud:
+      remote_storage:
+        etag: 08f48595d58a9592031001
+        version_id: '1768739114926836'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (20).png
+    md5: 0d66a1947d9539a9bf15f1283ac9c70b
+    size: 228937
+    cloud:
+      remote_storage:
+        etag: 088bf2e9d48a9592031001
+        version_id: '1768739114219787'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (21).png
+    md5: b67e14f01153082d51e699dc527ba2e7
+    size: 146934
+    cloud:
+      remote_storage:
+        etag: 08b0eabcd58a9592031001
+        version_id: '1768739115578672'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (22).png
+    md5: 66e8f1012bff1e9636c707d77422a03f
+    size: 234314
+    cloud:
+      remote_storage:
+        etag: 08f2ced1d48a9592031001
+        version_id: '1768739113822066'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (23).png
+    md5: c01fd18827b4822ed89b4b40e7bf07ba
+    size: 195343
+    cloud:
+      remote_storage:
+        etag: 08dcdff7d48a9592031001
+        version_id: '1768739114446812'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (24).png
+    md5: f3daa626b068426b10144793fa9ad833
+    size: 230163
+    cloud:
+      remote_storage:
+        etag: 08b29cbad58a9592031001
+        version_id: '1768739115535922'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (25).png
+    md5: 328273a5f9ca8b8a1699ac7e446c863b
+    size: 161717
+    cloud:
+      remote_storage:
+        etag: 08b9c5b6d58a9592031001
+        version_id: '1768739115475641'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (26).png
+    md5: a68a8043f6522c48fb53c9d3963167cb
+    size: 337049
+    cloud:
+      remote_storage:
+        etag: 08eff9b8d58a9592031001
+        version_id: '1768739115515119'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (27).png
+    md5: edf657511818fc390f740f694e530423
+    size: 108850
+    cloud:
+      remote_storage:
+        etag: 08a4f5a6d58a9592031001
+        version_id: '1768739115219620'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (28).png
+    md5: 72e52dcb6bccbaf49bba4ff49711037a
+    size: 303322
+    cloud:
+      remote_storage:
+        etag: 0887d5b0d58a9592031001
+        version_id: '1768739115379335'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (29).png
+    md5: 4991665b4b6daa9320fb91e5db475f16
+    size: 131085
+    cloud:
+      remote_storage:
+        etag: 08f3e5cad48a9592031001
+        version_id: '1768739113710323'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (3).png
+    md5: 49e5f92b395eebba4e815d3aab815da8
+    size: 358466
+    cloud:
+      remote_storage:
+        etag: 08a7e0bdd58a9592031001
+        version_id: '1768739115593767'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (30).png
+    md5: 84df95fc733edf5e4882c99aa527b0c4
+    size: 236926
+    cloud:
+      remote_storage:
+        etag: 08f59bbed58a9592031001
+        version_id: '1768739115601397'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (31).png
+    md5: f01fcf762ab9d0acf2acf1ce512dd2c9
+    size: 191310
+    cloud:
+      remote_storage:
+        etag: 089ca8c8d48a9592031001
+        version_id: '1768739113669660'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (32).png
+    md5: 9a51d73b51b8051a3363a0670a64210f
+    size: 235712
+    cloud:
+      remote_storage:
+        etag: 08d2dec4d58a9592031001
+        version_id: '1768739115708242'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (33).png
+    md5: bf8f85d587381cb7d9a7cdb2805226dc
+    size: 193860
+    cloud:
+      remote_storage:
+        etag: 08bd8ccad48a9592031001
+        version_id: '1768739113698877'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (34).png
+    md5: f39a21d9648b2a9761dcf8a6b34b0c23
+    size: 275793
+    cloud:
+      remote_storage:
+        etag: 0888fab3d58a9592031001
+        version_id: '1768739115433224'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (35).png
+    md5: 20a02a6608b6fc5f58eccc1a8ff19754
+    size: 154902
+    cloud:
+      remote_storage:
+        etag: 08e5e4b1d48a9592031001
+        version_id: '1768739113300581'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (36).png
+    md5: 1bb9690eb2620a69f681154866e3b3eb
+    size: 268279
+    cloud:
+      remote_storage:
+        etag: 08d5999ed58a9592031001
+        version_id: '1768739115076821'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (37).png
+    md5: 0ad0263aa79f78cf15ce234da0bea497
+    size: 169775
+    cloud:
+      remote_storage:
+        etag: 08d19abbd58a9592031001
+        version_id: '1768739115552081'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (38).png
+    md5: dfc87dae16515955693e97dba6c4e31e
+    size: 293747
+    cloud:
+      remote_storage:
+        etag: 08c9ff86d58a9592031001
+        version_id: '1768739114696649'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (39).png
+    md5: 3fc9fc3e3a27ff1ef63913fdccb70528
+    size: 130788
+    cloud:
+      remote_storage:
+        etag: 08c7c1d3d48a9592031001
+        version_id: '1768739113853127'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (4).png
+    md5: ec28e42787e69897d9aed7f3eed92c20
+    size: 299661
+    cloud:
+      remote_storage:
+        etag: 089989b8d58a9592031001
+        version_id: '1768739115500697'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (40).png
+    md5: 47a65068b9b53306900c669da29f03fa
+    size: 273446
+    cloud:
+      remote_storage:
+        etag: 08ab898ed58a9592031001
+        version_id: '1768739114812587'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (41).png
+    md5: 5d2daf221b8280291d0a7168e580cd2f
+    size: 133899
+    cloud:
+      remote_storage:
+        etag: 08e8acd4d48a9592031001
+        version_id: '1768739113866856'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (42).png
+    md5: 01a55cddc11b9de23704e3d58bd9ae1c
+    size: 277987
+    cloud:
+      remote_storage:
+        etag: 08a7eca9d58a9592031001
+        version_id: '1768739115267623'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (43).png
+    md5: 3a6a25309735b35df5ad6e665c2638e8
+    size: 187071
+    cloud:
+      remote_storage:
+        etag: 08a996acd58a9592031001
+        version_id: '1768739115305769'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (44).png
+    md5: c27002af77b80de401418c2efe0ea6b1
+    size: 244981
+    cloud:
+      remote_storage:
+        etag: 08cacbadd58a9592031001
+        version_id: '1768739115328970'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (45).png
+    md5: 981ee48bf37ec5fa1a11d724c32a357a
+    size: 150983
+    cloud:
+      remote_storage:
+        etag: 089ffbfcd48a9592031001
+        version_id: '1768739114532255'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (46).png
+    md5: b77c61a14b232a12c292be698df4e1f5
+    size: 230951
+    cloud:
+      remote_storage:
+        etag: 08c59d9ed58a9592031001
+        version_id: '1768739115077317'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (47).png
+    md5: b4de8e822d8f79e391966be983b2e88f
+    size: 161598
+    cloud:
+      remote_storage:
+        etag: 08b7d988d58a9592031001
+        version_id: '1768739114724535'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (48).png
+    md5: 2047e23e555dc80c000019d34f8b27d3
+    size: 193458
+    cloud:
+      remote_storage:
+        etag: 08ddd185d58a9592031001
+        version_id: '1768739114674397'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (49).png
+    md5: afb1a03addb296bfa452d044b22a3a9e
+    size: 176401
+    cloud:
+      remote_storage:
+        etag: 08c2d7f8d48a9592031001
+        version_id: '1768739114462146'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (5).png
+    md5: 8b6645d6dbe98381697d1050ee582db7
+    size: 276324
+    cloud:
+      remote_storage:
+        etag: 08afe3a2d58a9592031001
+        version_id: '1768739115151791'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (50).png
+    md5: 3fce8273e13ec6ccd3878088276c540b
+    size: 246325
+    cloud:
+      remote_storage:
+        etag: 0888ccc9d58a9592031001
+        version_id: '1768739115787784'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (51).png
+    md5: 62b4597d18ac7991de7f1357c2da416c
+    size: 101807
+    cloud:
+      remote_storage:
+        etag: 08bf89d4d48a9592031001
+        version_id: '1768739113862335'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (52).png
+    md5: 27638c91bc15672aa4e0af2d29f8c3ba
+    size: 142794
+    cloud:
+      remote_storage:
+        etag: 08bfa589d58a9592031001
+        version_id: '1768739114734271'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (53).png
+    md5: 0b94aef602f4286153efac6e8320f659
+    size: 278333
+    cloud:
+      remote_storage:
+        etag: 08dad4fdd48a9592031001
+        version_id: '1768739114543706'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (54).png
+    md5: 7a9430e3d748f1239126fa37f7a3e7e9
+    size: 151809
+    cloud:
+      remote_storage:
+        etag: 08dffeb9d48a9592031001
+        version_id: '1768739113434975'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (55).png
+    md5: a7bdb30f9a895acbd79c8ac92ffc2d86
+    size: 212622
+    cloud:
+      remote_storage:
+        etag: 08d8d6d0d48a9592031001
+        version_id: '1768739113806680'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (56).png
+    md5: 2cb3afb67fef743baf109c379cd7b29d
+    size: 101744
+    cloud:
+      remote_storage:
+        etag: 08b1b695d58a9592031001
+        version_id: '1768739114933041'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (57).png
+    md5: 9b401abc5dd408efec34f03c1ca2b622
+    size: 199942
+    cloud:
+      remote_storage:
+        etag: 08d0f3fed48a9592031001
+        version_id: '1768739114564048'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (58).png
+    md5: 94982fe774a36152a0de53a989999fa5
+    size: 286098
+    cloud:
+      remote_storage:
+        etag: 088df9ecd48a9592031001
+        version_id: '1768739114269837'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (59).png
+    md5: ecca886ff5eb0731177cadce6b59e697
+    size: 253759
+    cloud:
+      remote_storage:
+        etag: 089ba5b8d58a9592031001
+        version_id: '1768739115504283'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (6).png
+    md5: 78fafc713bcbf02586e10c5e58272e47
+    size: 140291
+    cloud:
+      remote_storage:
+        etag: 08edba81d58a9592031001
+        version_id: '1768739114605933'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (60).png
+    md5: 04b88a8839f5a0646e430995d3ab43f9
+    size: 106007
+    cloud:
+      remote_storage:
+        etag: 08fb9e88d58a9592031001
+        version_id: '1768739114717051'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (61).png
+    md5: fe687c5c845d419f368df5bb225c4000
+    size: 267133
+    cloud:
+      remote_storage:
+        etag: 08a2f4a3d58a9592031001
+        version_id: '1768739115170338'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (62).png
+    md5: e1e055f20bc226020a50b611249c1857
+    size: 315489
+    cloud:
+      remote_storage:
+        etag: 08fed1bed58a9592031001
+        version_id: '1768739115608318'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (63).png
+    md5: c83f779adbd1642692b8d0643fa7eab3
+    size: 280213
+    cloud:
+      remote_storage:
+        etag: 08d1e689d58a9592031001
+        version_id: '1768739114742609'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (64).png
+    md5: 37ccb3e837d6fa129a4093a057e8f5a9
+    size: 275620
+    cloud:
+      remote_storage:
+        etag: 08b5d2ded48a9592031001
+        version_id: '1768739114035509'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (65).png
+    md5: 1553abd41c9835c730ea72fabf0a5517
+    size: 247934
+    cloud:
+      remote_storage:
+        etag: 08cc97a4d58a9592031001
+        version_id: '1768739115174860'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (66).png
+    md5: 06a3b50995b398fc336e08a092cc5037
+    size: 347318
+    cloud:
+      remote_storage:
+        etag: 08d4f3bbd58a9592031001
+        version_id: '1768739115563476'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (67).png
+    md5: 39727dcf1cb22e37cb6c009138ece169
+    size: 169256
+    cloud:
+      remote_storage:
+        etag: 08f1cdb2d58a9592031001
+        version_id: '1768739115411185'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (68).png
+    md5: 28af670cb347dee52761e925bfce38ee
+    size: 168276
+    cloud:
+      remote_storage:
+        etag: 089fe392d58a9592031001
+        version_id: '1768739114889631'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (69).png
+    md5: dbb3b01437a06d25958828762563280e
+    size: 281442
+    cloud:
+      remote_storage:
+        etag: 08d98bb7d58a9592031001
+        version_id: '1768739115484633'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (7).png
+    md5: 2538f0fcc8bc98a2c988a93735136b91
+    size: 233946
+    cloud:
+      remote_storage:
+        etag: 08fad5b1d58a9592031001
+        version_id: '1768739115395834'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (70).png
+    md5: dd6535e1815fc3f368cb4d08c1f15ded
+    size: 238141
+    cloud:
+      remote_storage:
+        etag: 08b2e3bad58a9592031001
+        version_id: '1768739115545010'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (71).png
+    md5: 6f66a5a059cd86bd10d21ff49fd42f9b
+    size: 116612
+    cloud:
+      remote_storage:
+        etag: 08b1d3add58a9592031001
+        version_id: '1768739115329969'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (72).png
+    md5: 29de814faf15534887c33924dcbeebcd
+    size: 243111
+    cloud:
+      remote_storage:
+        etag: 08b0e5a7d58a9592031001
+        version_id: '1768739115233968'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (73).png
+    md5: 2225999f1c3576e06264278878c36fb5
+    size: 163572
+    cloud:
+      remote_storage:
+        etag: 08bf97fcd48a9592031001
+        version_id: '1768739114519487'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (74).png
+    md5: 4f7d772d2f56e666e55ab4e3def303f2
+    size: 238105
+    cloud:
+      remote_storage:
+        etag: 08b0d9bfd58a9592031001
+        version_id: '1768739115625648'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (75).png
+    md5: 6004318b0d309c7d61fc7566c7e8d48a
+    size: 209078
+    cloud:
+      remote_storage:
+        etag: 08d980d5d48a9592031001
+        version_id: '1768739113877593'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (76).png
+    md5: 2b56758649dc9533ac140a4ec0deb6c8
+    size: 237586
+    cloud:
+      remote_storage:
+        etag: 08e29fc0d48a9592031001
+        version_id: '1768739113537506'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (77).png
+    md5: bc0c553f5a15cde6b87d94627f7d6e20
+    size: 176482
+    cloud:
+      remote_storage:
+        etag: 089aefabd58a9592031001
+        version_id: '1768739115300762'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (78).png
+    md5: cadc7ab4b037be899202f707429e011f
+    size: 200193
+    cloud:
+      remote_storage:
+        etag: 08d783d3d48a9592031001
+        version_id: '1768739113845207'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (79).png
+    md5: 17f960d5643f320611c23fe72a82db36
+    size: 184628
+    cloud:
+      remote_storage:
+        etag: 08dcfe83d58a9592031001
+        version_id: '1768739114647388'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (8).png
+    md5: 84db3b7ba21ad56cb0d60db224a72fbc
+    size: 165802
+    cloud:
+      remote_storage:
+        etag: 08fe8cd3d48a9592031001
+        version_id: '1768739113846398'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (80).png
+    md5: cf37a770d4e6b0f2eb5755f776f96396
+    size: 217390
+    cloud:
+      remote_storage:
+        etag: 08c1f8b5d58a9592031001
+        version_id: '1768739115465793'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (81).png
+    md5: 3fab7895bb20eb351cec12d8622552fe
+    size: 149515
+    cloud:
+      remote_storage:
+        etag: 089afbd6d48a9592031001
+        version_id: '1768739113909658'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (82).png
+    md5: c5799885a0f72142316a0895771c2e46
+    size: 250619
+    cloud:
+      remote_storage:
+        etag: 0896d1dfd48a9592031001
+        version_id: '1768739114051734'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (83).png
+    md5: 4835e837d2f5f6364366ca43abc8591d
+    size: 154371
+    cloud:
+      remote_storage:
+        etag: 08ae8eb9d48a9592031001
+        version_id: '1768739113420590'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (84).png
+    md5: f8ca1db3f1e21c537d9472c335b91975
+    size: 273092
+    cloud:
+      remote_storage:
+        etag: 088eece0d48a9592031001
+        version_id: '1768739114071566'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (85).png
+    md5: 7dee604098e0b1b8cdc64217f6ecf893
+    size: 156412
+    cloud:
+      remote_storage:
+        etag: 08e6d89bd58a9592031001
+        version_id: '1768739115035750'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (86).png
+    md5: be4814461236e1a10bd57277894972a0
+    size: 268594
+    cloud:
+      remote_storage:
+        etag: 08d9d99dd58a9592031001
+        version_id: '1768739115068633'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (87).png
+    md5: f7a7d32d05977f0a6cf6a03f694ddb7e
+    size: 158158
+    cloud:
+      remote_storage:
+        etag: 08c9f4a0d58a9592031001
+        version_id: '1768739115121225'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (88).png
+    md5: ea99cda0150f0f8af1d6786d7b9932a6
+    size: 240236
+    cloud:
+      remote_storage:
+        etag: 08a0bcb9d58a9592031001
+        version_id: '1768739115523616'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (89).png
+    md5: 61f8a6fdcab13298146acfdbd115cc7f
+    size: 160250
+    cloud:
+      remote_storage:
+        etag: 08b1a7f2d48a9592031001
+        version_id: '1768739114357681'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (9).png
+    md5: c1db1339983df384e66fe68060c24ac3
+    size: 295990
+    cloud:
+      remote_storage:
+        etag: 08c9cce5d48a9592031001
+        version_id: '1768739114149449'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (90).png
+    md5: 4052d88a21e9146c87204153cfeb59d2
+    size: 272618
+    cloud:
+      remote_storage:
+        etag: 08ffdd87d58a9592031001
+        version_id: '1768739114708735'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (91).png
+    md5: 7e1ebe5ae660c50b22802a5e461b15d9
+    size: 139200
+    cloud:
+      remote_storage:
+        etag: 08dd81cbd48a9592031001
+        version_id: '1768739113713885'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (92).png
+    md5: d162d0cb88415f7462702296a8168126
+    size: 322026
+    cloud:
+      remote_storage:
+        etag: 088286bbd58a9592031001
+        version_id: '1768739115549442'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (93).png
+    md5: 61d79c77950d58667ffb195fdc0a6228
+    size: 379091
+    cloud:
+      remote_storage:
+        etag: 089eb8ebd48a9592031001
+        version_id: '1768739114245150'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (94).png
+    md5: 2bf5024dd45e61ba5b34c5d1ae6cd475
+    size: 194588
+    cloud:
+      remote_storage:
+        etag: 088998ffd48a9592031001
+        version_id: '1768739114568713'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (95).png
+    md5: b0d4b7a30870e183b60b86f178c1804f
+    size: 184083
+    cloud:
+      remote_storage:
+        etag: 08c4a5a0d58a9592031001
+        version_id: '1768739115111108'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (96).png
+    md5: 1a090f9e3c30c01e68af8b3a4c355339
+    size: 184161
+    cloud:
+      remote_storage:
+        etag: 08a9be9bd58a9592031001
+        version_id: '1768739115032361'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (97).png
+    md5: b79f212e2dec6d460ef26622345d8591
+    size: 188679
+    cloud:
+      remote_storage:
+        etag: 08f8f3bcd58a9592031001
+        version_id: '1768739115579896'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (98).png
+    md5: da091d8d020add287a892e7e97bf1293
+    size: 198821
+    cloud:
+      remote_storage:
+        etag: 08f5e1aad58a9592031001
+        version_id: '1768739115282677'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ak/Ak (99).png
+    md5: fdb646610b26cbbe9d68562c92f80466
+    size: 184226
+    cloud:
+      remote_storage:
+        etag: 0881c3fcd48a9592031001
+        version_id: '1768739114525057'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (1).png
+    md5: 7da69d1dfc2afa9587373b22922ffbd6
+    size: 270106
+    cloud:
+      remote_storage:
+        etag: 08d2f8b5d28a9592031001
+        version_id: '1768739109174354'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (10).png
+    md5: 17abaae686351b33f4066a632dfcb1e9
+    size: 150924
+    cloud:
+      remote_storage:
+        etag: 0897e7d8d18a9592031001
+        version_id: '1768739107648407'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (100).png
+    md5: f748fae8c7e290eb8e1f6bc6e7109956
+    size: 371916
+    cloud:
+      remote_storage:
+        etag: 08e9d6c3d28a9592031001
+        version_id: '1768739109399401'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (11).png
+    md5: 49c4d28fc5fcdbcb25f9d08f6b5c64a9
+    size: 253567
+    cloud:
+      remote_storage:
+        etag: 08ecf1a4d28a9592031001
+        version_id: '1768739108894956'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (12).png
+    md5: 002997a6f95e095b9a31e91005a890e0
+    size: 201352
+    cloud:
+      remote_storage:
+        etag: 088dbdded28a9592031001
+        version_id: '1768739109838477'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (13).png
+    md5: ce668eddf5eedb3011177a13b759626d
+    size: 243805
+    cloud:
+      remote_storage:
+        etag: 0894f4a0d28a9592031001
+        version_id: '1768739108829716'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (14).png
+    md5: 2ba50371afb4c57a273180a1bd6d15b5
+    size: 198426
+    cloud:
+      remote_storage:
+        etag: 08cbaab2d28a9592031001
+        version_id: '1768739109115211'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (15).png
+    md5: e73a66659ada8d00e5b2e2feb7f07213
+    size: 238625
+    cloud:
+      remote_storage:
+        etag: 08c9d7e2d28a9592031001
+        version_id: '1768739109907401'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (16).png
+    md5: be4e166a2a5cb871f1e4729f16b0a253
+    size: 202113
+    cloud:
+      remote_storage:
+        etag: 0882eee2d28a9592031001
+        version_id: '1768739109910274'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (17).png
+    md5: 314249b0e144e783acc0f672c45bd750
+    size: 262335
+    cloud:
+      remote_storage:
+        etag: 08acada0d28a9592031001
+        version_id: '1768739108820652'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (18).png
+    md5: 8e530ad2cc2ff29d941b85546855563e
+    size: 125803
+    cloud:
+      remote_storage:
+        etag: 08fdb9add28a9592031001
+        version_id: '1768739109035261'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (19).png
+    md5: d629135db3242849e62f284522b24ecb
+    size: 231975
+    cloud:
+      remote_storage:
+        etag: 089eb7fad18a9592031001
+        version_id: '1768739108199326'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (2).png
+    md5: c2c9874e1294219f127a11b851e656e7
+    size: 154502
+    cloud:
+      remote_storage:
+        etag: 08cecde9d18a9592031001
+        version_id: '1768739107923662'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (20).png
+    md5: 05f80ed637a67ec2b09d7904820f143b
+    size: 193169
+    cloud:
+      remote_storage:
+        etag: 08ffc99ad28a9592031001
+        version_id: '1768739108726015'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (21).png
+    md5: 668c60e96b40c599b17b1c30becde265
+    size: 257669
+    cloud:
+      remote_storage:
+        etag: 08d8c690d28a9592031001
+        version_id: '1768739108561752'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (22).png
+    md5: 3ed3128195e871bdf4692404558ee2f4
+    size: 148489
+    cloud:
+      remote_storage:
+        etag: 08f4c397d28a9592031001
+        version_id: '1768739108676084'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (23).png
+    md5: ff7598a3462268350efc03eabf4ae8fa
+    size: 325482
+    cloud:
+      remote_storage:
+        etag: 08bbc6d7d28a9592031001
+        version_id: '1768739109724987'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (24).png
+    md5: 96bd0957c0278ad3c8204fe10740e2bb
+    size: 133434
+    cloud:
+      remote_storage:
+        etag: 089bf8add28a9592031001
+        version_id: '1768739109043227'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (25).png
+    md5: 969ac5750c598c02d21b2be220a6ce43
+    size: 301714
+    cloud:
+      remote_storage:
+        etag: 08b4c0c0d28a9592031001
+        version_id: '1768739109347380'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (26).png
+    md5: 863dbafb7c41a7861c7b75bf681f862b
+    size: 137851
+    cloud:
+      remote_storage:
+        etag: 08998fe2d18a9592031001
+        version_id: '1768739107800985'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (27).png
+    md5: 67a8f69935f8c031de686334d2885bf0
+    size: 282548
+    cloud:
+      remote_storage:
+        etag: 08ffad9dd28a9592031001
+        version_id: '1768739108771583'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (28).png
+    md5: 3ee8bbea0d44f462df1d7c0d6e3828db
+    size: 175310
+    cloud:
+      remote_storage:
+        etag: 089c83e7d18a9592031001
+        version_id: '1768739107881372'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (29).png
+    md5: 72798087c94d14b9a33492a60bee0fbe
+    size: 248153
+    cloud:
+      remote_storage:
+        etag: 08c1b3e9d18a9592031001
+        version_id: '1768739107920321'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (3).png
+    md5: d9c374e4bc73b72d74a38da7fa9ef4e5
+    size: 308310
+    cloud:
+      remote_storage:
+        etag: 08abb1f1d28a9592031001
+        version_id: '1768739110148267'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (30).png
+    md5: 390161d62c58102f92c826fce78f22da
+    size: 177361
+    cloud:
+      remote_storage:
+        etag: 08869eb1d28a9592031001
+        version_id: '1768739109097222'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (31).png
+    md5: 53d6f2bb613333c5089aa3ab132c4139
+    size: 247716
+    cloud:
+      remote_storage:
+        etag: 0897db93d28a9592031001
+        version_id: '1768739108613527'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (32).png
+    md5: 8219029fefbaf7adadd72ec704976c4c
+    size: 191278
+    cloud:
+      remote_storage:
+        etag: 08d881ead18a9592031001
+        version_id: '1768739107930328'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (33).png
+    md5: 4e93ac08b0f1b5bf1310e85f3ecbc362
+    size: 206475
+    cloud:
+      remote_storage:
+        etag: 089aa0b2d28a9592031001
+        version_id: '1768739109113882'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (34).png
+    md5: c5f75d6c15d98a622e3ec6bd90b7d187
+    size: 223034
+    cloud:
+      remote_storage:
+        etag: 08ea9aefd18a9592031001
+        version_id: '1768739108015466'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (35).png
+    md5: be252ad619bcba121cf26ee1b22f531c
+    size: 248834
+    cloud:
+      remote_storage:
+        etag: 0883db87d28a9592031001
+        version_id: '1768739108416899'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (36).png
+    md5: 3ab7cd22bf13d16482a88e1153b444e9
+    size: 159325
+    cloud:
+      remote_storage:
+        etag: 08dfd3e8d18a9592031001
+        version_id: '1768739107908063'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (37).png
+    md5: 3c0d7ae0cdc2351ec318364c21a27bc5
+    size: 252818
+    cloud:
+      remote_storage:
+        etag: 089d98efd28a9592031001
+        version_id: '1768739110112285'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (38).png
+    md5: c77de4129a38f794b5ef426fc0c2051d
+    size: 117362
+    cloud:
+      remote_storage:
+        etag: 088fccb5d28a9592031001
+        version_id: '1768739109168655'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (39).png
+    md5: bedb89b7fee6c82176ca22168d64414b
+    size: 250642
+    cloud:
+      remote_storage:
+        etag: 08baf192d28a9592031001
+        version_id: '1768739108599994'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (4).png
+    md5: 49fc32f9db9aa86253a692ba8166851c
+    size: 124108
+    cloud:
+      remote_storage:
+        etag: 08cd9a9ad28a9592031001
+        version_id: '1768739108719949'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (40).png
+    md5: 703a17bf340e096039edec6f7ccdaf44
+    size: 180872
+    cloud:
+      remote_storage:
+        etag: 0881e8b3d28a9592031001
+        version_id: '1768739109139457'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (41).png
+    md5: f8e8860afe3a885bb13e7945553fe2e3
+    size: 316492
+    cloud:
+      remote_storage:
+        etag: 08eccde7d18a9592031001
+        version_id: '1768739107890924'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (42).png
+    md5: 46fa42048a6ac315b8bfe453c0bcb51b
+    size: 139214
+    cloud:
+      remote_storage:
+        etag: 088fc1a1d28a9592031001
+        version_id: '1768739108839567'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (43).png
+    md5: c30250f1697436472b164e927ab80b48
+    size: 262104
+    cloud:
+      remote_storage:
+        etag: 0895a7c3d28a9592031001
+        version_id: '1768739109393301'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (44).png
+    md5: 56dc5c283b84e5055454b1c51137fc51
+    size: 173199
+    cloud:
+      remote_storage:
+        etag: 0887e682d28a9592031001
+        version_id: '1768739108336391'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (45).png
+    md5: 5952f15e9df01554c1d66d8fe9163f6a
+    size: 274303
+    cloud:
+      remote_storage:
+        etag: 08ffb591d28a9592031001
+        version_id: '1768739108575999'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (46).png
+    md5: fb9e7124b49a1b4ca157a09773ec88ba
+    size: 139593
+    cloud:
+      remote_storage:
+        etag: 08b4c8b2d28a9592031001
+        version_id: '1768739109119028'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (47).png
+    md5: df311339053f6457524d46d524d4bad4
+    size: 246739
+    cloud:
+      remote_storage:
+        etag: 08a6a3f6d18a9592031001
+        version_id: '1768739108131238'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (48).png
+    md5: 1187d77d4a12cf8434b6028c2488b50c
+    size: 171018
+    cloud:
+      remote_storage:
+        etag: 08ea86b1d28a9592031001
+        version_id: '1768739109094250'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (49).png
+    md5: 8a1f774b359e82ad342aba8ea483a336
+    size: 226575
+    cloud:
+      remote_storage:
+        etag: 08dcade6d28a9592031001
+        version_id: '1768739109967580'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (5).png
+    md5: a624da710b708ca3ca52a2f615c7ea62
+    size: 330240
+    cloud:
+      remote_storage:
+        etag: 08ec94a2d28a9592031001
+        version_id: '1768739108850284'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (50).png
+    md5: beb1fecb0063bf3ff570462406fdd7e4
+    size: 213555
+    cloud:
+      remote_storage:
+        etag: 08f6b593d28a9592031001
+        version_id: '1768739108608758'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (51).png
+    md5: 86b6ee4a71d53817d2376f65962a25dd
+    size: 276746
+    cloud:
+      remote_storage:
+        etag: 088fad86d28a9592031001
+        version_id: '1768739108394639'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (52).png
+    md5: 2e44c063373f27d372d1c1b561d9a64a
+    size: 128950
+    cloud:
+      remote_storage:
+        etag: 08e1cc88d28a9592031001
+        version_id: '1768739108431457'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (53).png
+    md5: a22021231b24c0b183e17135e389bb5a
+    size: 246480
+    cloud:
+      remote_storage:
+        etag: 089ab3f0d18a9592031001
+        version_id: '1768739108034970'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (54).png
+    md5: 24c047757e1dde494c35cb90690c9cf6
+    size: 196022
+    cloud:
+      remote_storage:
+        etag: 08f4afe3d18a9592031001
+        version_id: '1768739107821556'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (55).png
+    md5: 09419a14427af6ca83e615b87b44a8a5
+    size: 277955
+    cloud:
+      remote_storage:
+        etag: 08f5af99d28a9592031001
+        version_id: '1768739108706293'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (56).png
+    md5: 707e417801a53b1109a10932118bfe31
+    size: 174335
+    cloud:
+      remote_storage:
+        etag: 089b8d91d28a9592031001
+        version_id: '1768739108570779'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (57).png
+    md5: 749741bb5b91435bca8757b51603d500
+    size: 279855
+    cloud:
+      remote_storage:
+        etag: 08d7aaa0d28a9592031001
+        version_id: '1768739108820311'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (58).png
+    md5: 663de1e0cdf2594db7fa6f2e4161512b
+    size: 125513
+    cloud:
+      remote_storage:
+        etag: 08bef3fed18a9592031001
+        version_id: '1768739108272574'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (59).png
+    md5: 755191ca100439308574b736ee300b97
+    size: 290751
+    cloud:
+      remote_storage:
+        etag: 08d8dac0d28a9592031001
+        version_id: '1768739109350744'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (6).png
+    md5: efc4db70b8f5d06cf87fcdf2ccedfe53
+    size: 134286
+    cloud:
+      remote_storage:
+        etag: 0884a8d1d18a9592031001
+        version_id: '1768739107525636'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (60).png
+    md5: a448ac708adb438d65e1afa7cdc938d2
+    size: 160583
+    cloud:
+      remote_storage:
+        etag: 08e6919bd28a9592031001
+        version_id: '1768739108735206'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (61).png
+    md5: 486e76e25363beb67ca97b47c4a7968f
+    size: 315050
+    cloud:
+      remote_storage:
+        etag: 08ebc993d28a9592031001
+        version_id: '1768739108611307'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (62).png
+    md5: 6b0a6afd31cf5a3ada703b958690c9b9
+    size: 162232
+    cloud:
+      remote_storage:
+        etag: 08f381ded18a9592031001
+        version_id: '1768739107733747'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (63).png
+    md5: 570eb4fd97b87fe6f1d16a4b53053e9f
+    size: 279694
+    cloud:
+      remote_storage:
+        etag: 0887ede5d28a9592031001
+        version_id: '1768739109959303'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (64).png
+    md5: 13cce6f90551deb153598f46bd473121
+    size: 211191
+    cloud:
+      remote_storage:
+        etag: 088fad97d28a9592031001
+        version_id: '1768739108673167'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (65).png
+    md5: 18fa5656c4d26e0ce7d3252e1589a6a0
+    size: 250338
+    cloud:
+      remote_storage:
+        etag: 08eb9cdfd18a9592031001
+        version_id: '1768739107753579'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (66).png
+    md5: 10d2f1d72ec2324e8fdaa5b2cf7848f7
+    size: 198974
+    cloud:
+      remote_storage:
+        etag: 0890f5eed18a9592031001
+        version_id: '1768739108010640'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (67).png
+    md5: 242e1726f7476fe5bce99805172493e3
+    size: 222328
+    cloud:
+      remote_storage:
+        etag: 08cfc4f5d18a9592031001
+        version_id: '1768739108119119'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (68).png
+    md5: 4871e65637d5ecea749e8dccec76a47d
+    size: 216393
+    cloud:
+      remote_storage:
+        etag: 08a5bd80d28a9592031001
+        version_id: '1768739108298405'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (69).png
+    md5: e1fe80a4e9559453abefdb11b8e0988f
+    size: 251347
+    cloud:
+      remote_storage:
+        etag: 08c7a2b7d28a9592031001
+        version_id: '1768739109196103'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (7).png
+    md5: d4b23f6f2df5dd2920bd3aad689dbdcb
+    size: 277117
+    cloud:
+      remote_storage:
+        etag: 08f5e084d28a9592031001
+        version_id: '1768739108368501'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (70).png
+    md5: e9e6c503920ce46cf384e42584dcd855
+    size: 237454
+    cloud:
+      remote_storage:
+        etag: 08bae495d28a9592031001
+        version_id: '1768739108647482'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (71).png
+    md5: 083bc872eebb2c344133d2b4ebc712e7
+    size: 200603
+    cloud:
+      remote_storage:
+        etag: 08dccce6d18a9592031001
+        version_id: '1768739107874396'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (72).png
+    md5: 58a09088de0bf2ff73009da5f1bc4dfc
+    size: 276080
+    cloud:
+      remote_storage:
+        etag: 08e0cdebd18a9592031001
+        version_id: '1768739107956448'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (73).png
+    md5: 566bc72d02555cf74883acaeeda6feb7
+    size: 235894
+    cloud:
+      remote_storage:
+        etag: 08bccae2d18a9592031001
+        version_id: '1768739107808572'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (74).png
+    md5: 523f774dc06557fb7085414f7c6cbe35
+    size: 270873
+    cloud:
+      remote_storage:
+        etag: 08d3caaed28a9592031001
+        version_id: '1768739109053779'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (75).png
+    md5: e0f6569145a7debec95b7ebb2a253b9a
+    size: 267973
+    cloud:
+      remote_storage:
+        etag: 088fef95d28a9592031001
+        version_id: '1768739108648847'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (76).png
+    md5: f1b5797ffb02a111c076992c22cd51e3
+    size: 277792
+    cloud:
+      remote_storage:
+        etag: 08fa8694d28a9592031001
+        version_id: '1768739108619130'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (77).png
+    md5: 82c443e5b76c9c8d93142d940abb79e5
+    size: 298256
+    cloud:
+      remote_storage:
+        etag: 08cbcc8bd28a9592031001
+        version_id: '1768739108480587'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (78).png
+    md5: cb798c1dd2ca16cea94d43c7b1742138
+    size: 284116
+    cloud:
+      remote_storage:
+        etag: 08a1cd9fd28a9592031001
+        version_id: '1768739108808353'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (79).png
+    md5: 8cc49b21be35119a678df031e161ad8a
+    size: 286962
+    cloud:
+      remote_storage:
+        etag: 08a9a09ed28a9592031001
+        version_id: '1768739108786217'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (8).png
+    md5: fcdfc055e2146be16752c18bb62df5d2
+    size: 157489
+    cloud:
+      remote_storage:
+        etag: 088aecb6d28a9592031001
+        version_id: '1768739109189130'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (80).png
+    md5: 98700088cfffe812c68a99ad913126d7
+    size: 278884
+    cloud:
+      remote_storage:
+        etag: 08eb9c85d28a9592031001
+        version_id: '1768739108376171'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (81).png
+    md5: 3109db79e9b3af782f1c50a5ffb51fe9
+    size: 285572
+    cloud:
+      remote_storage:
+        etag: 08f8a9c0d28a9592031001
+        version_id: '1768739109344504'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (82).png
+    md5: 01e65478b92b0ca4dfa52de5179d8bb9
+    size: 336391
+    cloud:
+      remote_storage:
+        etag: 08d793edd18a9592031001
+        version_id: '1768739107981783'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (83).png
+    md5: c8d9aed105b3cc43bb6d1905ed48c783
+    size: 351970
+    cloud:
+      remote_storage:
+        etag: 08f5c2f8d18a9592031001
+        version_id: '1768739108168053'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (84).png
+    md5: a2de6dd46c8914c30b1ee4d750e3f81d
+    size: 336344
+    cloud:
+      remote_storage:
+        etag: 08eb90ffd18a9592031001
+        version_id: '1768739108276331'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (85).png
+    md5: 40d7008d59bc6076dc1d5622b025bf15
+    size: 357176
+    cloud:
+      remote_storage:
+        etag: 08f199a5d28a9592031001
+        version_id: '1768739108900081'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (86).png
+    md5: a1f77bbfb457bb0c1b1e6fab448e2b5e
+    size: 383312
+    cloud:
+      remote_storage:
+        etag: 08a2af84d38a9592031001
+        version_id: '1768739110459298'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (87).png
+    md5: 9b99d30b82699d89d395b1d28ac734d2
+    size: 392956
+    cloud:
+      remote_storage:
+        etag: 08bc9aaad28a9592031001
+        version_id: '1768739108982076'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (88).png
+    md5: 8675d44a4f6f8fb5d5da9d88194d6c6d
+    size: 337340
+    cloud:
+      remote_storage:
+        etag: 08bda0e8d18a9592031001
+        version_id: '1768739107901501'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (89).png
+    md5: 9ffe1e5235e2d047b1cc30c1998cf13b
+    size: 349142
+    cloud:
+      remote_storage:
+        etag: 08dc86b8d28a9592031001
+        version_id: '1768739109208924'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (9).png
+    md5: 1aa09907a723f4ec3e9bc1aeaf5390cf
+    size: 308842
+    cloud:
+      remote_storage:
+        etag: 08f1cfb4d28a9592031001
+        version_id: '1768739109152753'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (90).png
+    md5: fe860dea06034c3af7a41debc4cd3e14
+    size: 333202
+    cloud:
+      remote_storage:
+        etag: 08feaa98d28a9592031001
+        version_id: '1768739108689278'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (91).png
+    md5: 0e8124dca55434155eaa6401e4a8c135
+    size: 338981
+    cloud:
+      remote_storage:
+        etag: 08ccabd7d28a9592031001
+        version_id: '1768739109721548'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (92).png
+    md5: 783a66622fa606714f21ff40934e21f7
+    size: 356507
+    cloud:
+      remote_storage:
+        etag: 08d1d2d3d28a9592031001
+        version_id: '1768739109661009'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (93).png
+    md5: c1e505320892e6e21e09fb61c59ce539
+    size: 379136
+    cloud:
+      remote_storage:
+        etag: 08b2f987d28a9592031001
+        version_id: '1768739108420786'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (94).png
+    md5: d9d5c2bcdca1447205aabb3b7d8ea26a
+    size: 375933
+    cloud:
+      remote_storage:
+        etag: 0899c7d5d28a9592031001
+        version_id: '1768739109692313'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (95).png
+    md5: 15e8e04c1b7e91cb55fa9fa7ac3204ed
+    size: 371465
+    cloud:
+      remote_storage:
+        etag: 08a3d4cdd28a9592031001
+        version_id: '1768739109562915'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (96).png
+    md5: 2c829ee69a4ba4f8ad2f62c415246b17
+    size: 359742
+    cloud:
+      remote_storage:
+        etag: 0893f5c3d28a9592031001
+        version_id: '1768739109403283'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (97).png
+    md5: b0bb898bb8885754e9786476832ad911
+    size: 362743
+    cloud:
+      remote_storage:
+        etag: 08a2c3efd18a9592031001
+        version_id: '1768739108020642'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (98).png
+    md5: 1042122f29235cf96835c91c2b9a3225
+    size: 349524
+    cloud:
+      remote_storage:
+        etag: 088cb391d28a9592031001
+        version_id: '1768739108575628'
+  - relpath: Grapevine_Leaves_Image_Dataset/Ala_Idris/Ala_Idris (99).png
+    md5: 2d1d68f31de0b9482c9d075522dc1495
+    size: 306554
+    cloud:
+      remote_storage:
+        etag: 08dbd2b5d28a9592031001
+        version_id: '1768739109169499'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (1).png
+    md5: 7e7c974476e15259dcd9d0837ebeb8d9
+    size: 146570
+    cloud:
+      remote_storage:
+        etag: 0898f29ad38a9592031001
+        version_id: '1768739110828312'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (10).png
+    md5: 2cf3b79545f7fea25cdb8b7764b815e6
+    size: 219389
+    cloud:
+      remote_storage:
+        etag: 08e1848cd38a9592031001
+        version_id: '1768739110584929'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (100).png
+    md5: a0ecb5be0ad178d0be465bfeec5a21fd
+    size: 336390
+    cloud:
+      remote_storage:
+        etag: 08bec8abd38a9592031001
+        version_id: '1768739111101502'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (11).png
+    md5: 848ae01549d6f4372e9c3bb0a3e9d1ab
+    size: 184827
+    cloud:
+      remote_storage:
+        etag: 08fbb3b2d38a9592031001
+        version_id: '1768739111213563'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (12).png
+    md5: eb944864b2dbe8121be5c6308d2e25d0
+    size: 178448
+    cloud:
+      remote_storage:
+        etag: 089a99ebd28a9592031001
+        version_id: '1768739110046874'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (13).png
+    md5: ad3bdc722ab45e34ebc5fd1e0cc7edfe
+    size: 255669
+    cloud:
+      remote_storage:
+        etag: 08caf993d38a9592031001
+        version_id: '1768739110714570'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (14).png
+    md5: 3aa04f8214524a247c38300d86a1c83e
+    size: 188764
+    cloud:
+      remote_storage:
+        etag: 08f3f490d38a9592031001
+        version_id: '1768739110664819'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (15).png
+    md5: e3f21b1abfca6d5aaeee532f86c845bf
+    size: 221470
+    cloud:
+      remote_storage:
+        etag: 08f1fff2d28a9592031001
+        version_id: '1768739110174705'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (16).png
+    md5: 7c6d600780d3be4675ba0185842f361e
+    size: 188864
+    cloud:
+      remote_storage:
+        etag: 08cffef2d28a9592031001
+        version_id: '1768739110174543'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (17).png
+    md5: b9e486cd9197042e9606f9b4f5178eb2
+    size: 253355
+    cloud:
+      remote_storage:
+        etag: 0885d8e7d28a9592031001
+        version_id: '1768739109989381'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (18).png
+    md5: c0c87557d7c1455c8d4a0371ca9df795
+    size: 224315
+    cloud:
+      remote_storage:
+        etag: 0893eaacd38a9592031001
+        version_id: '1768739111122195'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (19).png
+    md5: 3da9743d52b2c91b9ac89994c9776e19
+    size: 240935
+    cloud:
+      remote_storage:
+        etag: 08a184b1d38a9592031001
+        version_id: '1768739111191073'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (2).png
+    md5: 5a2d23189d94c087f8cf550d911a5e52
+    size: 268553
+    cloud:
+      remote_storage:
+        etag: 08dcaf97d38a9592031001
+        version_id: '1768739110770652'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (20).png
+    md5: acdb45f9209fbdcdbe884cbfd21afaaa
+    size: 175643
+    cloud:
+      remote_storage:
+        etag: 08d9f08ad38a9592031001
+        version_id: '1768739110565977'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (21).png
+    md5: fd2e9a2bcda9b5a8b3d7646115239e5d
+    size: 268894
+    cloud:
+      remote_storage:
+        etag: 0882f4c7d38a9592031001
+        version_id: '1768739111565826'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (22).png
+    md5: 62e88e2aaf2408624e46a0694d983981
+    size: 213185
+    cloud:
+      remote_storage:
+        etag: 08b8a290d38a9592031001
+        version_id: '1768739110654264'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (23).png
+    md5: f5368a05c35344481cd5978bdc327960
+    size: 259850
+    cloud:
+      remote_storage:
+        etag: 08b6aec0d38a9592031001
+        version_id: '1768739111442230'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (24).png
+    md5: f9954e4fb323cdfd8c3cb14e8a0975bb
+    size: 201537
+    cloud:
+      remote_storage:
+        etag: 08defbc9d28a9592031001
+        version_id: '1768739109502430'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (25).png
+    md5: 14c1837f96407849e386be5bae824806
+    size: 263120
+    cloud:
+      remote_storage:
+        etag: 08efbed6d28a9592031001
+        version_id: '1768739109707631'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (26).png
+    md5: ea5a63173dc19999aaa0f50ddf2ec84f
+    size: 93868
+    cloud:
+      remote_storage:
+        etag: 08efdbfad28a9592031001
+        version_id: '1768739110301167'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (27).png
+    md5: 3a57db39c00143a6fe338961c28db14f
+    size: 142398
+    cloud:
+      remote_storage:
+        etag: 08f9e3add38a9592031001
+        version_id: '1768739111137785'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (28).png
+    md5: a910d99dbeb48b2a8a7efb664ce3fb00
+    size: 261906
+    cloud:
+      remote_storage:
+        etag: 08c8acddd28a9592031001
+        version_id: '1768739109819976'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (29).png
+    md5: 18ea10be30e4f31e84392e72eca3e2f0
+    size: 197295
+    cloud:
+      remote_storage:
+        etag: 08e980bed38a9592031001
+        version_id: '1768739111403625'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (3).png
+    md5: bc42a8dda01820c6c567d77532f32dcf
+    size: 145373
+    cloud:
+      remote_storage:
+        etag: 08e0b1d0d28a9592031001
+        version_id: '1768739109607648'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (30).png
+    md5: e8b1825a8a24e89c13d65528f5ea2883
+    size: 239332
+    cloud:
+      remote_storage:
+        etag: 08b68491d38a9592031001
+        version_id: '1768739110666806'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (31).png
+    md5: b142d337a8d3a862ad247993d2389773
+    size: 225545
+    cloud:
+      remote_storage:
+        etag: 08ecc18dd38a9592031001
+        version_id: '1768739110609132'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (32).png
+    md5: c180c60a411a5ece600b758fc0c66ffa
+    size: 277427
+    cloud:
+      remote_storage:
+        etag: 08e9dfcdd28a9592031001
+        version_id: '1768739109564393'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (33).png
+    md5: 5924157fbff3d01264080885b0703081
+    size: 149588
+    cloud:
+      remote_storage:
+        etag: 0886b6dcd28a9592031001
+        version_id: '1768739109804806'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (34).png
+    md5: a88b96489cfeda62a94815a4848333dd
+    size: 258759
+    cloud:
+      remote_storage:
+        etag: 08deb9f8d28a9592031001
+        version_id: '1768739110264030'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (35).png
+    md5: acfb3dc7b96e7a0723eab4e0ee4a8ec4
+    size: 212770
+    cloud:
+      remote_storage:
+        etag: 08eda2e2d28a9592031001
+        version_id: '1768739109900653'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (36).png
+    md5: d67116520905cdfd6390349f7dd04a98
+    size: 296080
+    cloud:
+      remote_storage:
+        etag: 08a882f2d28a9592031001
+        version_id: '1768739110158632'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (37).png
+    md5: ee2b2f51a4d59fbdb6e81aeeeb75fec0
+    size: 117343
+    cloud:
+      remote_storage:
+        etag: 08b0f792d38a9592031001
+        version_id: '1768739110697904'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (38).png
+    md5: 026cbb2b5c755f3df8f95ddbf5bf1e67
+    size: 316276
+    cloud:
+      remote_storage:
+        etag: 08e6f993d38a9592031001
+        version_id: '1768739110714598'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (39).png
+    md5: 5288b832bab8b26135fdb86ef399bd93
+    size: 159947
+    cloud:
+      remote_storage:
+        etag: 08ebe0e6d28a9592031001
+        version_id: '1768739109974123'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (4).png
+    md5: 1c287de3b2b451cc249b2fe18655a7ee
+    size: 300197
+    cloud:
+      remote_storage:
+        etag: 08efb8d0d38a9592031001
+        version_id: '1768739111705711'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (40).png
+    md5: 355fef9b1d448c1c2fe12887b80a0b5c
+    size: 322115
+    cloud:
+      remote_storage:
+        etag: 08ecdfebd28a9592031001
+        version_id: '1768739110055916'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (41).png
+    md5: 3cc672389345c914f0732e0712ec89a1
+    size: 218902
+    cloud:
+      remote_storage:
+        etag: 08e9baf1d28a9592031001
+        version_id: '1768739110149481'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (42).png
+    md5: cb46d3683d4e7d3b7ee5061653d143bc
+    size: 125160
+    cloud:
+      remote_storage:
+        etag: 08f1e1bfd28a9592031001
+        version_id: '1768739109335281'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (43).png
+    md5: 66b12b851202600e74e7794883302530
+    size: 185426
+    cloud:
+      remote_storage:
+        etag: 08d598dcd28a9592031001
+        version_id: '1768739109801045'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (44).png
+    md5: 069fe28a9218e458d9f6c0d88debf26d
+    size: 285493
+    cloud:
+      remote_storage:
+        etag: 0890a5d6d28a9592031001
+        version_id: '1768739109704336'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (45).png
+    md5: e22e0c030ee2f907d00a411c366b6903
+    size: 245684
+    cloud:
+      remote_storage:
+        etag: 08aeedeed28a9592031001
+        version_id: '1768739110106798'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (46).png
+    md5: e254e3094146e01fae2dc14d4d50ac67
+    size: 171781
+    cloud:
+      remote_storage:
+        etag: 08d189d1d38a9592031001
+        version_id: '1768739111716049'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (47).png
+    md5: 377a89631e4552d2e1310aff5c39521a
+    size: 254995
+    cloud:
+      remote_storage:
+        etag: 08e6c4ebd28a9592031001
+        version_id: '1768739110052454'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (48).png
+    md5: b9ce4362d62517632340ace9fdd55bc6
+    size: 187252
+    cloud:
+      remote_storage:
+        etag: 08e3aa80d38a9592031001
+        version_id: '1768739110393187'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (49).png
+    md5: 89cddf1be52ce278694e3ff9b8a2e14f
+    size: 195701
+    cloud:
+      remote_storage:
+        etag: 088fdfd6d28a9592031001
+        version_id: '1768739109711759'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (5).png
+    md5: 8ebe06f20c7b0ce9f7392eb46b1bc764
+    size: 206392
+    cloud:
+      remote_storage:
+        etag: 08f5908cd38a9592031001
+        version_id: '1768739110586485'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (50).png
+    md5: f6fd57d017803143c9de12594d37f971
+    size: 197829
+    cloud:
+      remote_storage:
+        etag: 08e080d3d28a9592031001
+        version_id: '1768739109650528'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (51).png
+    md5: 1ea94f69b1b44ee727213427949ca0de
+    size: 257328
+    cloud:
+      remote_storage:
+        etag: 08e087f2d38a9592031001
+        version_id: '1768739112256480'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (52).png
+    md5: 658091e49e8f19a8f7483d617d1dc9a4
+    size: 190166
+    cloud:
+      remote_storage:
+        etag: 08d8dae7d28a9592031001
+        version_id: '1768739109989720'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (53).png
+    md5: 35d5db1a5cebd178d17e3481e161cf0f
+    size: 220395
+    cloud:
+      remote_storage:
+        etag: 08b3c8ddd28a9592031001
+        version_id: '1768739109823539'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (54).png
+    md5: 30129b5edc4b6c47dc4548806f6595c6
+    size: 189564
+    cloud:
+      remote_storage:
+        etag: 08d596ced28a9592031001
+        version_id: '1768739109571413'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (55).png
+    md5: 5705610f78d610d63e074c27832a1a0e
+    size: 249333
+    cloud:
+      remote_storage:
+        etag: 08d9a1e7d28a9592031001
+        version_id: '1768739109982425'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (56).png
+    md5: a5ba0cab28bfb1040b92422bd5d65893
+    size: 296946
+    cloud:
+      remote_storage:
+        etag: 08f2d8b1d38a9592031001
+        version_id: '1768739111201906'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (57).png
+    md5: 1499cae7f7f53d74451be1660b2a959b
+    size: 376127
+    cloud:
+      remote_storage:
+        etag: 08dfd7f5d28a9592031001
+        version_id: '1768739110218719'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (58).png
+    md5: d8258adf751eb03005e9aa85aefa7d85
+    size: 316911
+    cloud:
+      remote_storage:
+        etag: 08fe90f3d28a9592031001
+        version_id: '1768739110176894'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (59).png
+    md5: cf632968a3ee72b601c2118d8137f2ee
+    size: 221754
+    cloud:
+      remote_storage:
+        etag: 08b28795d38a9592031001
+        version_id: '1768739110732722'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (6).png
+    md5: 869ff84004a3c35e7e8dd5e6f58ce771
+    size: 174761
+    cloud:
+      remote_storage:
+        etag: 08c4b28ad38a9592031001
+        version_id: '1768739110558020'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (60).png
+    md5: 1bcf23d8f4f2ee88ff2288587c13b6ed
+    size: 213262
+    cloud:
+      remote_storage:
+        etag: 08efbce2d28a9592031001
+        version_id: '1768739109903983'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (61).png
+    md5: 8c8e26ff98d792d8c7ba6764e692c81c
+    size: 263344
+    cloud:
+      remote_storage:
+        etag: 08d7fba4d38a9592031001
+        version_id: '1768739110993367'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (62).png
+    md5: d9417155ec3d4af9f5b08f6be5cb0730
+    size: 173018
+    cloud:
+      remote_storage:
+        etag: 08f7fbffd28a9592031001
+        version_id: '1768739110387191'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (63).png
+    md5: 4dff1ef9b98a3c971414c3b25365b1fb
+    size: 199614
+    cloud:
+      remote_storage:
+        etag: 08d5fda9d38a9592031001
+        version_id: '1768739111075541'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (64).png
+    md5: f360b5e459b469714422989b10ae45a8
+    size: 238165
+    cloud:
+      remote_storage:
+        etag: 08acc0c7d28a9592031001
+        version_id: '1768739109462060'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (65).png
+    md5: 8f5f78c67f887174c2ed447b2fc1534b
+    size: 232890
+    cloud:
+      remote_storage:
+        etag: 08e2c897d38a9592031001
+        version_id: '1768739110773858'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (66).png
+    md5: 3ba23f5c74ff12ac4e73ee7ea5d8ece5
+    size: 204410
+    cloud:
+      remote_storage:
+        etag: 089da887d38a9592031001
+        version_id: '1768739110507549'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (67).png
+    md5: 8e5abbfc4b458fbff00f1df98d0789c5
+    size: 273205
+    cloud:
+      remote_storage:
+        etag: 08eca9bed38a9592031001
+        version_id: '1768739111408876'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (68).png
+    md5: fc3455f1fa9949d67fd7d21e7fd7c92e
+    size: 176946
+    cloud:
+      remote_storage:
+        etag: 08abadf1d28a9592031001
+        version_id: '1768739110147755'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (69).png
+    md5: 095f827e6ab928a127352d5d995250d8
+    size: 263355
+    cloud:
+      remote_storage:
+        etag: 08b1fbdfd28a9592031001
+        version_id: '1768739109862833'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (7).png
+    md5: 6ad4b46a9ec6f56524ba36c2b70eaeed
+    size: 203484
+    cloud:
+      remote_storage:
+        etag: 08d9b9b7d38a9592031001
+        version_id: '1768739111296217'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (70).png
+    md5: 88089894a2e5e8396fb8356abeeb6eee
+    size: 247055
+    cloud:
+      remote_storage:
+        etag: 08c2d682d38a9592031001
+        version_id: '1768739110431554'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (71).png
+    md5: 3192fdb1731ca945cf98efd6cf3a46ec
+    size: 269759
+    cloud:
+      remote_storage:
+        etag: 08fafbb6d38a9592031001
+        version_id: '1768739111288314'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (72).png
+    md5: 60ec9ab7bd6811ea0f51d136bc5de3f1
+    size: 133921
+    cloud:
+      remote_storage:
+        etag: 08e69bbed28a9592031001
+        version_id: '1768739109309926'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (73).png
+    md5: c419d6b2fd24b71260b7724b9b9a3405
+    size: 248978
+    cloud:
+      remote_storage:
+        etag: 0893bcb1d38a9592031001
+        version_id: '1768739111198227'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (74).png
+    md5: 60e308b9104390f82679fceebdfd30d1
+    size: 190583
+    cloud:
+      remote_storage:
+        etag: 08f4a19bd38a9592031001
+        version_id: '1768739110834420'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (75).png
+    md5: 8b01dfb7f58cedf3603b03ec2c6fbb7d
+    size: 203633
+    cloud:
+      remote_storage:
+        etag: 088ebeefd28a9592031001
+        version_id: '1768739110117134'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (76).png
+    md5: 3b49a2cfd7019f82a9d047c4cbd3d978
+    size: 259725
+    cloud:
+      remote_storage:
+        etag: 08beccf2d28a9592031001
+        version_id: '1768739110168126'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (77).png
+    md5: ea3a5a24badd1fb45fb0d43270e973a0
+    size: 204201
+    cloud:
+      remote_storage:
+        etag: 08b3d5b2d38a9592031001
+        version_id: '1768739111217843'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (78).png
+    md5: 73c64eee360dd434bc7c629def51fda9
+    size: 247291
+    cloud:
+      remote_storage:
+        etag: 08aea498d38a9592031001
+        version_id: '1768739110785582'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (79).png
+    md5: b30b860bba4b5eaa55e3fb1da9fa1a75
+    size: 265773
+    cloud:
+      remote_storage:
+        etag: 08cd98aed38a9592031001
+        version_id: '1768739111144525'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (8).png
+    md5: ca985a2697d9d2a36fd4cf676664a2e3
+    size: 266429
+    cloud:
+      remote_storage:
+        etag: 08b0cfc7d38a9592031001
+        version_id: '1768739111561136'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (80).png
+    md5: feff558ebe60d5d330478fa2589149b1
+    size: 194651
+    cloud:
+      remote_storage:
+        etag: 08b7a8f7d28a9592031001
+        version_id: '1768739110245431'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (81).png
+    md5: fa6fa752aaae9fdf99eea1d992e9b6d4
+    size: 296883
+    cloud:
+      remote_storage:
+        etag: 0883f981d38a9592031001
+        version_id: '1768739110419587'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (82).png
+    md5: 1285cf423dc838cefb3ffdae65c1526f
+    size: 176835
+    cloud:
+      remote_storage:
+        etag: 0883d6abd38a9592031001
+        version_id: '1768739111103235'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (83).png
+    md5: 4b796df15790481e804a6be0b584e423
+    size: 233594
+    cloud:
+      remote_storage:
+        etag: 08a0ebeed28a9592031001
+        version_id: '1768739110106528'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (84).png
+    md5: ae2a667359bcb266b64f88e606ab725e
+    size: 194122
+    cloud:
+      remote_storage:
+        etag: 0886a886d38a9592031001
+        version_id: '1768739110491142'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (85).png
+    md5: 231480561cd78842702830c64f7ab65c
+    size: 201835
+    cloud:
+      remote_storage:
+        etag: 088cfce8d28a9592031001
+        version_id: '1768739110010380'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (86).png
+    md5: b27f849b556e18c5707f7d2d0b50250d
+    size: 230924
+    cloud:
+      remote_storage:
+        etag: 08bb9f8fd38a9592031001
+        version_id: '1768739110637499'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (87).png
+    md5: 6dd68b53b2171c856e2b1e008626cb1e
+    size: 237894
+    cloud:
+      remote_storage:
+        etag: 08b6a3a7d38a9592031001
+        version_id: '1768739111031222'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (88).png
+    md5: 3276c79eaf0496fdc9866671ea83d7a1
+    size: 214960
+    cloud:
+      remote_storage:
+        etag: 088f92d1d28a9592031001
+        version_id: '1768739109619983'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (89).png
+    md5: a0304520ce85ee059bfe300b54355ba7
+    size: 207411
+    cloud:
+      remote_storage:
+        etag: 08bbf4d6d28a9592031001
+        version_id: '1768739109714491'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (9).png
+    md5: 29f944a01c1b7b2149585a02ef6b8004
+    size: 260139
+    cloud:
+      remote_storage:
+        etag: 08fdb29ad38a9592031001
+        version_id: '1768739110820221'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (90).png
+    md5: ba399964381b79c34b7eda9c2bbc646b
+    size: 198929
+    cloud:
+      remote_storage:
+        etag: 08a29e91d38a9592031001
+        version_id: '1768739110670114'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (91).png
+    md5: 6c5691fcfbbe9c5764a538ebff702a16
+    size: 248350
+    cloud:
+      remote_storage:
+        etag: 089ea7f1d28a9592031001
+        version_id: '1768739110146974'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (92).png
+    md5: c2881c581a30a0ed416281d9b1f6dcbc
+    size: 208901
+    cloud:
+      remote_storage:
+        etag: 08e5bbc5d38a9592031001
+        version_id: '1768739111525861'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (93).png
+    md5: 9c981a1889a80974462813ab6fae812e
+    size: 352265
+    cloud:
+      remote_storage:
+        etag: 08c3ec8cd48a9592031001
+        version_id: '1768739112695363'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (94).png
+    md5: 9e6ba840be3eb08617b16962ed3ab371
+    size: 137925
+    cloud:
+      remote_storage:
+        etag: 08e7d3f7d28a9592031001
+        version_id: '1768739110250983'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (95).png
+    md5: e94e52b514da58dc2bf12aebdb150f11
+    size: 182620
+    cloud:
+      remote_storage:
+        etag: 0896d8a6d38a9592031001
+        version_id: '1768739111021590'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (96).png
+    md5: c94be15665806527300eef734acc0e29
+    size: 202608
+    cloud:
+      remote_storage:
+        etag: 088a90e6d28a9592031001
+        version_id: '1768739109963786'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (97).png
+    md5: f78a745e8ab44f78038803d0f585b76a
+    size: 153763
+    cloud:
+      remote_storage:
+        etag: 08aedff1d28a9592031001
+        version_id: '1768739110154158'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (98).png
+    md5: 8796d8f868a932c0395bf06606e397e3
+    size: 190598
+    cloud:
+      remote_storage:
+        etag: 08b6bdf9d28a9592031001
+        version_id: '1768739110280886'
+  - relpath: Grapevine_Leaves_Image_Dataset/Buzgulu/Buzgulu (99).png
+    md5: ba5c7943014c503ecc689e72aff0a560
+    size: 178026
+    cloud:
+      remote_storage:
+        etag: 08b5f5bdd38a9592031001
+        version_id: '1768739111402165'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (1).png
+    md5: d39df12ba12ff93cfa173742115507c7
+    size: 237563
+    cloud:
+      remote_storage:
+        etag: 0888c9bad18a9592031001
+        version_id: '1768739107153032'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (10).png
+    md5: 0640bd65ba96c9d08a84b65e4b09065f
+    size: 140540
+    cloud:
+      remote_storage:
+        etag: 08b9b8bcd18a9592031001
+        version_id: '1768739107183673'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (100).png
+    md5: cabc7bc1594d5d6ca0ce3108169bcfab
+    size: 174819
+    cloud:
+      remote_storage:
+        etag: 08ffecb1d18a9592031001
+        version_id: '1768739107010175'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (11).png
+    md5: 615589f843861b29bf17323862d47e70
+    size: 293373
+    cloud:
+      remote_storage:
+        etag: 08fca2d3d18a9592031001
+        version_id: '1768739107557756'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (12).png
+    md5: 7e7e6ef8fa0977651b15687ad0bcfbdc
+    size: 170603
+    cloud:
+      remote_storage:
+        etag: 08caafaad18a9592031001
+        version_id: '1768739106887626'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (13).png
+    md5: a08032f2d1a8df7949d738eb75f46ecf
+    size: 242664
+    cloud:
+      remote_storage:
+        etag: 0897af92d18a9592031001
+        version_id: '1768739106494359'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (14).png
+    md5: 725d074e8209d8a954b31eedfe47519d
+    size: 187643
+    cloud:
+      remote_storage:
+        etag: 08a9f79bd18a9592031001
+        version_id: '1768739106651049'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (15).png
+    md5: 434e8b3ccad340f8c9b5cd50a8d77871
+    size: 291514
+    cloud:
+      remote_storage:
+        etag: 08ff86a4d18a9592031001
+        version_id: '1768739106784127'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (16).png
+    md5: a81c2c1892fb432bf152b2e5809437ed
+    size: 121784
+    cloud:
+      remote_storage:
+        etag: 08f08eacd18a9592031001
+        version_id: '1768739106916208'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (17).png
+    md5: 4c39af23bf5a103742510c49a2e19167
+    size: 368320
+    cloud:
+      remote_storage:
+        etag: 08cb889bd18a9592031001
+        version_id: '1768739106636875'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (18).png
+    md5: eea83c22ef3765214a67f2e94848cab9
+    size: 243792
+    cloud:
+      remote_storage:
+        etag: 08aef991d18a9592031001
+        version_id: '1768739106487470'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (19).png
+    md5: 458429043f1dcaceee4b289ac2305548
+    size: 177761
+    cloud:
+      remote_storage:
+        etag: 08a2c988d18a9592031001
+        version_id: '1768739106333858'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (2).png
+    md5: 15fc2d0df4d6d0275f25c57ab1004225
+    size: 142636
+    cloud:
+      remote_storage:
+        etag: 08b389cbd18a9592031001
+        version_id: '1768739107423411'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (20).png
+    md5: f430d0ad62946454295ad0a1272b509f
+    size: 257293
+    cloud:
+      remote_storage:
+        etag: 088cbc99d18a9592031001
+        version_id: '1768739106610700'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (21).png
+    md5: 6c5f766868f8646ac6b55f2af842e228
+    size: 170394
+    cloud:
+      remote_storage:
+        etag: 08c78f82d18a9592031001
+        version_id: '1768739106228167'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (22).png
+    md5: 37f20b4dc9e4fb2096db7c18e6177280
+    size: 294199
+    cloud:
+      remote_storage:
+        etag: 08f6cfe3d18a9592031001
+        version_id: '1768739107825654'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (23).png
+    md5: cab14dd5a282303d8f0b2a9a03431f77
+    size: 173884
+    cloud:
+      remote_storage:
+        etag: 08a8a6b6d18a9592031001
+        version_id: '1768739107083048'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (24).png
+    md5: e050022861ded02c2f1e6044641ff9f3
+    size: 225580
+    cloud:
+      remote_storage:
+        etag: 08bc83a9d18a9592031001
+        version_id: '1768739106865596'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (25).png
+    md5: 8baef7d9354a2e8e02f48017c288aa82
+    size: 209003
+    cloud:
+      remote_storage:
+        etag: 08bae8c3d18a9592031001
+        version_id: '1768739107304506'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (26).png
+    md5: b97d2a9a4343b4d8b5499a0cdc938458
+    size: 270152
+    cloud:
+      remote_storage:
+        etag: 08c89192d18a9592031001
+        version_id: '1768739106490568'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (27).png
+    md5: b124153a2a9cac5412f0927d15d0ad6d
+    size: 209293
+    cloud:
+      remote_storage:
+        etag: 089dbd99d18a9592031001
+        version_id: '1768739106610845'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (28).png
+    md5: a304b49910ec28480715fec0dbc0081b
+    size: 299032
+    cloud:
+      remote_storage:
+        etag: 088de0ccd18a9592031001
+        version_id: '1768739107450893'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (29).png
+    md5: 36ca350ab162dfdabd854dec0bd723b2
+    size: 216718
+    cloud:
+      remote_storage:
+        etag: 08ad958ed18a9592031001
+        version_id: '1768739106425517'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (3).png
+    md5: 4fe515459d814ae16b28b85f850220e1
+    size: 247816
+    cloud:
+      remote_storage:
+        etag: 089fa1c9d18a9592031001
+        version_id: '1768739107393695'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (30).png
+    md5: 08e633f6ba4092e76f039a9451251aab
+    size: 245468
+    cloud:
+      remote_storage:
+        etag: 08b9c387d18a9592031001
+        version_id: '1768739106316729'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (31).png
+    md5: 22fffa9e32bc1e386e2a88a80e65f3c8
+    size: 180277
+    cloud:
+      remote_storage:
+        etag: 08f6e6bad18a9592031001
+        version_id: '1768739107156854'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (32).png
+    md5: 75c8dae131a268744d2271b3047d3e79
+    size: 217486
+    cloud:
+      remote_storage:
+        etag: 08b0af99d18a9592031001
+        version_id: '1768739106609072'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (33).png
+    md5: 2dce3028716f80ba7fe61c64d0174582
+    size: 112328
+    cloud:
+      remote_storage:
+        etag: 08fbb5ced18a9592031001
+        version_id: '1768739107478267'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (34).png
+    md5: 54f413d752fb4f43431672589cc0522d
+    size: 159995
+    cloud:
+      remote_storage:
+        etag: 08c1e187d18a9592031001
+        version_id: '1768739106320577'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (35).png
+    md5: 6003a10fe53bda73cc02e9ef31062241
+    size: 247486
+    cloud:
+      remote_storage:
+        etag: 0889bd91d18a9592031001
+        version_id: '1768739106479753'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (36).png
+    md5: 02827760a6cc6e644ff634b473dcbb41
+    size: 174346
+    cloud:
+      remote_storage:
+        etag: 08ddace6d18a9592031001
+        version_id: '1768739107870301'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (37).png
+    md5: 52c2d02cc4db001f8a791a11b3e1bf84
+    size: 247548
+    cloud:
+      remote_storage:
+        etag: 0883dd91d18a9592031001
+        version_id: '1768739106483843'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (38).png
+    md5: 75602cce47cfb0d41e4da3576a474558
+    size: 164561
+    cloud:
+      remote_storage:
+        etag: 0895b488d18a9592031001
+        version_id: '1768739106331157'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (39).png
+    md5: 41181096ef475bdb620b3c83de701412
+    size: 238114
+    cloud:
+      remote_storage:
+        etag: 08c2a0c7d18a9592031001
+        version_id: '1768739107360834'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (4).png
+    md5: c9c2faf94b03465608150b6ddb33eee2
+    size: 222716
+    cloud:
+      remote_storage:
+        etag: 08b8fddbd18a9592031001
+        version_id: '1768739107700408'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (40).png
+    md5: 92ca6b818cd4d98707f146433378f1af
+    size: 209130
+    cloud:
+      remote_storage:
+        etag: 08ff89f9d08a9592031001
+        version_id: '1768739106079999'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (41).png
+    md5: a7133a48ff42c28e7f254747fca826cf
+    size: 237713
+    cloud:
+      remote_storage:
+        etag: 08a2c9c9d18a9592031001
+        version_id: '1768739107398818'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (42).png
+    md5: 33a2dd9b43c468a607b19f951b9b23d1
+    size: 164203
+    cloud:
+      remote_storage:
+        etag: 0887f2b7d18a9592031001
+        version_id: '1768739107109127'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (43).png
+    md5: 807a024fba2d03e9e894b649ea1e718c
+    size: 282203
+    cloud:
+      remote_storage:
+        etag: 0898f195d18a9592031001
+        version_id: '1768739106551960'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (44).png
+    md5: ec32b63620e47bd892b689bf39846b96
+    size: 124811
+    cloud:
+      remote_storage:
+        etag: 089cadb4d18a9592031001
+        version_id: '1768739107051164'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (45).png
+    md5: cf62cbc1afdeda2989e1e3f017083b1a
+    size: 305689
+    cloud:
+      remote_storage:
+        etag: 088ce499d18a9592031001
+        version_id: '1768739106615820'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (46).png
+    md5: fbc5f52188775fc61634709011ff0978
+    size: 155157
+    cloud:
+      remote_storage:
+        etag: 0885a486d18a9592031001
+        version_id: '1768739106296325'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (47).png
+    md5: 2b1c37a8cafc9290bba8b12dc9cf00d9
+    size: 275404
+    cloud:
+      remote_storage:
+        etag: 089de9ccd18a9592031001
+        version_id: '1768739107452061'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (48).png
+    md5: ab77272c1b4512f30f7edeed4977d9b8
+    size: 191410
+    cloud:
+      remote_storage:
+        etag: 08f3e8ced18a9592031001
+        version_id: '1768739107484787'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (49).png
+    md5: f22230f8c653ece3e07792558b83e4cb
+    size: 269502
+    cloud:
+      remote_storage:
+        etag: 08b0e88ad18a9592031001
+        version_id: '1768739106370608'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (5).png
+    md5: cad1cbece180c37c91b5d65e633d95b4
+    size: 324008
+    cloud:
+      remote_storage:
+        etag: 08b2919ed18a9592031001
+        version_id: '1768739106687154'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (50).png
+    md5: ce87d91239aa64af16d5bec5616d2ac8
+    size: 148044
+    cloud:
+      remote_storage:
+        etag: 08f398a1d18a9592031001
+        version_id: '1768739106737267'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (51).png
+    md5: a5182e6debb641f71c216aafc24ecd23
+    size: 200853
+    cloud:
+      remote_storage:
+        etag: 08a18b8dd18a9592031001
+        version_id: '1768739106407841'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (52).png
+    md5: 398b002cf1624e1cc993318f3647b9b4
+    size: 190157
+    cloud:
+      remote_storage:
+        etag: 08ba93a8d18a9592031001
+        version_id: '1768739106851258'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (53).png
+    md5: 78a7533e85c8a8b7c1a4cfc93939284b
+    size: 203649
+    cloud:
+      remote_storage:
+        etag: 089d9fb3d18a9592031001
+        version_id: '1768739107032989'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (54).png
+    md5: 8b2eb60936cd57c1b776bec20ef03001
+    size: 202065
+    cloud:
+      remote_storage:
+        etag: 08ddcbbad18a9592031001
+        version_id: '1768739107153373'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (55).png
+    md5: 1386e3fb9b2cd1fde59a5703a140e85e
+    size: 211069
+    cloud:
+      remote_storage:
+        etag: 089cc68dd18a9592031001
+        version_id: '1768739106415388'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (56).png
+    md5: a40fc6ca79daa848f82921c9c7bba792
+    size: 175984
+    cloud:
+      remote_storage:
+        etag: 08b0dcb6d18a9592031001
+        version_id: '1768739107089968'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (57).png
+    md5: 979e9d4c58405632ddb9e7e98734d9eb
+    size: 359392
+    cloud:
+      remote_storage:
+        etag: 0888bbf3d18a9592031001
+        version_id: '1768739108085128'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (58).png
+    md5: 16c60ac78d9461b32a8fdfd4aa69c5a2
+    size: 345752
+    cloud:
+      remote_storage:
+        etag: 08a789c1d18a9592031001
+        version_id: '1768739107259559'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (59).png
+    md5: c6c25527cfd33dbc234c0c34e9a01b1f
+    size: 354519
+    cloud:
+      remote_storage:
+        etag: 089af1dfd18a9592031001
+        version_id: '1768739107764378'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (6).png
+    md5: d5e71cb2415801850ff082564b8c1485
+    size: 190738
+    cloud:
+      remote_storage:
+        etag: 08ddbd84d18a9592031001
+        version_id: '1768739106266845'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (60).png
+    md5: 11b6dbce0c222e637a1f6458ee71caef
+    size: 412646
+    cloud:
+      remote_storage:
+        etag: 08d0d2d8d18a9592031001
+        version_id: '1768739107645776'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (61).png
+    md5: 0f7175d23e45034f021062016ab42138
+    size: 153157
+    cloud:
+      remote_storage:
+        etag: 08c19a85d18a9592031001
+        version_id: '1768739106278721'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (62).png
+    md5: 0cc280b59e604ac98d8bd72469c461f4
+    size: 141095
+    cloud:
+      remote_storage:
+        etag: 08a7f6ffd08a9592031001
+        version_id: '1768739106192167'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (63).png
+    md5: 591db97b94e49cd281d559ced68208ca
+    size: 161811
+    cloud:
+      remote_storage:
+        etag: 08f89db3d18a9592031001
+        version_id: '1768739107032824'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (64).png
+    md5: 19afab3e799c2671447716a255e4e4cd
+    size: 125001
+    cloud:
+      remote_storage:
+        etag: 08e08ecad18a9592031001
+        version_id: '1768739107407712'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (65).png
+    md5: 53de1368199f3ea85c841ef4f8a1d3a8
+    size: 262031
+    cloud:
+      remote_storage:
+        etag: 08daba92d18a9592031001
+        version_id: '1768739106495834'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (66).png
+    md5: 65a0d3e6e85d2dd56f1072a263d0b4f2
+    size: 179954
+    cloud:
+      remote_storage:
+        etag: 08e8dacad18a9592031001
+        version_id: '1768739107417448'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (67).png
+    md5: 664882222bdffbc8216b4127617676d5
+    size: 276336
+    cloud:
+      remote_storage:
+        etag: 08b2acded18a9592031001
+        version_id: '1768739107739186'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (68).png
+    md5: c6700dc5e0d9f4874b9d1ff94317d247
+    size: 104403
+    cloud:
+      remote_storage:
+        etag: 08d3a9aad18a9592031001
+        version_id: '1768739106886867'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (69).png
+    md5: cc4b02c8506e214c77d2503bfc282d6c
+    size: 196325
+    cloud:
+      remote_storage:
+        etag: 08b3fe8bd18a9592031001
+        version_id: '1768739106389811'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (7).png
+    md5: 97aefbcfca132654776c91a5f14c4989
+    size: 257562
+    cloud:
+      remote_storage:
+        etag: 08ebf6dcd18a9592031001
+        version_id: '1768739107715947'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (70).png
+    md5: b4dc626be55b0461e725d4a9ddb3957e
+    size: 218094
+    cloud:
+      remote_storage:
+        etag: 088d8ecfd18a9592031001
+        version_id: '1768739107489549'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (71).png
+    md5: e31fac795ac60384f9f10c7d88f5fc9f
+    size: 272390
+    cloud:
+      remote_storage:
+        etag: 08aad6d4d18a9592031001
+        version_id: '1768739107580714'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (72).png
+    md5: 68040fa39a4a09ef61fa1dbfc349454f
+    size: 181001
+    cloud:
+      remote_storage:
+        etag: 0888af8cd18a9592031001
+        version_id: '1768739106396040'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (73).png
+    md5: 0828bf749c6480d1c3c8c00aab3835c8
+    size: 224692
+    cloud:
+      remote_storage:
+        etag: 08adb391d18a9592031001
+        version_id: '1768739106478509'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (74).png
+    md5: 329e94c9a15c261e4285817149db4c37
+    size: 186649
+    cloud:
+      remote_storage:
+        etag: 08edf285d18a9592031001
+        version_id: '1768739106290029'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (75).png
+    md5: dd376424bf2645fd2c99968464ce837c
+    size: 202839
+    cloud:
+      remote_storage:
+        etag: 08949b8ad18a9592031001
+        version_id: '1768739106360724'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (76).png
+    md5: fb78dde5a183747bab49d57cd39b8594
+    size: 197140
+    cloud:
+      remote_storage:
+        etag: 08aefbd3d18a9592031001
+        version_id: '1768739107569070'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (77).png
+    md5: cb8039292c7dad91a14312b17a8ef8db
+    size: 183993
+    cloud:
+      remote_storage:
+        etag: 0896d488d18a9592031001
+        version_id: '1768739106335254'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (78).png
+    md5: ea03bdc0e21c31e4f17cb7c53e4039fc
+    size: 200152
+    cloud:
+      remote_storage:
+        etag: 08e7e788d18a9592031001
+        version_id: '1768739106337767'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (79).png
+    md5: 80597133acc6e64742f4fe068c973b86
+    size: 186727
+    cloud:
+      remote_storage:
+        etag: 08cfd0b2d18a9592031001
+        version_id: '1768739107022927'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (8).png
+    md5: 62143c2f1f1a94deacec25cab55c6a2e
+    size: 222609
+    cloud:
+      remote_storage:
+        etag: 08dff3e2d18a9592031001
+        version_id: '1768739107813855'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (80).png
+    md5: fc8fd6f8d18b19c9115204e475ab78a0
+    size: 196320
+    cloud:
+      remote_storage:
+        etag: 08f9cebed18a9592031001
+        version_id: '1768739107219321'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (81).png
+    md5: 0bf316dffca606e75620f7601c0cdf6b
+    size: 269783
+    cloud:
+      remote_storage:
+        etag: 08cfb4c7d18a9592031001
+        version_id: '1768739107363407'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (82).png
+    md5: 9c77943bac31ddee4c8623202c1a90cd
+    size: 156784
+    cloud:
+      remote_storage:
+        etag: 08998bb2d18a9592031001
+        version_id: '1768739107014041'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (83).png
+    md5: f15a3ef475688eceda5bdd765a20d663
+    size: 273494
+    cloud:
+      remote_storage:
+        etag: 08c2f68bd18a9592031001
+        version_id: '1768739106388802'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (84).png
+    md5: 8cd96a62ea8f347c058e842a24933689
+    size: 140571
+    cloud:
+      remote_storage:
+        etag: 08d4d2ffd08a9592031001
+        version_id: '1768739106187604'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (85).png
+    md5: 92fd26a208663016a4e1593318d1a586
+    size: 330714
+    cloud:
+      remote_storage:
+        etag: 08b7fca0d18a9592031001
+        version_id: '1768739106733623'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (86).png
+    md5: e5859444a3c4dbb568bfeadd3305232e
+    size: 295924
+    cloud:
+      remote_storage:
+        etag: 08c4a1d5d18a9592031001
+        version_id: '1768739107590340'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (87).png
+    md5: 8a3e3a8c2186400d91e8a6b9db36edb1
+    size: 152809
+    cloud:
+      remote_storage:
+        etag: 08cff487d18a9592031001
+        version_id: '1768739106323023'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (88).png
+    md5: 3442ddd9b80dc5d506d954e655010876
+    size: 279625
+    cloud:
+      remote_storage:
+        etag: 08a98abfd18a9592031001
+        version_id: '1768739107226921'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (89).png
+    md5: 803fb6cdffa247322f13ab235cd9041d
+    size: 146526
+    cloud:
+      remote_storage:
+        etag: 08cb90b7d18a9592031001
+        version_id: '1768739107096651'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (9).png
+    md5: f59410d3b7f9ba3d69af66a2b586ca72
+    size: 324107
+    cloud:
+      remote_storage:
+        etag: 08cfbad1d18a9592031001
+        version_id: '1768739107528015'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (90).png
+    md5: 19c8f5a8b415da094f6f543cf143cde6
+    size: 256247
+    cloud:
+      remote_storage:
+        etag: 08919599d18a9592031001
+        version_id: '1768739106605713'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (91).png
+    md5: a8725c272af497bac1a333540fb540c4
+    size: 164204
+    cloud:
+      remote_storage:
+        etag: 08c4c6bed18a9592031001
+        version_id: '1768739107218244'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (92).png
+    md5: aa5b59f6aaea4f35470108dbf523a034
+    size: 326702
+    cloud:
+      remote_storage:
+        etag: 0883f19ed18a9592031001
+        version_id: '1768739106699395'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (93).png
+    md5: 342f07d7aa3aa67b0d6fd1c4815921da
+    size: 209124
+    cloud:
+      remote_storage:
+        etag: 08f7d587d18a9592031001
+        version_id: '1768739106319095'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (94).png
+    md5: b3ec5373244a0ba5f6f2a6660afe959a
+    size: 177149
+    cloud:
+      remote_storage:
+        etag: 089c8c88d18a9592031001
+        version_id: '1768739106326044'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (95).png
+    md5: 9b8a8eed1144886d85efac066b368dee
+    size: 306463
+    cloud:
+      remote_storage:
+        etag: 0892b8d0d18a9592031001
+        version_id: '1768739107511314'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (96).png
+    md5: 90aa8e25426795bf93c1d0e144eb2069
+    size: 142609
+    cloud:
+      remote_storage:
+        etag: 08d3bd83d18a9592031001
+        version_id: '1768739106250451'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (97).png
+    md5: a6ee574fcaa0d363e1ff68cc790bdacd
+    size: 172315
+    cloud:
+      remote_storage:
+        etag: 08d3d0d5d18a9592031001
+        version_id: '1768739107596371'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (98).png
+    md5: a251ecd135ad7b3042bcab20604f0b11
+    size: 155694
+    cloud:
+      remote_storage:
+        etag: 08e99ed5d18a9592031001
+        version_id: '1768739107589993'
+  - relpath: Grapevine_Leaves_Image_Dataset/Dimnit/Dimnit (99).png
+    md5: 27f00ba847e320c233d273e696b5633f
+    size: 187979
+    cloud:
+      remote_storage:
+        etag: 08f5ba8ad18a9592031001
+        version_id: '1768739106364789'
+  - relpath: 
+      Grapevine_Leaves_Image_Dataset/Grapevine_Leaves_Image_Dataset_Citation_Request.txt
+    md5: 4d02ec1871524534dca6ee77caa87cf6
+    size: 2608
+    cloud:
+      remote_storage:
+        etag: 08c7a2e5d08a9592031001
+        version_id: '1768739105755463'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (1).png
+    md5: e065e48a32cc3697fd5592af89947316
+    size: 162755
+    cloud:
+      remote_storage:
+        etag: 08effaa6d48a9592031001
+        version_id: '1768739113123183'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (10).png
+    md5: 61d69f8bbfe57d1137e198c7487a408d
+    size: 390399
+    cloud:
+      remote_storage:
+        etag: 08b18e85d48a9592031001
+        version_id: '1768739112568625'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (100).png
+    md5: 359fc095b8a319ab8861f985f31772ed
+    size: 403268
+    cloud:
+      remote_storage:
+        etag: 08fbcdccd48a9592031001
+        version_id: '1768739113740027'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (11).png
+    md5: d1656d7d868d9d51cb184829bcb6bad6
+    size: 236514
+    cloud:
+      remote_storage:
+        etag: 08fdf299d48a9592031001
+        version_id: '1768739112909181'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (12).png
+    md5: 1ce8a0f6ce937e55673cf40003e2bcca
+    size: 251445
+    cloud:
+      remote_storage:
+        etag: 08a0ebe1d38a9592031001
+        version_id: '1768739111990688'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (13).png
+    md5: ab1f78a349b6736d075b58d8aa7f2f8f
+    size: 146256
+    cloud:
+      remote_storage:
+        etag: 0895ffa9d48a9592031001
+        version_id: '1768739113172885'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (14).png
+    md5: 3455ee0759df967484e9a1c0cd729fd6
+    size: 238965
+    cloud:
+      remote_storage:
+        etag: 08eab78ed48a9592031001
+        version_id: '1768739112721386'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (15).png
+    md5: eae32fa807cc6387ec500d287cd79614
+    size: 157078
+    cloud:
+      remote_storage:
+        etag: 088cb7e0d38a9592031001
+        version_id: '1768739111967628'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (16).png
+    md5: 274732c75f48a9cc5452cccd39c62e74
+    size: 256822
+    cloud:
+      remote_storage:
+        etag: 08cef9a2d48a9592031001
+        version_id: '1768739113057486'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (17).png
+    md5: 72800e620cf311d94ea79f29de727d8f
+    size: 170850
+    cloud:
+      remote_storage:
+        etag: 0893e48ed48a9592031001
+        version_id: '1768739112727059'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (18).png
+    md5: 1a80c5eec4cdc5f2862c4f49a043a34a
+    size: 230675
+    cloud:
+      remote_storage:
+        etag: 0888aefed38a9592031001
+        version_id: '1768739112457992'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (19).png
+    md5: 5f12273d092b977b18ed14ea1603b574
+    size: 362371
+    cloud:
+      remote_storage:
+        etag: 08edd5a8d48a9592031001
+        version_id: '1768739113151213'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (2).png
+    md5: b21fc7c5a607a156bd416ba2245db00e
+    size: 238411
+    cloud:
+      remote_storage:
+        etag: 08a0e08ad48a9592031001
+        version_id: '1768739112661024'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (20).png
+    md5: b87484271ddd83049cbd5c9259bba043
+    size: 361189
+    cloud:
+      remote_storage:
+        etag: 0882d4cbd48a9592031001
+        version_id: '1768739113724418'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (21).png
+    md5: d4f9bc0e7542ac8e5b1e465e6a785fe2
+    size: 193635
+    cloud:
+      remote_storage:
+        etag: 0897a893d48a9592031001
+        version_id: '1768739112801303'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (22).png
+    md5: 2dde0f45268fcc530a4ee7c01e0036f0
+    size: 171069
+    cloud:
+      remote_storage:
+        etag: 08abe0a4d48a9592031001
+        version_id: '1768739113087019'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (23).png
+    md5: ba98d190a8f246f6981a919e11489259
+    size: 131424
+    cloud:
+      remote_storage:
+        etag: 0880cffed38a9592031001
+        version_id: '1768739112462208'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (24).png
+    md5: 311abf3ce93b6d7e93af837e1833a06a
+    size: 339468
+    cloud:
+      remote_storage:
+        etag: 08f2d7dcd38a9592031001
+        version_id: '1768739111906290'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (25).png
+    md5: c975e513b225a078bd92e30752ccb07b
+    size: 186550
+    cloud:
+      remote_storage:
+        etag: 08e8aa95d48a9592031001
+        version_id: '1768739112834408'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (26).png
+    md5: 082980b8b521d5443a869afe4317f76b
+    size: 238041
+    cloud:
+      remote_storage:
+        etag: 08bbd199d48a9592031001
+        version_id: '1768739112904891'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (27).png
+    md5: 730eb06cd29d27f3cdfdc2df02c5b2a1
+    size: 275429
+    cloud:
+      remote_storage:
+        etag: 0890e9f6d48a9592031001
+        version_id: '1768739114431632'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (28).png
+    md5: 2e2d6b830df457e53c58162c8358b291
+    size: 286902
+    cloud:
+      remote_storage:
+        etag: 08f5a4ccd38a9592031001
+        version_id: '1768739111637621'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (29).png
+    md5: 69a09a52a8b84e0d56e43f73f6b00792
+    size: 339189
+    cloud:
+      remote_storage:
+        etag: 08b5a6a9d48a9592031001
+        version_id: '1768739113161525'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (3).png
+    md5: 5ca5e6b256bd17210f9d33681344f912
+    size: 180966
+    cloud:
+      remote_storage:
+        etag: 0882fd83d48a9592031001
+        version_id: '1768739112550018'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (30).png
+    md5: e9bb4580e1b879427a458ecbda1d03cb
+    size: 331126
+    cloud:
+      remote_storage:
+        etag: 08cce6fdd38a9592031001
+        version_id: '1768739112448844'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (31).png
+    md5: fd7fdf881de77cd442137244c8c1d5af
+    size: 125312
+    cloud:
+      remote_storage:
+        etag: 08b280a0d48a9592031001
+        version_id: '1768739113009202'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (32).png
+    md5: 7b91e1441174f8f9950c2709d2eff5da
+    size: 284984
+    cloud:
+      remote_storage:
+        etag: 089df78cd58a9592031001
+        version_id: '1768739114793885'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (33).png
+    md5: d01e791081578c3c9428eea324c6802e
+    size: 291496
+    cloud:
+      remote_storage:
+        etag: 08b1bec3d38a9592031001
+        version_id: '1768739111493425'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (34).png
+    md5: 24e07b5ed0e773e9da10627205b39e41
+    size: 261888
+    cloud:
+      remote_storage:
+        etag: 08f5dff1d38a9592031001
+        version_id: '1768739112251381'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (35).png
+    md5: 5e1dccfbdbb1aac3f964a9014156787f
+    size: 290666
+    cloud:
+      remote_storage:
+        etag: 089b8b88d48a9592031001
+        version_id: '1768739112617371'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (36).png
+    md5: fa4bdc3b29ad567be0135949b647a517
+    size: 255742
+    cloud:
+      remote_storage:
+        etag: 08c4fdfdd38a9592031001
+        version_id: '1768739112451780'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (37).png
+    md5: b5d7ac6edf6dcf4b9c323d54f0b22eee
+    size: 103280
+    cloud:
+      remote_storage:
+        etag: 08b0aadbd38a9592031001
+        version_id: '1768739111884080'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (38).png
+    md5: dcfc527ccfe3631fcccef5aa06259efc
+    size: 280375
+    cloud:
+      remote_storage:
+        etag: 08d0c795d48a9592031001
+        version_id: '1768739112838096'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (39).png
+    md5: da43402ac97d2fe3c09b0332f4e70e6e
+    size: 400062
+    cloud:
+      remote_storage:
+        etag: 08c3bdcfd48a9592031001
+        version_id: '1768739113787075'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (4).png
+    md5: 617682eecaf57f52c354747718ab5141
+    size: 128253
+    cloud:
+      remote_storage:
+        etag: 08ab89c6d48a9592031001
+        version_id: '1768739113632939'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (40).png
+    md5: 6e5d42980a664d28852a113a3ee843a6
+    size: 322659
+    cloud:
+      remote_storage:
+        etag: 08bba0f6d38a9592031001
+        version_id: '1768739112325179'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (41).png
+    md5: 032300c1de000475978722f3bc94a366
+    size: 190482
+    cloud:
+      remote_storage:
+        etag: 08a1e995d48a9592031001
+        version_id: '1768739112842401'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (42).png
+    md5: 16ccc69e1bb884bfd8e926db55a7a539
+    size: 258618
+    cloud:
+      remote_storage:
+        etag: 08de87f6d38a9592031001
+        version_id: '1768739112322014'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (43).png
+    md5: c345d902ae6e60924408200c2fa6279e
+    size: 266285
+    cloud:
+      remote_storage:
+        etag: 08cc99ffd38a9592031001
+        version_id: '1768739112471756'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (44).png
+    md5: b2b01d8c402c7d667db081d63fcb5e60
+    size: 204218
+    cloud:
+      remote_storage:
+        etag: 08e6d29bd48a9592031001
+        version_id: '1768739112937830'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (45).png
+    md5: 86b109405ad00cbc9170fcf716d0be21
+    size: 352980
+    cloud:
+      remote_storage:
+        etag: 08f69387d58a9592031001
+        version_id: '1768739114699254'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (46).png
+    md5: 6134ceae2cd5a0ff7328c60f9e128eea
+    size: 340357
+    cloud:
+      remote_storage:
+        etag: 08e5af94d48a9592031001
+        version_id: '1768739112818661'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (47).png
+    md5: fc0dde2e9fd9e78c932a02a5640e2cec
+    size: 181206
+    cloud:
+      remote_storage:
+        etag: 08e097dfd38a9592031001
+        version_id: '1768739111947232'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (48).png
+    md5: 2c388369ac2f8aec13184caba323a336
+    size: 274066
+    cloud:
+      remote_storage:
+        etag: 08a5fc91d48a9592031001
+        version_id: '1768739112779301'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (49).png
+    md5: 814c185aa89faeda1c9565647d21c596
+    size: 322285
+    cloud:
+      remote_storage:
+        etag: 08a3f1e4d48a9592031001
+        version_id: '1768739114137763'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (5).png
+    md5: 28d8455d266d45cc531a2e576014cbba
+    size: 179478
+    cloud:
+      remote_storage:
+        etag: 0894a5bad38a9592031001
+        version_id: '1768739111342740'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (50).png
+    md5: 3028299918ccaa7ebbbe22d652bb879b
+    size: 226549
+    cloud:
+      remote_storage:
+        etag: 08cf99e5d48a9592031001
+        version_id: '1768739114142927'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (51).png
+    md5: 47422e89f55bc249244b1e91071d6907
+    size: 239100
+    cloud:
+      remote_storage:
+        etag: 08a1a2add48a9592031001
+        version_id: '1768739113226529'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (52).png
+    md5: d5b7aac06c3d700e32ec81fad5627c38
+    size: 213811
+    cloud:
+      remote_storage:
+        etag: 08bfb3acd48a9592031001
+        version_id: '1768739113212351'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (53).png
+    md5: 9673919cdfb6c56825e1dbb6394c128e
+    size: 212320
+    cloud:
+      remote_storage:
+        etag: 08b2bc9ed48a9592031001
+        version_id: '1768739112984114'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (54).png
+    md5: f5f8329a13ad3f6cc9b3f18194c62f9e
+    size: 191677
+    cloud:
+      remote_storage:
+        etag: 0880e5c7d38a9592031001
+        version_id: '1768739111563904'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (55).png
+    md5: 22ef0ad522b1c17dfecd44da4dc7b257
+    size: 220599
+    cloud:
+      remote_storage:
+        etag: 08b4b3c2d48a9592031001
+        version_id: '1768739113572788'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (56).png
+    md5: b990c4fcb173aaabce2def756c5ff0c4
+    size: 359045
+    cloud:
+      remote_storage:
+        etag: 08b4c3c5d38a9592031001
+        version_id: '1768739111526836'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (57).png
+    md5: 0b73b6c360996de4109e66c55b091cf3
+    size: 294871
+    cloud:
+      remote_storage:
+        etag: 08db99b6d48a9592031001
+        version_id: '1768739113372891'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (58).png
+    md5: 1c2169b54981ce3ac7d46b30e4ddff62
+    size: 315799
+    cloud:
+      remote_storage:
+        etag: 08b888c2d48a9592031001
+        version_id: '1768739113567288'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (59).png
+    md5: d86b9b3dbb546b8727548bb8e7a4007d
+    size: 228912
+    cloud:
+      remote_storage:
+        etag: 0893d6c2d38a9592031001
+        version_id: '1768739111480083'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (6).png
+    md5: 4bddcf56fb0c99c41a11907feccdb0da
+    size: 285128
+    cloud:
+      remote_storage:
+        etag: 08cdc0dbd48a9592031001
+        version_id: '1768739113984077'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (60).png
+    md5: 281f5b760451c146c4faa1b199a9df84
+    size: 251158
+    cloud:
+      remote_storage:
+        etag: 08b3bbf3d48a9592031001
+        version_id: '1768739114376627'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (61).png
+    md5: ebaf67827be4058e676dbdaf0b759137
+    size: 186738
+    cloud:
+      remote_storage:
+        etag: 08f1cacad38a9592031001
+        version_id: '1768739111609713'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (62).png
+    md5: 39ce63838345edeac7bbda17b18a305f
+    size: 260235
+    cloud:
+      remote_storage:
+        etag: 08a581ecd38a9592031001
+        version_id: '1768739112157349'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (63).png
+    md5: 85a95a0e1c4a688f1b7234c171fecbcf
+    size: 153877
+    cloud:
+      remote_storage:
+        etag: 08b5aec8d38a9592031001
+        version_id: '1768739111573301'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (64).png
+    md5: 6f25c47c95c244c7e2ae7d4541cb3e8b
+    size: 257293
+    cloud:
+      remote_storage:
+        etag: 08ecc5c3d48a9592031001
+        version_id: '1768739113591532'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (65).png
+    md5: 2b3f38032c0d0dae280d28dd2f33a148
+    size: 126740
+    cloud:
+      remote_storage:
+        etag: 08a4daedd38a9592031001
+        version_id: '1768739112185124'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (66).png
+    md5: 9cb51d063124dac97a54708ba6ebd709
+    size: 287817
+    cloud:
+      remote_storage:
+        etag: 08ec9b83d48a9592031001
+        version_id: '1768739112537580'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (67).png
+    md5: b30ad141a6dc85ca3e2ea4193f56136b
+    size: 99632
+    cloud:
+      remote_storage:
+        etag: 089ba2bed38a9592031001
+        version_id: '1768739111407899'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (68).png
+    md5: 7e476ed44732d54d6317b59888372726
+    size: 197487
+    cloud:
+      remote_storage:
+        etag: 08b688b5d48a9592031001
+        version_id: '1768739113354294'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (69).png
+    md5: 210ddfb1fb2a4e84187bbca1960d3530
+    size: 171170
+    cloud:
+      remote_storage:
+        etag: 08c2b2a0d48a9592031001
+        version_id: '1768739113015618'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (7).png
+    md5: 4c2d234d0cb5d6bf928a4b96b2427b07
+    size: 178859
+    cloud:
+      remote_storage:
+        etag: 08c0c8dfd38a9592031001
+        version_id: '1768739111953472'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (70).png
+    md5: 8be94dc90295c7b16e62a4e0f9c3aaa9
+    size: 196192
+    cloud:
+      remote_storage:
+        etag: 0890d5d3d48a9592031001
+        version_id: '1768739113855632'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (71).png
+    md5: c83e752e80e409a1705bd59fd9c0bdea
+    size: 212392
+    cloud:
+      remote_storage:
+        etag: 08e0f6c2d38a9592031001
+        version_id: '1768739111484256'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (72).png
+    md5: da53392f37dd6d3ab1f917c3ee7753e0
+    size: 194949
+    cloud:
+      remote_storage:
+        etag: 08ceaa86d48a9592031001
+        version_id: '1768739112588622'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (73).png
+    md5: fa6a0cc4838ca872ead3524561491a5b
+    size: 177754
+    cloud:
+      remote_storage:
+        etag: 08a0d4c1d38a9592031001
+        version_id: '1768739111463456'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (74).png
+    md5: 6017f658b3baa54b636f5a892d4636fe
+    size: 227910
+    cloud:
+      remote_storage:
+        etag: 088fb5fdd38a9592031001
+        version_id: '1768739112442511'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (75).png
+    md5: 959bf9944f26758506824caec41f7f0b
+    size: 172356
+    cloud:
+      remote_storage:
+        etag: 08b4f392d48a9592031001
+        version_id: '1768739112794548'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (76).png
+    md5: 785bc665d736125015d54ef55d458e54
+    size: 240582
+    cloud:
+      remote_storage:
+        etag: 08c9dac9d38a9592031001
+        version_id: '1768739111595337'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (77).png
+    md5: d3be1362467341efdc07c154537a47b5
+    size: 149639
+    cloud:
+      remote_storage:
+        etag: 08f7f7b5d38a9592031001
+        version_id: '1768739111271415'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (78).png
+    md5: 08dc62a32f59781da83969a2bdd25665
+    size: 196974
+    cloud:
+      remote_storage:
+        etag: 08958282d48a9592031001
+        version_id: '1768739112517909'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (79).png
+    md5: cf0f65b9e04adc2d70da183fa2813b6f
+    size: 196952
+    cloud:
+      remote_storage:
+        etag: 08bcf5ded38a9592031001
+        version_id: '1768739111942844'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (8).png
+    md5: 4f661e8d1c1ac8d607e9cd9dca5c251e
+    size: 133677
+    cloud:
+      remote_storage:
+        etag: 089ee3ced38a9592031001
+        version_id: '1768739111678366'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (80).png
+    md5: 32a30426c40c4c524e605f09b31f6b6f
+    size: 192940
+    cloud:
+      remote_storage:
+        etag: 088db2d2d38a9592031001
+        version_id: '1768739111737613'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (81).png
+    md5: a6596530968f65ede033f32ddbf05982
+    size: 215644
+    cloud:
+      remote_storage:
+        etag: 08cae891d48a9592031001
+        version_id: '1768739112776778'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (82).png
+    md5: 8789b0f9eb63d0e1fe70f2aeaf3effbc
+    size: 245946
+    cloud:
+      remote_storage:
+        etag: 08feaeb4d48a9592031001
+        version_id: '1768739113342846'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (83).png
+    md5: db837789ce83bb7adbffcf6304e4f214
+    size: 176255
+    cloud:
+      remote_storage:
+        etag: 08fbcfc7d48a9592031001
+        version_id: '1768739113658363'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (84).png
+    md5: 20e576a3572fa524acae724b7077bb7b
+    size: 229327
+    cloud:
+      remote_storage:
+        etag: 08dbaa90d48a9592031001
+        version_id: '1768739112752475'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (85).png
+    md5: f0e0ab9b830a3c88b74c92137749b1c5
+    size: 208729
+    cloud:
+      remote_storage:
+        etag: 08e58ab4d48a9592031001
+        version_id: '1768739113338213'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (86).png
+    md5: f4e17e67cb25aa5cd0e093917bbeecd3
+    size: 261303
+    cloud:
+      remote_storage:
+        etag: 08a88283d48a9592031001
+        version_id: '1768739112534312'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (87).png
+    md5: 70ce98ca2d9dc38c9c0be219bd290520
+    size: 212126
+    cloud:
+      remote_storage:
+        etag: 08b0d685d48a9592031001
+        version_id: '1768739112577840'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (88).png
+    md5: a907d2bef9a52d92fc7b46a1b35e73b8
+    size: 223958
+    cloud:
+      remote_storage:
+        etag: 08afafefd38a9592031001
+        version_id: '1768739112212399'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (89).png
+    md5: fc53dd5f802e8f929c1675dedfd7cc66
+    size: 213267
+    cloud:
+      remote_storage:
+        etag: 088b96d2d38a9592031001
+        version_id: '1768739111734027'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (9).png
+    md5: ddda75dbc4cbe8feed340f230066b3c7
+    size: 275052
+    cloud:
+      remote_storage:
+        etag: 08de98f6d38a9592031001
+        version_id: '1768739112324190'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (90).png
+    md5: a4a654c7c05be83771d512e8c338ef0b
+    size: 301271
+    cloud:
+      remote_storage:
+        etag: 08a983c4d38a9592031001
+        version_id: '1768739111502249'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (91).png
+    md5: 41d68c0de1f858784c8800259851e06a
+    size: 333992
+    cloud:
+      remote_storage:
+        etag: 089bbd89d48a9592031001
+        version_id: '1768739112640155'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (92).png
+    md5: 27b9d4fcf1d2df8e08eeefc6c70796c1
+    size: 309220
+    cloud:
+      remote_storage:
+        etag: 08e9e5a1d48a9592031001
+        version_id: '1768739113038569'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (93).png
+    md5: 6bbc370c8b77f491a5c397a80a8388ac
+    size: 289987
+    cloud:
+      remote_storage:
+        etag: 0886bbd8d48a9592031001
+        version_id: '1768739113934214'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (94).png
+    md5: 9c62c4ef2c53d21319df96a09aabf7da
+    size: 262898
+    cloud:
+      remote_storage:
+        etag: 08bdf192d48a9592031001
+        version_id: '1768739112794301'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (95).png
+    md5: 1adf7cffb0de4d3862725299676ac5e0
+    size: 302295
+    cloud:
+      remote_storage:
+        etag: 08d6e8fcd38a9592031001
+        version_id: '1768739112432726'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (96).png
+    md5: bdd0294b44d39a77101c0163e115de5e
+    size: 313708
+    cloud:
+      remote_storage:
+        etag: 08bdb683d48a9592031001
+        version_id: '1768739112540989'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (97).png
+    md5: ccaccae8557fd7143588685bc849c960
+    size: 304911
+    cloud:
+      remote_storage:
+        etag: 08df8995d48a9592031001
+        version_id: '1768739112830175'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (98).png
+    md5: 6745bc9ce29f37a9bd8ce559586d48c0
+    size: 304319
+    cloud:
+      remote_storage:
+        etag: 08f4f890d48a9592031001
+        version_id: '1768739112762484'
+  - relpath: Grapevine_Leaves_Image_Dataset/Nazli/Nazli (99).png
+    md5: 59d816a0f2de2ba71ca11703be753c0c
+    size: 352964
+    cloud:
+      remote_storage:
+        etag: 08dca097d48a9592031001
+        version_id: '1768739112865884'
+  - relpath: processed_dataset/test_data.pt
+    md5: 5a0e64eec39a18db9203ad4be146b3ea
+    size: 6555876
+    cloud:
+      remote_storage:
+        etag: 08f7c1a1d88a9592031001
+        version_id: '1768739121422583'
+  - relpath: processed_dataset/train_data.pt
+    md5: 741008971765e56fd7edca5c5113ad18
+    size: 26219114
+    cloud:
+      remote_storage:
+        etag: 089ac1fae18a9592031001
+        version_id: '1768739141755034'
+  - relpath: processed_sample.png
+    md5: c8836bbc8b4d8b4d136883468b780bd5
+    size: 7177
+    cloud:
+      remote_storage:
+        etag: 08929cd3d08a9592031001
+        version_id: '1768739105459730'

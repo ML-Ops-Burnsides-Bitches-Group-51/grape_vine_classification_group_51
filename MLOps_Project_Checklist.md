@@ -11,8 +11,8 @@
 - [x] Fill out requirements.txt / requirements_dev.txt or keep pyproject.toml / uv.lock up to date (M2+M6)
 - [x] Comply with good coding practices (PEP8) (M7)
 - [ ] Document essential parts of your code (M7)
-- [ ] Setup version control for your data or part of your data (M8)
-- [ ] Add command line interfaces and project commands where it makes sense (M9)
+- [x] Setup version control for your data or part of your data (M8)
+- [x] Add command line interfaces and project commands where it makes sense (M9)
 - [ ] Construct one or multiple Dockerfiles for your code (M10)
 - [ ] Build the Docker images locally and verify they work (M10)
 - [x] Write one or multiple configuration files for experiments (M11)
@@ -27,13 +27,13 @@
 
 - [x] Write unit tests for data-related code (M16)
 - [x] Write unit tests for model construction and/or training (M16)
-- [ ] Calculate code coverage (M16)
-- [ ] Setup continuous integration on GitHub (M17) - Karl
+- [x] Calculate code coverage (M16)
+- [x] Setup continuous integration on GitHub (M17) - Anton
 - [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
 - [ ] Add linting to CI (M17)
 - [ ] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
-- [ ] Add workflow triggered when model registry changes (M19)
+- [x] Add workflow triggered when model registry changes (M19)
 - [ ] Create GCP Bucket for data and link with DVC (M21)
 - [ ] Create workflow to automatically build Docker images (M21)
 - [ ] Train model on GCP using Engine or Vertex AI (M21)
@@ -41,8 +41,8 @@
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [ ] Load test the application (M24)
-- [ ] Create specialized deployment API using ONNX and/or BentoML (M25)
-- [x] Create frontend for the API (M26)
+- [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
+- [x] Create frontend for the API (M26) - Victor
 
 ## ✅ Week 3
 
