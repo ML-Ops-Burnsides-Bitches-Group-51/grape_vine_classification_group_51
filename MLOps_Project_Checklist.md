@@ -12,7 +12,7 @@
 - [x] Comply with good coding practices (PEP8) (M7)
 - [ ] Document essential parts of your code (M7)
 - [x] Setup version control for your data or part of your data (M8)
-- [ ] Add command line interfaces and project commands where it makes sense (M9)
+- [x] Add command line interfaces and project commands where it makes sense (M9)
 - [ ] Construct one or multiple Dockerfiles for your code (M10)
 - [ ] Build the Docker images locally and verify they work (M10)
 - [x] Write one or multiple configuration files for experiments (M11)
