@@ -20,6 +20,7 @@ COPY README.md README.md
 COPY src/ src/
 COPY data/ data/
 COPY models/ models/
+COPY configs/ configs/
 
 #RUN uv sync --frozen --no-install-project
 
