@@ -3,7 +3,7 @@ from grape_vine_classification.model_lightning import SimpleCNN
 import torch
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
-from grape_vine_classification import PATH_DATA
+from grape_vine_classification import PATH_DATA, PROJECT_ROOT
 from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, TensorDataset
 import yaml
@@ -27,7 +27,7 @@ def validify_config(config: dict):
             raise ValueError("Optim set to SGD, but config does not contain momentum")
 
 
-def train(config: dict = {}, logger=False, output_model_name: str = "model.pth") -> None:
+def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models" / "model.pth", data_path = PATH_DATA / "processed_dataset") -> None:
     validify_config(config)
     batch_size = config["batch_size"]
     max_epochs = config["epochs"]
@@ -53,10 +53,10 @@ def train(config: dict = {}, logger=False, output_model_name: str = "model.pth")
     trainer = Trainer(logger=logger, max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
-    torch.save(model, "models/" + output_model_name)
+    torch.save(model, model_path)
 
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config=None):
+def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_path = PATH_DATA / "processed_dataset", model_path = PROJECT_ROOT / "models" / "model.pth"):
     if not config:
         path = Path(config_path)
         if path.exists():
@@ -65,7 +65,7 @@ def main(config_path: str = "configs/experiment/exp1.yaml", config=None):
         else:
             raise RuntimeError("The config path is not valid")
     logger = WandbLogger(project="runs", entity="Burnsides_Bitches", config=config)
-    train(config, logger=logger)
+    train(config, logger = logger, data_path = data_path, model_path = model_path)
 
 
 if __name__ == "__main__":
