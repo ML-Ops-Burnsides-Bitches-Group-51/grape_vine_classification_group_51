@@ -6,6 +6,7 @@ data/
 reports/figures/
 lightning_logs/
 wandb/
+data/
 
 # Files
 MLOps_Project_Checklist.md
