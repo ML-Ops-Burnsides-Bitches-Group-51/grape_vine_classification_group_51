@@ -1,0 +1,16 @@
+workerPoolSpecs:
+  machineSpec:
+    machineType: n1-standard-4
+  replicaCount: 1
+  containerSpec:
+    imageUri: europe-west1-docker.pkg.dev/grapevine-gang/grape-functions/trainer:v2
+    env:
+      - name: WANDB_API_KEY
+        value: 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
+    args:
+      - --config-path
+      - configs/experiment/exp1.yaml
+      - --data-path
+      - /gcs/grapevine_data/data/processed_dataset/
+      - --model-path
+      - /gcs/models_grape_gang/cloud_model.pth
