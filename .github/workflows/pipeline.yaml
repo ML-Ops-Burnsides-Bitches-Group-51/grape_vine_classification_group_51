@@ -3,7 +3,7 @@ name: Master_CI
 on:
   push:
     branches:
-      - Clara_Ting
+      - master
   pull_request:
     branches:
       - master
