@@ -18,8 +18,8 @@ COPY README.md README.md
 
 # Copy source code
 COPY src/ src/
-COPY data/ data/
-COPY models/ models/
+# COPY data/ data/ # We don't want to copy the data
+# COPY models/ models/
 COPY configs/ configs/
 
 #RUN uv sync --frozen --no-install-project
@@ -29,5 +29,8 @@ RUN --mount=type=cache,target=/root/.cache/uv uv sync
 
 ENTRYPOINT ["uv", "run", "src/grape_vine_classification/train_lightning.py"]
 
-
-CMD ["--config-path", "configs/experiment/exp1.yaml", "--data-path", "/data/processed-data", "--model-path", "/mnt/output/model.pth"]
+CMD [ \
+    "--config-path", "configs/experiment/exp1.yaml", \
+    "--data-path", "/data/processed_dataset", \
+    "--model-path", "/models/docker_model.pth" \
+]

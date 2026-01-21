@@ -56,7 +56,9 @@ def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models
     torch.save(model, model_path)
 
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_path: Path = PATH_DATA / "processed_dataset", model_path: Path = PROJECT_ROOT / "models" / "model.pth"):
+def main(config_path: str = "configs/experiment/exp1.yaml",
+         config = None, data_path: Path = PATH_DATA / "processed_dataset",
+         model_path: Path = PROJECT_ROOT / "models" / "model.pth"):
     if not config:
         path = Path(config_path)
         if path.exists():
