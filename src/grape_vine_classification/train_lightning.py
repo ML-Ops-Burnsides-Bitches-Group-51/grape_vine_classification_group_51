@@ -8,13 +8,11 @@ from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, TensorDataset
 import yaml
 import typer
+from typing import Optional
 
-data_dir = PATH_DATA / "processed_dataset"
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
-
 def validify_config(config: dict):
-    # {'batch_size': 16, 'epochs': 5, 'lr': 0.001, 'momentum': 0.9, 'optim': 'Adam', 'patience': 3}
     mandatory_hyperparameters = ["lr", "epochs", "patience", "optim"]
     for param in mandatory_hyperparameters:
         if param not in config:
@@ -35,9 +33,7 @@ def get_model_type(path: str) -> str:
     else:
         raise ValueError(f"Unknown model type: {suffix}")
 
-
-
-def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models" / "model.pth", data_path = PATH_DATA / "processed_dataset", save_as_onnx = False) -> None:
+def train(config: dict = {}, logger = False, model_path: Path = PROJECT_ROOT / "models" / "model.pth", data_path: Path = PATH_DATA / "processed_dataset", save_as_onnx = False) -> None:
     validify_config(config)
     batch_size = config["batch_size"]
     max_epochs = config["epochs"]
@@ -45,8 +41,8 @@ def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models
 
     model = SimpleCNN(config)  # this is our LightningModule
 
-    train_data = torch.load(data_dir / "train_data.pt", map_location=DEVICE)
-    test_data = torch.load(data_dir / "test_data.pt", map_location=DEVICE)
+    train_data = torch.load(data_path / "train_data.pt", map_location=DEVICE)
+    test_data = torch.load(data_path / "test_data.pt", map_location=DEVICE)
 
     train_data = TensorDataset(train_data["images"], train_data["labels"])
     test_data = TensorDataset(test_data["images"], test_data["labels"])
@@ -75,8 +71,11 @@ def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models
         torch.save(model, model_path)
 
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_path = PATH_DATA / "processed_dataset", model_path = PROJECT_ROOT / "models" / "model.pth", save_as_onnx = False):
-    if not config:
+def main(config_path: str = "configs/experiment/exp1.yaml", config: Optional[dict] = None, data_path: Path | str = PATH_DATA / "processed_dataset", model_path: Path | str = PROJECT_ROOT / "models" / "model.pth", save_as_onnx = False):
+    data_path = Path(data_path)
+    model_path = Path(model_path)
+    
+    if not config: # if no config is passed use config_path to load one
         path = Path(config_path)
         if path.exists():
             with open(path, "r") as f:
