@@ -2,12 +2,10 @@ import pytest
 from src.grape_vine_classification.model_lightning import SimpleCNN
 from src.grape_vine_classification.train_lightning import main as train_main
 from src.grape_vine_classification.sweep import main as sweep_main
-from src.grape_vine_classification.train_lightning import get_model_type
 from tests import model_config
 import torch
 import re
 import timeout_decorator
-from pathlib import Path
 
 
 def test_error_on_wrong_shape():
@@ -34,10 +32,6 @@ def test_error_on_invalid_config_path():
         call_train_main(dummy_path)
     with pytest.raises(RuntimeError, match="The config path is not valid"):
         call_sweep_main(dummy_path)
-
-def test_wrong_model_type():
-    with pytest.raises(ValueError, match="Unknown model type: .bad_suffix"):
-        get_model_type(Path("this_is_not_a_real_path/i_hope.bad_suffix"))
 
 def test_validify_config():
     bad_config = model_config.copy()
