@@ -30,8 +30,21 @@ jobs:
       - name: Install dependencies
         run: |
           uv sync --dev
-
-      - name: Run tests & coverage
+          
+      # Authenticate to GCP (JSON key version)
+      - name: Create credentials.json
+        env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
         run: |
-          uv run coverage run -m pytest
-          uv run coverage report -m
+          echo "$GDRIVE_CREDENTIALS_DATA" > credentials.json
+
+      - name: Configure DVC
+        run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=$PWD/credentials.json
+          dvc remote list
+          dvc pull data/processed
+
+      - name: Run training tests
+        run: |
+          uv run pytest
+      # End of added stuff

@@ -33,7 +33,6 @@ def test_error_on_invalid_config_path():
     with pytest.raises(RuntimeError, match="The config path is not valid"):
         call_sweep_main(dummy_path)
 
-
 def test_validify_config():
     bad_config = model_config.copy()
     # if mandatory hyperparameter is not in config

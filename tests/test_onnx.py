@@ -39,5 +39,3 @@ def test_onnx_model(
         pytorch_outs = pytorch_model(random_input).cpu().numpy()
     # Assert that output is the same within tolerance
     assert np.allclose(ort_outs[0], pytorch_outs, rtol=rtol, atol=atol), "Pytorch and ONNX do not match."
-
-    print("Pytorch and ONNX match.")
