@@ -28,3 +28,6 @@ RUN --mount=type=cache,target=/root/.cache/uv uv sync
 
 
 ENTRYPOINT ["uv", "run", "src/grape_vine_classification/train_lightning.py"]
+
+
+CMD ["--config-path", "configs/experiment/exp1.yaml", "--data-path", "/data/processed-data", "--model-path", "/mnt/output/model.pth"]
