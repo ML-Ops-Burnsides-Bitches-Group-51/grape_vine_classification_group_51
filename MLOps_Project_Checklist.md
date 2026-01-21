@@ -30,7 +30,7 @@
 - [x] Calculate code coverage (M16)
 - [x] Setup continuous integration on GitHub (M17) - Anton
 - [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
-- [ ] Add linting to CI (M17)
+- [x] Add linting to CI (M17)
 - [x] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
 - [x] Add workflow triggered when model registry changes (M19)
@@ -46,7 +46,7 @@
 
 ## ✅ Week 3
 
-- [ ] Check model robustness to data drift (M27)
+- [ ] Check model robustness to data drift (M27) - Viktor
 - [ ] Collect input-output data from deployed application (M27)
 - [ ] Deploy drift detection API (M27)
 - [ ] Instrument API with system metrics (M28)
