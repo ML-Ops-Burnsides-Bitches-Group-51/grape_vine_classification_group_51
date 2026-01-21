@@ -3,10 +3,10 @@ name: Code linting
 on:
   push:
     branches:
-      - Clara_Ting
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   format:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
-        operating-system: ["ubuntu-latest"]
+        operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
         python-version: ["3.12"]
 
     steps:
