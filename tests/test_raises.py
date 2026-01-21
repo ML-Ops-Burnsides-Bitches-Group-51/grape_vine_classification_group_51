@@ -36,7 +36,7 @@ def test_error_on_invalid_config_path():
         call_sweep_main(dummy_path)
 
 def test_wrong_model_type():
-    with pytest.raises(ValueError, match=f"Unknown model type: .bad_suffix"):
+    with pytest.raises(ValueError, match="Unknown model type: .bad_suffix"):
         get_model_type(Path("this_is_not_a_real_path/i_hope.bad_suffix"))
 
 def test_validify_config():
