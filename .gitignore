@@ -11,8 +11,9 @@ data/
 # Files
 MLOps_Project_Checklist.md
 
-# Temporarily ignore models folder
+# ignore almost all models
 models/
+!models/trained_model.pth
 
 # test cache
 manual_test/
