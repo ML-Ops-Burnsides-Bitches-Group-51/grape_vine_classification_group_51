@@ -25,7 +25,6 @@ def call_train_main(config_path: str = "", config: dict = None):
 def call_sweep_main(config_path: str):
     sweep_main(config_path=config_path)
 
-
 def test_error_on_invalid_config_path():
     dummy_path = "this_is_not_a_real_path/i_hope"
     with pytest.raises(RuntimeError, match="The config path is not valid"):
