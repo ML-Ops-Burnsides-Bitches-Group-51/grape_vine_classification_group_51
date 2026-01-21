@@ -40,7 +40,7 @@
 - [x] Create FastAPI inference application (M22)
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
-- [ ] Load test the application (M24) - Viktor
+- [x] Load test the application (M24)
 - [x] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
 - [x] Create frontend for the API (M26)
 
