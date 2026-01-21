@@ -5,6 +5,7 @@ import json
 from io import BytesIO
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel
@@ -162,13 +163,20 @@ def predict_pil(img: Image.Image, top_k: int) -> Tuple[str, float, List[Tuple[st
 app = FastAPI(title="Grape Vine Classification API", version="1.0.0")
 
 
-@app.on_event("startup")
-def _startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     try:
         load_model()
+        yield
     except Exception as e:
-        # fail fast so Docker / deployment catches it immediately
         raise RuntimeError(f"Startup failed loading model: {e}") from e
+
+
+app = FastAPI(
+    title="Grape Vine Classification API",
+    version="1.0.0",
+    lifespan=lifespan,
+)
 
 
 @app.get("/health")
@@ -247,3 +255,6 @@ async def predict(
 
 # To run the app, use:
 # uvicorn --reload --port 8000 src.grape_vine_classification.api:app
+
+# Url:
+# http://localhost:8000/docs#/
