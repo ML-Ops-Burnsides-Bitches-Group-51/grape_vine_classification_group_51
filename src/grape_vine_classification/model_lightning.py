@@ -27,6 +27,7 @@ class SimpleCNN(LightningModule):
         )
         self.classifier = nn.Sequential(nn.Flatten(), nn.Linear(576, 128), nn.Dropout(0.2), nn.Linear(128, 5))
         self.criterium = nn.CrossEntropyLoss()
+        self.example_input_array = torch.randn(1, 1, 128, 128)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Forward pass."""
@@ -82,4 +83,4 @@ if __name__ == "__main__":
     torch.save(model.state_dict(), "models/simple_cnn.pth")
 
     # Save onnx model
-    model.to_onnx("models/simple_cnn.onnx", dummy_input)
+    model.to_onnx("models/simple_cnn.onnx")
