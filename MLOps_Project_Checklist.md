@@ -13,8 +13,8 @@
 - [ ] Document essential parts of your code (M7)
 - [x] Setup version control for your data or part of your data (M8)
 - [x] Add command line interfaces and project commands where it makes sense (M9)
-- [ ] Construct one or multiple Dockerfiles for your code (M10)
-- [ ] Build the Docker images locally and verify they work (M10)
+- [x] Construct one or multiple Dockerfiles for your code (M10)
+- [x] Build the Docker images locally and verify they work (M10)
 - [x] Write one or multiple configuration files for experiments (M11)
 - [ ] Use profiling to optimize your code (M12)
 - [ ] Use logging to log important events in your code (M14)
@@ -40,7 +40,7 @@
 - [x] Create FastAPI inference application (M22)
 - [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
-- [ ] Load test the application (M24)
+- [ ] Load test the application (M24) - Viktor
 - [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
 - [x] Create frontend for the API (M26)
 
