@@ -26,8 +26,18 @@ def validify_config(config: dict):
         if (optim == "SGD") and ("momentum" not in config):
             raise ValueError("Optim set to SGD, but config does not contain momentum")
 
+def get_model_type(path: str) -> str:
+    suffix = Path(path).suffix.lower()
+    if suffix == ".onnx":
+        return "onnx"
+    elif suffix in {".pth", ".pt"}:
+        return "pytorch"
+    else:
+        raise ValueError(f"Unknown model type: {suffix}")
 
-def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models" / "model.pth", data_path = PATH_DATA / "processed_dataset") -> None:
+
+
+def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models" / "model.pth", data_path = PATH_DATA / "processed_dataset", save_as_onnx = False) -> None:
     validify_config(config)
     batch_size = config["batch_size"]
     max_epochs = config["epochs"]
@@ -53,10 +63,19 @@ def train(config: dict = {}, logger = False, model_path = PROJECT_ROOT / "models
     trainer = Trainer(logger=logger, max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
-    torch.save(model, model_path)
+    model_type = get_model_type(model_path)
+
+    # Save model as onnx model or pytorch model.
+    if save_as_onnx:
+        assert model_type == "onnx", f"Your model type is {model_type}, but expected .onnx file. Please change the model path to correct this."
+        
+        model.to_onnx(model_pathinput_names=["input"], output_names=["output"], dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
+    else:
+        assert model_type == "pytorch", f"Your model type is {model_type}, but expected .pth file. Please change the model path to correct this."
+        torch.save(model, model_path)
 
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_path = PATH_DATA / "processed_dataset", model_path = PROJECT_ROOT / "models" / "model.pth"):
+def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_path = PATH_DATA / "processed_dataset", model_path = PROJECT_ROOT / "models" / "model.pth", save_as_onnx = False):
     if not config:
         path = Path(config_path)
         if path.exists():
@@ -65,7 +84,7 @@ def main(config_path: str = "configs/experiment/exp1.yaml", config = None, data_
         else:
             raise RuntimeError("The config path is not valid")
     logger = WandbLogger(project="runs", entity="Burnsides_Bitches", config=config)
-    train(config, logger = logger, data_path = data_path, model_path = model_path)
+    train(config, logger = logger, data_path = data_path, model_path = model_path, save_as_onnx=save_as_onnx)
 
 
 if __name__ == "__main__":
