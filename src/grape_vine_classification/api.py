@@ -5,14 +5,17 @@ import json
 from io import BytesIO
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel
 from PIL import Image, UnidentifiedImageError
 
 import torch
+import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import transforms
+import warnings
 
 
 # ----------------------------
@@ -29,7 +32,7 @@ LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
 # From your README: you convert to B/W and downsize to 128x128
 IMG_SIZE = int(os.getenv("IMG_SIZE", "128"))
-TOP_K_DEFAULT = int(os.getenv("#_TOP_PREDS_DEFAULT", "3"))
+TOP_K_DEFAULT = int(os.getenv("TOP_K_DEFAULT", "3"))
 
 ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/webp"}
 
@@ -65,6 +68,19 @@ _preprocess = transforms.Compose(
 )
 
 
+class DummyModel(nn.Module):
+    def __init__(self, num_classes: int):
+        super().__init__()
+        self.num_classes = num_classes
+
+    def forward(self, x):
+        # Return deterministic logits: always class 0 highest
+        batch_size = x.shape[0]
+        logits = torch.zeros((batch_size, self.num_classes), dtype=torch.float32)
+        logits[:, 0] = 10.0
+        return logits
+
+
 def _load_labels(path: Path) -> List[str]:
     if not path.exists():
         return []
@@ -82,26 +98,28 @@ def load_model() -> None:
 
     _labels = _load_labels(LABELS_PATH)
 
-    if not MODEL_PATH.exists():
-        raise RuntimeError(f"MODEL_PATH not found: {MODEL_PATH}")
-
     # 1) Build the architecture (matches model_lightning.py)
-    #    IMPORTANT: adjust this import path to where the file lives in repo.
-    from grape_vine_classification.model_lightning import (
-        SimpleCNN,
-    )  # <-- uses the file :contentReference[oaicite:1]{index=1}
+    from grape_vine_classification.model_lightning import SimpleCNN
 
-    # config is only used for optimizers; for inference it can be minimal
     config = {"optim": "Adam", "lr": 1e-3}
     model = SimpleCNN(config)
+
+    # Fallback if weights are missing (CI/tests)
+    if not MODEL_PATH.exists():
+        warnings.warn(
+            f"MODEL_PATH not found: {MODEL_PATH}. " "Starting API with an untrained model (CI/test fallback).",
+            RuntimeWarning,
+        )
+        model.to(_device)
+        model.eval()
+        _model = model
+        return
 
     # 2) Load checkpoint / state_dict
     state = torch.load(MODEL_PATH, map_location="cpu")
 
-    # If it's a Lightning checkpoint, weights are often under "state_dict"
     if isinstance(state, dict) and "state_dict" in state:
         state = state["state_dict"]
-    # Some training scripts save under different keys
     if isinstance(state, dict) and "model_state_dict" in state:
         state = state["model_state_dict"]
 
@@ -118,7 +136,7 @@ def load_model() -> None:
             nk = nk[len("module.") :]
         cleaned[nk] = v
 
-    missing, unexpected = model.load_state_dict(cleaned, strict=False)
+    model.load_state_dict(cleaned, strict=False)
 
     model.to(_device)
     model.eval()
@@ -159,16 +177,20 @@ def predict_pil(img: Image.Image, top_k: int) -> Tuple[str, float, List[Tuple[st
 # ----------------------------
 # FastAPI app
 # ----------------------------
-app = FastAPI(title="Grape Vine Classification API", version="1.0.0")
-
-
-@app.on_event("startup")
-def _startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     try:
         load_model()
+        yield
     except Exception as e:
-        # fail fast so Docker / deployment catches it immediately
         raise RuntimeError(f"Startup failed loading model: {e}") from e
+
+
+app = FastAPI(
+    title="Grape Vine Classification API",
+    version="1.0.0",
+    lifespan=lifespan,
+)
 
 
 @app.get("/health")
@@ -212,12 +234,11 @@ def health():
 @app.post("/predict", response_model=BatchPredictionResponse)
 async def predict(
     files: List[UploadFile] = File(...),
-    num_predictions: int = 3,
+    num_predictions: int = TOP_K_DEFAULT,
 ):
     results: List[PredictionResponse] = []
 
     for file in files:
-        # --- validate ---
         if file.content_type not in ALLOWED_CONTENT_TYPES:
             raise HTTPException(
                 status_code=400,
@@ -229,9 +250,13 @@ async def predict(
             img = Image.open(BytesIO(data))
         except UnidentifiedImageError:
             raise HTTPException(status_code=400, detail=f"Invalid image: {file.filename}")
+        except Exception as e:
+            raise HTTPException(status_code=400, detail=f"Failed reading image {file.filename}: {e}")
 
-        # --- inference ---
-        label, conf, top_list = predict_pil(img, top_k=num_predictions)
+        try:
+            label, conf, top_list = predict_pil(img, top_k=num_predictions)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Inference failed for {file.filename}: {e}")
 
         results.append(
             PredictionResponse(
@@ -247,3 +272,6 @@ async def predict(
 
 # To run the app, use:
 # uvicorn --reload --port 8000 src.grape_vine_classification.api:app
+
+# Url:
+# http://localhost:8000/docs#/
