@@ -36,7 +36,7 @@ def save_model(save_as_onnx: bool, model: SimpleCNN, model_path: Path) -> None:
     model_type = get_model_type(model_path)
     if save_as_onnx:
         assert model_type == "onnx", f"expected .onnx model file path, but got .{model_type} file path instead"
-        model.to_onnx(model_pathinput_names=["input"], output_names=["output"], 
+        model.to_onnx(model_path, input_names=["input"], output_names=["output"], 
         dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
     else:
         assert model_type == "pytorch", f"expected .pth model file path, but got .{model_type} file path instead"

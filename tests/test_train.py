@@ -10,8 +10,10 @@ data_path = "data/processed_dataset/"
 @pytest.mark.skipif(not os.path.exists(data_path), reason="Training data not available")
 def test_train():
     train(model_config, model_path = PATH_MODEL / "test_model.pth", logger=False)
+    train(model_config, model_path = PATH_MODEL / "test_model.onnx", logger=False, save_as_onnx=True)
 
-    assert os.path.isfile(PATH_MODEL / "test_model.pth"), "No model saved"
+    assert os.path.isfile(PATH_MODEL / "test_model.pth"), "No .pth model saved"
+    assert os.path.isfile(PATH_MODEL / "test_model.onnx"), "No .onnx model saved"
 
 def test_validiy_model_type():
     with pytest.raises(ValueError, match="Unknown model type: .bad_suffix"):
