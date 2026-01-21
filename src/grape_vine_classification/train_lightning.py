@@ -8,11 +8,10 @@ from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, TensorDataset
 import yaml
 import typer
-from typing import Optional
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
-def validify_config(config: dict):
+def validify_config(config: dict) -> None:
     mandatory_hyperparameters = ["lr", "epochs", "patience", "optim"]
     for param in mandatory_hyperparameters:
         if param not in config:
@@ -24,8 +23,8 @@ def validify_config(config: dict):
         if (optim == "SGD") and ("momentum" not in config):
             raise ValueError("Optim set to SGD, but config does not contain momentum")
 
-def get_model_type(path: str) -> str:
-    suffix = Path(path).suffix.lower()
+def get_model_type(path: Path) -> str:
+    suffix = path.suffix.lower()
     if suffix == ".onnx":
         return "onnx"
     elif suffix in {".pth", ".pt"}:
@@ -33,7 +32,17 @@ def get_model_type(path: str) -> str:
     else:
         raise ValueError(f"Unknown model type: {suffix}")
 
-def train(config: dict = {}, logger = False, model_path: Path = PROJECT_ROOT / "models" / "model.pth", data_path: Path = PATH_DATA / "processed_dataset", save_as_onnx = False) -> None:
+def save_model(model: SimpleCNN, model_path: Path) -> None:
+    model_type = get_model_type(model_path)
+    if model_type == "onnx":
+        model.to_onnx(model_path, input_names=["input"], output_names=["output"], 
+        dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
+    else:
+        torch.save(model, model_path)
+
+def train(config: dict = {}, logger = False, 
+          model_path: Path = PROJECT_ROOT / "models" / "model.pth", 
+          data_path: Path = PATH_DATA / "processed_dataset") -> None:
     validify_config(config)
     batch_size = config["batch_size"]
     max_epochs = config["epochs"]
@@ -59,19 +68,12 @@ def train(config: dict = {}, logger = False, model_path: Path = PROJECT_ROOT / "
     trainer = Trainer(logger=logger, max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
-    model_type = get_model_type(model_path)
-
-    # Save model as onnx model or pytorch model.
-    if save_as_onnx:
-        assert model_type == "onnx", f"Your model type is {model_type}, but expected .onnx file. Please change the model path to correct this."
-        
-        model.to_onnx(model_pathinput_names=["input"], output_names=["output"], dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
-    else:
-        assert model_type == "pytorch", f"Your model type is {model_type}, but expected .pth file. Please change the model path to correct this."
-        torch.save(model, model_path)
+    save_model(model, model_path)
 
 
-def main(config_path: str = "configs/experiment/exp1.yaml", config: Optional[dict] = None, data_path: Path | str = PATH_DATA / "processed_dataset", model_path: Path | str = PROJECT_ROOT / "models" / "model.pth", save_as_onnx = False):
+def main(config_path: str = "configs/experiment/exp1.yaml", 
+         config = None, data_path = PATH_DATA / "processed_dataset", 
+         model_path = PROJECT_ROOT / "models" / "model.pth"):
     data_path = Path(data_path)
     model_path = Path(model_path)
     
@@ -83,7 +85,7 @@ def main(config_path: str = "configs/experiment/exp1.yaml", config: Optional[dic
         else:
             raise RuntimeError("The config path is not valid")
     logger = WandbLogger(project="runs", entity="Burnsides_Bitches", config=config)
-    train(config, logger = logger, data_path = data_path, model_path = model_path, save_as_onnx=save_as_onnx)
+    train(config, logger = logger, data_path = data_path, model_path = model_path)
 
 
 if __name__ == "__main__":
