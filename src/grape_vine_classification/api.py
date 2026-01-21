@@ -27,7 +27,7 @@ REPO_ROOT = PKG_DIR.parents[1]  # repo root (two levels up)
 MODELS_DIR = REPO_ROOT / "models"
 
 # You can override these with env vars when deploying
-MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "model.pth")))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "trained_model.pth")))
 LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
 # From your README: you convert to B/W and downsize to 128x128
