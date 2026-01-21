@@ -11,7 +11,7 @@ import typer
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
-def validify_config(config: dict):
+def validify_config(config: dict) -> None:
     mandatory_hyperparameters = ["lr", "epochs", "patience", "optim"]
     for param in mandatory_hyperparameters:
         if param not in config:
@@ -31,6 +31,16 @@ def get_model_type(path: Path) -> str:
         return "pytorch"
     else:
         raise ValueError(f"Unknown model type: {suffix}")
+
+def save_model(save_as_onnx: bool, model: SimpleCNN, model_path: Path) -> None:
+    model_type = get_model_type(model_path)
+    if save_as_onnx:
+        assert model_type == "onnx", f"expected .onnx model file path, but got .{model_type} file path instead"
+        model.to_onnx(model_pathinput_names=["input"], output_names=["output"], 
+        dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
+    else:
+        assert model_type == "pytorch", f"expected .pth model file path, but got .{model_type} file path instead"
+        torch.save(model, model_path)
 
 def train(config: dict = {}, logger = False, 
           model_path: Path = PROJECT_ROOT / "models" / "model.pth", 
@@ -61,16 +71,7 @@ def train(config: dict = {}, logger = False,
     trainer = Trainer(logger=logger, max_epochs=max_epochs, callbacks=callbacks)
     trainer.fit(model, train_dataloader, test_dataloader)
 
-    model_type = get_model_type(model_path)
-
-    # Save model as onnx model or pytorch model.
-    if save_as_onnx:
-        assert model_type == "onnx", f"Your model type is {model_type}, but expected .onnx file. Please change the model path to correct this."
-        
-        model.to_onnx(model_pathinput_names=["input"], output_names=["output"], dynamic_axes={"input": {0: "batch_size"}, "output": {0: "batch_size"}})
-    else:
-        assert model_type == "pytorch", f"Your model type is {model_type}, but expected .pth file. Please change the model path to correct this."
-        torch.save(model, model_path)
+    save_model(save_as_onnx, model, model_path)
 
 
 def main(config_path: str = "configs/experiment/exp1.yaml", 
