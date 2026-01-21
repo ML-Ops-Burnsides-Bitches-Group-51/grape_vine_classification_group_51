@@ -2,6 +2,7 @@ docs/site/
 
 # Folders
 
+data/
 reports/figures/
 lightning_logs/
 wandb/
