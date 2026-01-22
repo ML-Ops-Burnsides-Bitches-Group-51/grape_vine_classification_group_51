@@ -27,3 +27,11 @@ EXPOSE 8011
 CMD exec uv run uvicorn grape_vine_classification.cloud_api:app --app-dir src --port ${PORT:-8011} --host 0.0.0.0
 
 # CMD ["uv", "run", "uvicorn", "cloud_api:app", "--host", "0.0.0.0", "--port", "8080"]
+
+# docker run -it -p 8080:8080 \
+#   -e PORT=8080 \
+#   -e MODEL_BUCKET=models_grape_gang \
+#   -e GOOGLE_CLOUD_PROJECT=grapevine-gang \
+#   -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/creds.json \
+#   -v ~/.config/gcloud/application_default_credentials.json:/tmp/keys/creds.json:ro \
+#   cloud_api:latest
