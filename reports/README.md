@@ -81,29 +81,30 @@ will check the repositories and the code to verify your answers.
 * [x] Calculate the code coverage (M16)
 * [x] Get some continuous integration running on the GitHub repository (M17)
 * [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
-* [ ] Add a linting step to your continuous integration (M17)
+* [x] Add a linting step to your continuous integration (M17)
 * [x] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
-* [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
+* [x] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [x] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [x] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [x] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
-* [ ] Load test your application (M24)
+* [x] Load test your application (M24)
 * [x] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
 * [x] Create a frontend for your API (M26)
 
 ### Week 3
 
 * [ ] Check how robust your model is towards data drifting (M27)
+* [x] Collect input-output data from deployed application (M27)
 * [ ] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
 * [ ] Create one or more alert systems in GCP to alert you if your app is not behaving correctly (M28)
-* [ ] If applicable, optimize the performance of your data loading using distributed data loading (M29)
-* [ ] If applicable, optimize the performance of your training pipeline by using distributed training (M30)
+* [x] Optimize data loading with distributed data loading if applicable (M29)
+* [ ] Optimize training with distributed training if applicable (M30)
 * [ ] Play around with quantization, compilation and pruning for you trained models to increase inference speed (M31)
 
 ### Extra
@@ -220,7 +221,7 @@ These concepts are especially important in larger projects because they improve 
 >
 > Answer:
 
---- question 7 fill here ---
+In total, we implemented around 15 tests focusing primarily on the data pipeline, model correctness, and training robustness. We test that processed datasets have the expected size, label balance, and tensor shapes, ensuring data integrity before training. The model is validated for correct output dimensions and proper error handling when receiving invalid input shapes. We also verify that exported ONNX models produce numerically consistent predictions compared to their PyTorch counterparts. Finally, training and configuration tests ensure correct model saving, supported optimizer settings, and meaningful error messages for invalid configurations.
 
 ### Question 8
 
@@ -235,7 +236,9 @@ These concepts are especially important in larger projects because they improve 
 >
 > Answer:
 
---- question 8 fill here ---
+The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs.
+
+Coverage test date: 22/01/2026 
 
 ### Question 9
 
@@ -250,7 +253,8 @@ These concepts are especially important in larger projects because they improve 
 >
 > Answer:
 
--Each group member made their own branch to work on and then pushed to the master branch using pull request. Since we implemented unit tests for CI, which the branch had to pass before it could be pushed to the master it ensured that all new code was up to standard and did ot break anything.
+Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality. 
+In general, using branches is especially important in larger projects, as it isolates experimental or incomplete changes from stable code that is assumed to work correctly. Pull requests provide a controlled and traceable way of merging changes, making the development process more structured, collaborative, and reliable over time.
 
 ### Question 10
 
@@ -282,7 +286,21 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 11 fill here ---
+Our CI is implemented as two GitHub Actions workflows located in .github/workflows/linting.yaml and .github/workflows/pipeline.yaml, and both are triggered on push and pull requests to the master branch.
+
+**Linting / formatting (linting.yaml):**
+This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: 
+*ruff check .* -> linting / style violations 
+*ruff format .* -> format enforcement
+
+**Testing pipeline (pipeline.yaml):**
+This workflow runs our unit tests using pytest. Before testing, it ensures the required data artifacts are available by configuring DVC and pulling data/processed. To do this securely in CI, we create a credentials.json file from a GitHub secret, export GOOGLE_APPLICATION_CREDENTIALS, and run dvc pull data/processed. Finally, we execute uv run pytest to verify that core functionality behaves as expected.
+
+**Matrix / environments:**
+Currently, both workflows run on Ubuntu (ubuntu-latest) with Python 3.12 only. We do not test multiple operating systems or Python versions, but the workflows already use a matrix structure, so it’s easy to extend to e.g. Windows/macOS and Python 3.10–3.12. 
+
+**Caching:**
+We enable caching through setup-uv (enable-cache: true), which speeds up repeated installs across workflow runs.
 
 ## Running code and tracking experiments
 
