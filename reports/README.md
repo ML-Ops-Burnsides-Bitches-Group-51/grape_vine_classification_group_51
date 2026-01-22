@@ -147,12 +147,14 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
---- question 3 fill here ---
+In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
+Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
 
 ## Coding environment
 
 > In the following section we are interested in learning more about you local development environment. This includes
 > how you managed dependencies, the structure of your code and how you managed code quality.
+
 
 ### Question 4
 
@@ -167,7 +169,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
-We have used uv to create virtual environments and to keep track of packages and ensure that the versions are compatible. The lock file created on each computer was different so we only include the pyproject.toml file in the git repository. To get an exact copy of our environment you just need to run uv sync in the root folder. We have also included several dockerfiles training and api interface. To build the dockerimages simply run "docker build -f dockerfile/train.dockerfile . -t train:latest" and to run the image and load the resulting model run "docker run --name {container_name} -v %cd%/models:/models/ train:latest". 
+We have used uv to create virtual environments and to keep track of packages and ensure that the versions are compatible. The lock file created on each computer was different so we only include the pyproject.toml file in the git repository. To get an exact copy of our environment you just need to run uv sync in the root folder. We have also included several dockerfiles training and api interface. To build the dockerimages simply run "docker build -f dockerfile/train.dockerfile . -t train:latest" and to run the image and load the resulting model run "docker run --name {container_name} -v %cd%/models:/models/ train:latest".
 
 ### Question 5
 
@@ -198,7 +200,8 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
---- question 6 fill here ---
+We implemented explicit rules for code quality and formatting using pre-commit and ruff. Pre-commit ensures that all commits follow basic hygiene rules such as removing trailing whitespace, enforcing end-of-file newlines, validating YAML/JSON files, and preventing large files from being committed. Ruff was used both for linting (PEP8-style rules) and automatic code formatting, ensuring a consistent coding style across the entire project without relying on manual reviews.
+These concepts are especially important in larger projects because they improve reproducibility, collaboration, and maintainability. Consistent formatting and linting make the code easier to read and debug, typing clarifies expected inputs and outputs, and documentation helps new contributors understand the system. Together, they support better delegation of work, reduce integration errors, and ensure long-term compatibility and structure.
 
 ## Version control
 
@@ -247,7 +250,7 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
--Each group member made their own branch to work on and then pushed to the master branch using pull request. Since we implemented unit tests for CI, which the branch had to pass before it could be pushed to the master it ensured that all new code was up to standard and did ot break anything. 
+-Each group member made their own branch to work on and then pushed to the master branch using pull request. Since we implemented unit tests for CI, which the branch had to pass before it could be pushed to the master it ensured that all new code was up to standard and did ot break anything.
 
 ### Question 10
 
@@ -298,7 +301,18 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 12 fill here ---
+Experiments are configured by dedicated config files, kept in a config folder. Data and model paths are given when running code.
+
+def main(config_path: str = "configs/experiment/exp1.yaml", 
+         config = None, data_path = PATH_DATA / "processed_dataset", 
+         model_path = PROJECT_ROOT / "models" / "model.pth",
+         max_epochs: int = None):
+    data_path = Path(data_path)
+    model_path = Path(model_path)
+    
+The paths are kept seperate and changed by command line argument rather than config file, such that the trainning function can be used both locally and on the cloud. When we deploy an image for cloud trainning we simply give the bucket directories for the data and model buckets as command line inputs.
+
+For a locally run experiment we could depending on what we where testing simply use uv run lightning_trainer.py, if the specefic model configerations where unimportant.
 
 ### Question 13
 
@@ -313,7 +327,7 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 13 fill here ---
+We use wandb to log experiment results, which also stores the experiment config file, and couples it to the experiment. When doing hyperparamter optimization we use wandb sweeping which also stores the config files together with each run.
 
 ### Question 14
 
