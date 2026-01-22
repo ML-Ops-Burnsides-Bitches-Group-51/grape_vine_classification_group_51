@@ -46,7 +46,7 @@
 
 ## ✅ Week 3
 
-- [ ] Check model robustness to data drift (M27) - Viktor
+- [ ] Check model robustness to data drift (M27)
 - [ ] Collect input-output data from deployed application (M27)
 - [ ] Deploy drift detection API (M27)
 - [ ] Instrument API with system metrics (M28)
