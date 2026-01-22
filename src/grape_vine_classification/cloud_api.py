@@ -30,27 +30,27 @@ class PredictionOutput(BaseModel):
     species: str
 
 
-def save_prediction_to_gcp(transformed_img: torch.Tensor,outputs: list[float],species: str):
+def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], species: str):
     client = storage.Client()
     bucket = client.bucket(BUCKET_NAME)
     
-    img = transformed_img
     time = datetime.datetime.now(tz=datetime.UTC)
 
-    avg_brightness = torch.mean(img).float()    
-    contrast = torch.std(img).float() 
-    sharpness = torch.mean(torch.abs(torch.gradient(img,dim=(2,3)))).float()
+    avg_brightness = torch.mean(img).item()    
+    contrast = torch.std(img).item()
+    gradients = torch.gradient(img, dim=[2,3])
+    sharpness = torch.mean(torch.abs(gradients[0]) + torch.abs(gradients[1])).item()
 
     data = {  
-    "avg_brightness": avg_brightness,  
-    "contrast": contrast,   
-    "sharpness": sharpness,  
-    "timestamp": time.isoformat(), 
-    "class_probabilities": outputs,
-    "species": species,
+        "avg_brightness": avg_brightness,  
+        "contrast": contrast,   
+        "sharpness": sharpness,  
+        "timestamp": time.isoformat(), 
+        "class_probabilities": outputs,
+        "species": species,
     }
 
-    blob = bucket.blob(f"prediction_{time}.json")
+    blob = bucket.blob(f"predictions/prediction_{time}.json")
     blob.upload_from_string(json.dumps(data))
     print("Finished saving image features and model outputs")
 
@@ -100,8 +100,7 @@ async def predict_species(background_tasks: BackgroundTasks, file: UploadFile = 
             prediction = torch.argmax(output, dim=1)
             species = class_names[prediction]
 
-
-        background_tasks.add_task(save_prediction_to_gcp, input_tensor, output.softmax(-1).tolist(), species)
+        background_tasks.add_task(save_prediction_to_gcp, input_tensor, output.softmax(-1).squeeze().tolist(), species)
         return PredictionOutput(species=species)
 
     except Exception as e:
