@@ -38,10 +38,10 @@
 - [ ] Create workflow to automatically build Docker images (M21)
 - [x] Train model on GCP using Engine or Vertex AI (M21)
 - [x] Create FastAPI inference application (M22)
-- [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
+- [x] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [x] Load test the application (M24)
-- [ ] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
+- [x] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
 - [x] Create frontend for the API (M26)
 
 ## ✅ Week 3
@@ -52,7 +52,7 @@
 - [ ] Instrument API with system metrics (M28)
 - [ ] Setup cloud monitoring (M28)
 - [ ] Create alert systems in GCP (M28)
-- [ ] Optimize data loading with distributed data loading if applicable (M29)
+- [x] Optimize data loading with distributed data loading if applicable (M29)
 - [ ] Optimize training with distributed training if applicable (M30)
 - [ ] Apply quantization / compilation / pruning for faster inference (M31)
 
