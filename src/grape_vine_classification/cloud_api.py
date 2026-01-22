@@ -4,7 +4,7 @@ from google.cloud import storage
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
 from contextlib import asynccontextmanager
-from grape_vine_classification import default_transform
+from grape_vine_classification import default_transform, class_names
 from PIL import Image
 import io
 import datetime
@@ -14,8 +14,6 @@ BUCKET_NAME = "models_grape_gang"
 MODEL_FILE = "cloud_model.pth"
 LOCAL_MODEL_PATH = "/tmp/model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-class_names = ["Ak","Ala_Idris","Buzgule","Dimnit","Nazli"]
 
 class PredictionOutput(BaseModel):
     species: str
@@ -54,7 +52,7 @@ def download_model():
 
     blob.download_to_filename(LOCAL_MODEL_PATH)
 
-    print("Model downloaded completed successfully: ", os.path.isfile(LOCAL_MODEL_PATH))
+    print("Model downloaded completed successfully:", os.path.isfile(LOCAL_MODEL_PATH))
 
 
 @asynccontextmanager
