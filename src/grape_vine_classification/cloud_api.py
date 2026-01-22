@@ -4,7 +4,7 @@ from google.cloud import storage
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
 from contextlib import asynccontextmanager
-from torchvision import transforms
+from grape_vine_classification import default_transform
 from PIL import Image
 import io
 import datetime
@@ -16,14 +16,6 @@ LOCAL_MODEL_PATH = "/tmp/model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class_names = ["Ak","Ala_Idris","Buzgule","Dimnit","Nazli"]
-
-transform = transforms.Compose(
-    [
-        transforms.Grayscale(num_output_channels=1),
-        transforms.Resize((128, 128)),
-        transforms.ToTensor(),
-    ]
-)
 
 class PredictionOutput(BaseModel):
     species: str
@@ -62,7 +54,7 @@ def download_model():
 
     blob.download_to_filename(LOCAL_MODEL_PATH)
 
-    print("Model downloaded complete and available at: ", os.path.isfile(LOCAL_MODEL_PATH))
+    print("Model downloaded completed successfully: ", os.path.isfile(LOCAL_MODEL_PATH))
 
 
 @asynccontextmanager
@@ -71,7 +63,6 @@ async def lifespan(app: FastAPI):
     download_model()
     model = torch.load(LOCAL_MODEL_PATH, map_location = device)
     model.eval()
-    print("model succefully loaded")
 
     yield
 
@@ -85,7 +76,7 @@ async def predict_species(background_tasks: BackgroundTasks, file: UploadFile = 
     try:
         contents = await file.read()
         image = Image.open(io.BytesIO(contents)).convert("RGB")
-        input_tensor = transform(image)
+        input_tensor = default_transform(image)
         
         # Add batch dimension if necessary
         if input_tensor.ndimension() == 3:
