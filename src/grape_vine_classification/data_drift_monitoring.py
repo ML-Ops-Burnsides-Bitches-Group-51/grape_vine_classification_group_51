@@ -2,7 +2,6 @@ import json
 import os
 from pathlib import Path
 
-import anyio
 import pandas as pd
 # from evidently.legacy.metric_preset import TargetDriftPreset, TextEvals
 # from evidently.legacy.report import Report
