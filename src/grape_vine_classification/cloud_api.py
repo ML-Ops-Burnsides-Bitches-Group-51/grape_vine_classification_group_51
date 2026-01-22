@@ -5,6 +5,8 @@ from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from contextlib import asynccontextmanager
 from torchvision import transforms
+from PIL import Image
+import io
 
 
 
@@ -59,8 +61,9 @@ async def predict_species(file: UploadFile = File()):
     
     try:
 
-        image_data = await file.read()
-        input_tensor = transform(image_data)
+        contents = await file.read()
+        image = Image.open(io.BytesIO(contents)).convert("RGB")
+        input_tensor = transform(image)
         
         # Add batch dimension if necessary
         if input_tensor.ndimension() == 3:
