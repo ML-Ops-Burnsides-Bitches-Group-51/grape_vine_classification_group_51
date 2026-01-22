@@ -3,6 +3,7 @@ from torchvision import transforms
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PATH_DATA = PATH_DATA = PROJECT_ROOT / "data"
+
 default_transform = transforms.Compose(
     [
         transforms.Grayscale(num_output_channels=1),
@@ -10,3 +11,5 @@ default_transform = transforms.Compose(
         transforms.ToTensor(),
     ]
 )
+
+class_names = ["Ak","Ala_Idris","Buzgule","Dimnit","Nazli"]
