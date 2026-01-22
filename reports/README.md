@@ -382,7 +382,9 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 15 fill here ---
+In our project we used Docker to make the training, evaluation, and inference/API steps reproducible and easy to run on any machine (local or cloud) without manual environment setup. We created separate images for: training (train.dockerfile), evaluation (evaluate.dockerfile), and serving an API (both a local ONNX backend in backend.dockerfile and a cloud-oriented FastAPI in cloud_api.dockerfile). All images are based on Astral’s uv Python images (Python 3.12) and install dependencies via uv sync / uv pip install, which keeps builds consistent.
+
+#### **MANGLER EXEMPEL PÅ AT KØRE OG LINK**
 
 ### Question 16
 
@@ -397,7 +399,12 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 16 fill here ---
+When running into bugs during our experiments, the debugging approach varied between group members, as debugging is often a personal and experience-driven process. A common first step was carefully reading and interpreting error messages, as these often point directly to the source of the problem (e.g. missing files/paths, shape mismatches, or configuration errors). We also relied heavily on incremental debugging techniques such as adding print statements to inspect intermediate values and verify assumptions about data flow and model behavior. 
+
+In addition, we sometimes used AI tools and online resources to clarify unfamiliar error messages, understand library-specific behavior, or get suggestions for potential fixes. Some group members preferred using debuggers or running isolated code snippets to reproduce errors in a controlled setting, while others focused on simplifying the code in full until the bug was cleared. 
+
+We did not consider the code to be “perfect” and did not perform extensive profiling. Overall, our focus was on correctness and reproducibility rather than heavy optimization.
+
 
 ## Working in the cloud
 
@@ -488,7 +495,16 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 23 fill here ---
+Yes, we did manage to write an API for our model, and we implemented it using FastAPI in multiple variants to support different deployment scenarios. 
+
+The main API loads a trained PyTorch model at startup using FastAPI’s lifespan mechanism and exposes a /predict endpoint that accepts one or more image files. Uploaded images are validated, preprocessed (resized, converted to grayscale, and normalized), and passed through the model to produce predictions. The API returns structured JSON responses defined with Pydantic models, including the predicted label, confidence score, and optional top-k probabilities. A /health endpoint was also added to verify that the service is running correctly and that the model and labels are loaded as expected. 
+
+In addition, we implemented a cloud-focused API that downloads the model from Google Cloud Storage at startup and asynchronously logs prediction metadata back to the cloud using background tasks. This is useful for monitoring and later analysis. 
+
+Finally, we created an ONNX-based API that runs inference using ONNX Runtime instead of PyTorch, making the service lighter and more portable for deployment environments where PyTorch is not ideal. 
+
+Overall, the APIs go beyond a minimal setup by handling batching, validation, health checks, and multiple inference backends.
+
 
 ### Question 24
 
@@ -504,7 +520,15 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 24 fill here ---
+Yes, we successfully deployed our API locally using FastAPI. The model was wrapped in a FastAPI application defined in api.py. We served the API locally using Uvicorn, which allowed us to test the full prediction flow end to end. The deployed service can be invoked by sending HTTP requests to endpoints such as /predict and /health. For example, predictions can be triggered by posting image files to the /predict endpoint while the service is running locally.
+
+In api.py, the concrete command to run the FastAPI app is given in the comment at the bottom of the file. You start the application using Uvicorn with the following command: <br>
+```bash
+uvicorn --reload --port 8000 src.grape_vine_classification.api:app
+```
+This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
+
+#### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
 
@@ -519,7 +543,12 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 25 fill here ---
+Yes, we performed both unit testing and load testing of our API. 
+
+For unit testing, we used pytest to validate the core functionality of the application, including data handling, model behavior, training logic, and error handling. These tests were integrated into our CI pipeline and executed automatically on each push and pull request, ensuring that changes did not break existing functionality. 
+
+For load testing, we used Locust to evaluate how the API behaves under concurrent user traffic. We implemented a custom Locust user that simulates realistic API usage by repeatedly calling the /health endpoint and sending image files to the /predict endpoint with a configurable request ratio. The test uploads a processed sample image and mimics real inference requests, making the load test representative of actual usage locustfile. No crashes or errors were observed, indicating that the API is robust and can handle moderate concurrent usage reliably.
+
 
 ### Question 26
 
@@ -618,14 +647,4 @@ We use wandb to log experiment results, which also stores the experiment config 
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
 
-fewafewubaofewnafioewnifowf ewafw afew afewafewafionewoanf waf ewonfieownaf fewnaiof newio fweanøf wea fewa
- fweafewa fewiagonwa ognwra'g
- wa
- gwreapig ipweroang w rag
- wa grwa
-  g
-  ew
-  gwea g
-  ew ag ioreabnguorwa bg̈́aw
-   wa
-   gew4igioera giroeahgi0wra gwa
+
