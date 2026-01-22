@@ -18,7 +18,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class PredictionOutput(BaseModel):
     species: str
 
-def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], species: str) -> None:
+def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], prediction: int, species: str) -> None:
     client = storage.Client()
     bucket = client.bucket(BUCKET_NAME)
     
@@ -37,6 +37,7 @@ def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], species: str
         "sharpness": sharpness,  
         "timestamp": time.isoformat(), 
         "class_probabilities": outputs,
+        "prediction": prediction,
         "species": species,
     }
 
@@ -86,7 +87,7 @@ async def predict_species(background_tasks: BackgroundTasks, file: UploadFile = 
             prediction = torch.argmax(outputs, dim=1)
             species = class_names[prediction]
 
-        background_tasks.add_task(save_prediction_to_gcp, input_tensor, outputs.softmax(-1).squeeze().tolist(), species)
+        background_tasks.add_task(save_prediction_to_gcp, input_tensor, outputs.softmax(-1).squeeze().tolist(), prediction.item(), species)
 
         return PredictionOutput(species = species)
 
