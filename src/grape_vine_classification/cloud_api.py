@@ -32,7 +32,7 @@ def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], prediction: 
 
     # construct data to be saved
     data = {  
-        "avg_brightness": avg_brightness,  
+        "brightness": avg_brightness,  
         "contrast": contrast,   
         "sharpness": sharpness,  
         "timestamp": time.isoformat(), 
