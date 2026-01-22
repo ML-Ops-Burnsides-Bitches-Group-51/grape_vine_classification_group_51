@@ -81,29 +81,30 @@ will check the repositories and the code to verify your answers.
 * [x] Calculate the code coverage (M16)
 * [x] Get some continuous integration running on the GitHub repository (M17)
 * [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
-* [ ] Add a linting step to your continuous integration (M17)
+* [x] Add a linting step to your continuous integration (M17)
 * [x] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
-* [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
+* [x] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [x] Get your model training in GCP using either the Engine or Vertex AI (M21)
 * [x] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [x] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
-* [ ] Load test your application (M24)
+* [x] Load test your application (M24)
 * [x] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
 * [x] Create a frontend for your API (M26)
 
 ### Week 3
 
 * [ ] Check how robust your model is towards data drifting (M27)
+* [x] Collect input-output data from deployed application (M27)
 * [ ] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
 * [ ] Create one or more alert systems in GCP to alert you if your app is not behaving correctly (M28)
-* [ ] If applicable, optimize the performance of your data loading using distributed data loading (M29)
-* [ ] If applicable, optimize the performance of your training pipeline by using distributed training (M30)
+* [x] Optimize data loading with distributed data loading if applicable (M29)
+* [ ] Optimize training with distributed training if applicable (M30)
 * [ ] Play around with quantization, compilation and pruning for you trained models to increase inference speed (M31)
 
 ### Extra
@@ -133,7 +134,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
-*s214722, s214728, s211222*
+*s214722, s214728, s211222, s214705, s204354*
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
@@ -147,12 +148,14 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
---- question 3 fill here ---
+In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
+Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
 
 ## Coding environment
 
 > In the following section we are interested in learning more about you local development environment. This includes
 > how you managed dependencies, the structure of your code and how you managed code quality.
+
 
 ### Question 4
 
@@ -167,7 +170,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
-We have used uv to create virtual environments and to keep track of packages and ensure that the versions are compatible. The lock file created on each computer was different so we only include the pyproject.toml file in the git repository. To get an exact copy of our environment you just need to run uv sync in the root folder. We have also included several dockerfiles training and api interface. To build the dockerimages simply run "docker build -f dockerfile/train.dockerfile . -t train:latest" and to run the image and load the resulting model run "docker run --name {container_name} -v %cd%/models:/models/ train:latest". 
+We have used uv to create virtual environments and to keep track of packages and ensure that the versions are compatible. The lock file created on each computer was different so we only include the pyproject.toml file in the git repository. To get an exact copy of our environment you just need to run uv sync in the root folder. We have also included several dockerfiles training and api interface. To build the dockerimages simply run "docker build -f dockerfile/train.dockerfile . -t train:latest" and to run the image and load the resulting model run "docker run --name {container_name} -v %cd%/models:/models/ train:latest".
 
 ### Question 5
 
@@ -198,7 +201,8 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
---- question 6 fill here ---
+We implemented explicit rules for code quality and formatting using pre-commit and ruff. Pre-commit ensures that all commits follow basic hygiene rules such as removing trailing whitespace, enforcing end-of-file newlines, validating YAML/JSON files, and preventing large files from being committed. Ruff was used both for linting (PEP8-style rules) and automatic code formatting, ensuring a consistent coding style across the entire project without relying on manual reviews.
+These concepts are especially important in larger projects because they improve reproducibility, collaboration, and maintainability. Consistent formatting and linting make the code easier to read and debug, typing clarifies expected inputs and outputs, and documentation helps new contributors understand the system. Together, they support better delegation of work, reduce integration errors, and ensure long-term compatibility and structure.
 
 ## Version control
 
@@ -217,7 +221,7 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
---- question 7 fill here ---
+In total, we implemented around 15 tests focusing primarily on the data pipeline, model correctness, and training robustness. We test that processed datasets have the expected size, label balance, and tensor shapes, ensuring data integrity before training. The model is validated for correct output dimensions and proper error handling when receiving invalid input shapes. We also verify that exported ONNX models produce numerically consistent predictions compared to their PyTorch counterparts. Finally, training and configuration tests ensure correct model saving, supported optimizer settings, and meaningful error messages for invalid configurations.
 
 ### Question 8
 
@@ -232,7 +236,9 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
---- question 8 fill here ---
+The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs.
+
+Coverage test date: 22/01/2026 
 
 ### Question 9
 
@@ -247,7 +253,8 @@ The code is organised into folders following the cookiecutter template. All sour
 >
 > Answer:
 
--Each group member made their own branch to work on and then pushed to the master branch using pull request. Since we implemented unit tests for CI, which the branch had to pass before it could be pushed to the master it ensured that all new code was up to standard and did ot break anything. 
+Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality. 
+In general, using branches is especially important in larger projects, as it isolates experimental or incomplete changes from stable code that is assumed to work correctly. Pull requests provide a controlled and traceable way of merging changes, making the development process more structured, collaborative, and reliable over time.
 
 ### Question 10
 
@@ -279,7 +286,21 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 11 fill here ---
+Our CI is implemented as two GitHub Actions workflows located in .github/workflows/linting.yaml and .github/workflows/pipeline.yaml, and both are triggered on push and pull requests to the master branch.
+
+**Linting / formatting (linting.yaml):**
+This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: 
+*ruff check .* -> linting / style violations 
+*ruff format .* -> format enforcement
+
+**Testing pipeline (pipeline.yaml):**
+This workflow runs our unit tests using pytest. Before testing, it ensures the required data artifacts are available by configuring DVC and pulling data/processed. To do this securely in CI, we create a credentials.json file from a GitHub secret, export GOOGLE_APPLICATION_CREDENTIALS, and run dvc pull data/processed. Finally, we execute uv run pytest to verify that core functionality behaves as expected.
+
+**Matrix / environments:**
+Currently, both workflows run on Ubuntu (ubuntu-latest) with Python 3.12 only. We do not test multiple operating systems or Python versions, but the workflows already use a matrix structure, so it’s easy to extend to e.g. Windows/macOS and Python 3.10–3.12. 
+
+**Caching:**
+We enable caching through setup-uv (enable-cache: true), which speeds up repeated installs across workflow runs.
 
 ## Running code and tracking experiments
 
@@ -298,7 +319,18 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 12 fill here ---
+Experiments are configured by dedicated config files, kept in a config folder. Data and model paths are given when running code.
+
+def main(config_path: str = "configs/experiment/exp1.yaml", 
+         config = None, data_path = PATH_DATA / "processed_dataset", 
+         model_path = PROJECT_ROOT / "models" / "model.pth",
+         max_epochs: int = None):
+    data_path = Path(data_path)
+    model_path = Path(model_path)
+    
+The paths are kept seperate and changed by command line argument rather than config file, such that the trainning function can be used both locally and on the cloud. When we deploy an image for cloud trainning we simply give the bucket directories for the data and model buckets as command line inputs.
+
+For a locally run experiment we could depending on what we where testing simply use uv run lightning_trainer.py, if the specefic model configerations where unimportant.
 
 ### Question 13
 
@@ -313,7 +345,7 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 13 fill here ---
+We use wandb to log experiment results, which also stores the experiment config file, and couples it to the experiment. When doing hyperparamter optimization we use wandb sweeping which also stores the config files together with each run.
 
 ### Question 14
 

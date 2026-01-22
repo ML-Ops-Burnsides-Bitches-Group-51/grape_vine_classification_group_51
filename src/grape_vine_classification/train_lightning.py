@@ -44,11 +44,14 @@ def save_model(model: SimpleCNN, model_path: Path) -> None:
 
 def train(config: dict = {}, logger = False, 
           model_path: Path = PROJECT_ROOT / "models" / "model.pth", 
-          data_path: Path = PATH_DATA / "processed_dataset") -> None:
+          data_path: Path = PATH_DATA / "processed_dataset",
+          max_epochs: int | None = None) -> None:
+
     validify_config(config)
     batch_size = config["batch_size"]
-    max_epochs = config["epochs"]
     patience = config["patience"]
+    if not max_epochs: # if epochs was not overwritten by keyword argument
+        max_epochs = config["epochs"]
 
     model = SimpleCNN(config)  # this is our LightningModule
 
@@ -75,7 +78,8 @@ def train(config: dict = {}, logger = False,
 
 def main(config_path: str = "configs/experiment/exp1.yaml", 
          config = None, data_path = PATH_DATA / "processed_dataset", 
-         model_path = PROJECT_ROOT / "models" / "model.pth"):
+         model_path = PROJECT_ROOT / "models" / "model.pth",
+         max_epochs: int = None):
     data_path = Path(data_path)
     model_path = Path(model_path)
     
@@ -87,7 +91,8 @@ def main(config_path: str = "configs/experiment/exp1.yaml",
         else:
             raise RuntimeError("The config path is not valid")
     logger = WandbLogger(project="runs", entity="Burnsides_Bitches", config=config)
-    train(config, logger = logger, data_path = data_path, model_path = model_path)
+    train(config, logger = logger, data_path = data_path, 
+          model_path = model_path, max_epochs = max_epochs)
 
 
 if __name__ == "__main__":

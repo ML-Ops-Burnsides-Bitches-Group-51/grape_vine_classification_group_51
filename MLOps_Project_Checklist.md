@@ -29,7 +29,7 @@
 - [x] Write unit tests for model construction and/or training (M16)
 - [x] Calculate code coverage (M16)
 - [x] Setup continuous integration on GitHub (M17) - Anton
-- [x] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
+- [ ] Add caching and multi-OS/Python/PyTorch testing to CI (M17)
 - [x] Add linting to CI (M17)
 - [x] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
@@ -38,7 +38,7 @@
 - [ ] Create workflow to automatically build Docker images (M21)
 - [x] Train model on GCP using Engine or Vertex AI (M21)
 - [x] Create FastAPI inference application (M22)
-- [ ] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
+- [x] Deploy model on GCP using Cloud Functions or Cloud Run (M23)
 - [ ] Write API tests and integrate into CI (M24)
 - [x] Load test the application (M24)
 - [x] Create specialized deployment API using ONNX and/or BentoML (M25) - Clara
@@ -46,13 +46,13 @@
 
 ## ✅ Week 3
 
-- [ ] Check model robustness to data drift (M27)
-- [ ] Collect input-output data from deployed application (M27)
+- [ ] Check model robustness to data drift (M27) - Viktor
+- [x] Collect input-output data from deployed application (M27)
 - [ ] Deploy drift detection API (M27)
 - [ ] Instrument API with system metrics (M28)
 - [ ] Setup cloud monitoring (M28)
 - [ ] Create alert systems in GCP (M28)
-- [ ] Optimize data loading with distributed data loading if applicable (M29)
+- [x] Optimize data loading with distributed data loading if applicable (M29)
 - [ ] Optimize training with distributed training if applicable (M30)
 - [ ] Apply quantization / compilation / pruning for faster inference (M31)
 
