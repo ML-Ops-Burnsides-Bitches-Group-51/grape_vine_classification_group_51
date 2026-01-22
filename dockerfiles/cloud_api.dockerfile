@@ -5,25 +5,25 @@ RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
+WORKDIR /
 
 # UV configurations
 ENV UV_LINK_MODE=copy
-ENV UV_COMPILE_BYTECODE=1
-ENV UV_PROJECT_ENVIRONMENT=/app/.venv
-# Add venv to path so 'uvicorn' is found automatically
-ENV PATH="/app/.venv/bin:$PATH"
+
 
 # Install enviroment
 COPY uv.lock uv.lock
 COPY pyproject.toml pyproject.toml
+COPY README.md README.md
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-install-project
 
 # Copy functions
-COPY src/grape_vine_classification/cloud_api.py cloud_api.py
-COPY src/grape_vine_classification/model_lightning.py model_lightning.py
+COPY src/ src/
 
+EXPOSE 8011
 
-CMD ["sh", "-c", "uvicorn cloud_api:app --host 0.0.0.0 --port ${PORT:-8080}"]
+CMD exec uv run uvicorn grape_vine_classification.cloud_api:app --reload --app-dir src --port ${PORT:-8011} --host 0.0.0.0
+
+# CMD ["uv", "run", "uvicorn", "cloud_api:app", "--host", "0.0.0.0", "--port", "8080"]
