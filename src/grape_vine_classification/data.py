@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets
 import matplotlib.image
-from grape_vine_classification import PATH_DATA, default_transform
+from grape_vine_classification import PATH_DATA, default_transform, class_names
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Subset
 
@@ -44,6 +44,18 @@ def preprocess():
     sample_img = train_data[0][0].numpy()
     matplotlib.image.imsave(PATH_DATA / "processed_sample.png", sample_img, cmap="gray")
 
+    # extract features from train data and save as cvs file
+    with open(processed_data_dir / "feature_database.csv", "w") as file:
+        file.write("brightness,contrast,sharpness,target\n")
+
+    for img, label in zip(train_data, train_labels):
+        avg_brightness = torch.mean(img).item()    
+        contrast = torch.std(img).item()
+        gradients = torch.gradient(img, dim=[1,2])
+        sharpness = torch.mean(torch.abs(gradients[0]) + torch.abs(gradients[1])).item()
+        species = class_names[label]
+        with open(processed_data_dir / "feature_database.csv", "a") as file:
+            file.write(f"{avg_brightness}, {contrast}, {sharpness}, {label.item()}\n")
 
 if __name__ == "__main__":
     preprocess()
