@@ -34,7 +34,7 @@
 - [x] Add pre-commit hooks (M18)
 - [ ] Add workflow triggered when data changes (M19)
 - [x] Add workflow triggered when model registry changes (M19)
-- [ ] Create GCP Bucket for data and link with DVC (M21)
+- [x] Create GCP Bucket for data and link with DVC (M21)
 - [ ] Create workflow to automatically build Docker images (M21)
 - [x] Train model on GCP using Engine or Vertex AI (M21)
 - [x] Create FastAPI inference application (M22)

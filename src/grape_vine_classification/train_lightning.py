@@ -8,6 +8,8 @@ from pytorch_lightning.loggers import WandbLogger
 from torch.utils.data import DataLoader, TensorDataset
 import yaml
 import typer
+import multiprocessing
+cores = multiprocessing.cpu_count()
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
@@ -59,8 +61,8 @@ def train(config: dict = {}, logger = False,
     train_data = TensorDataset(train_data["images"], train_data["labels"])
     test_data = TensorDataset(test_data["images"], test_data["labels"])
 
-    train_dataloader = DataLoader(train_data, batch_size=batch_size)
-    test_dataloader = DataLoader(test_data, batch_size=1)
+    train_dataloader = DataLoader(train_data, batch_size=batch_size, num_workers=cores)
+    test_dataloader = DataLoader(test_data, batch_size=1, num_workers = cores)
 
     # Define trainer and train model
     callbacks = [
