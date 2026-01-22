@@ -2,13 +2,13 @@ import os
 import torch
 from google.cloud import storage
 from pydantic import BaseModel
-from fastapi import FastAPI, HTTPException, UploadFile, File
+from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
 from contextlib import asynccontextmanager
 from torchvision import transforms
 from PIL import Image
 import io
-
-
+import datetime
+import json
 
 
 BUCKET_NAME = "models_grape_gang"
@@ -29,6 +29,30 @@ transform = transforms.Compose(
 class PredictionOutput(BaseModel):
     species: str
 
+
+def save_prediction_to_gcp(transformed_img: torch.Tensor,outputs: list[float],species: str):
+    client = storage.Client()
+    bucket = client.bucket(BUCKET_NAME)
+    
+    img = transformed_img
+    time = datetime.datetime.now(tz=datetime.UTC)
+
+    avg_brightness = torch.mean(img).float()    
+    contrast = torch.std(img).float() 
+    sharpness = torch.mean(torch.abs(torch.gradient(img,dim=(2,3)))).float()
+
+    data = {  
+    "avg_brightness": avg_brightness,  
+    "contrast": contrast,   
+    "sharpness": sharpness,  
+    "timestamp": time.isoformat(), 
+    "class_probabilities": outputs,
+    "species": species,
+    }
+
+    blob = bucket.blob(f"prediction_{time}.json")
+    blob.upload_from_string(json.dumps(data))
+    print("Finished saving image features and model outputs")
 
 def download_model():
     client = storage.Client()
@@ -57,7 +81,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 @app.post("/predict", response_model=PredictionOutput)
-async def predict_species(file: UploadFile = File()):
+async def predict_species(background_tasks: BackgroundTasks, file: UploadFile = File()):
     
     try:
 
@@ -69,12 +93,15 @@ async def predict_species(file: UploadFile = File()):
         if input_tensor.ndimension() == 3:
             input_tensor = input_tensor.unsqueeze(0)
 
+
         # Inference
         with torch.no_grad():
             output = model(input_tensor)
             prediction = torch.argmax(output, dim=1)
             species = class_names[prediction]
 
+
+        background_tasks.add_task(save_prediction_to_gcp, input_tensor, output.softmax(-1).tolist(), species)
         return PredictionOutput(species=species)
 
     except Exception as e:
