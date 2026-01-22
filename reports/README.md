@@ -298,7 +298,18 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 12 fill here ---
+Experiments are configured by dedicated config files, kept in a config folder. Data and model paths are given when running code.
+
+def main(config_path: str = "configs/experiment/exp1.yaml", 
+         config = None, data_path = PATH_DATA / "processed_dataset", 
+         model_path = PROJECT_ROOT / "models" / "model.pth",
+         max_epochs: int = None):
+    data_path = Path(data_path)
+    model_path = Path(model_path)
+    
+The paths are kept seperate and changed by command line argument rather than config file, such that the trainning function can be used both locally and on the cloud. When we deploy an image for cloud trainning we simply give the bucket directories for the data and model buckets as command line inputs.
+
+For a locally run experiment we could depending on what we where testing simply use uv run lightning_trainer.py, if the specefic model configerations where unimportant.
 
 ### Question 13
 
@@ -313,7 +324,7 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 >
 > Answer:
 
---- question 13 fill here ---
+We use wandb to log experiment results, which also stores the experiment config file, and couples it to the experiment. When doing hyperparamter optimization we use wandb sweeping which also stores the config files together with each run.
 
 ### Question 14
 
