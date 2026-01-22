@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets
 import matplotlib.image
-from grape_vine_classification import PATH_DATA, default_transform, class_names
+from grape_vine_classification import PATH_DATA, default_transform
 from sklearn.model_selection import train_test_split
 from torch.utils.data import Subset
 
