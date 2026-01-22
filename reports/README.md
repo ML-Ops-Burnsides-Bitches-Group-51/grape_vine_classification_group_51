@@ -149,6 +149,7 @@ will check the repositories and the code to verify your answers.
 > Answer:
 
 In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
+
 Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
 
 ## Coding environment
@@ -202,6 +203,7 @@ The code is organised into folders following the cookiecutter template. All sour
 > Answer:
 
 We implemented explicit rules for code quality and formatting using pre-commit and ruff. Pre-commit ensures that all commits follow basic hygiene rules such as removing trailing whitespace, enforcing end-of-file newlines, validating YAML/JSON files, and preventing large files from being committed. Ruff was used both for linting (PEP8-style rules) and automatic code formatting, ensuring a consistent coding style across the entire project without relying on manual reviews.
+
 These concepts are especially important in larger projects because they improve reproducibility, collaboration, and maintainability. Consistent formatting and linting make the code easier to read and debug, typing clarifies expected inputs and outputs, and documentation helps new contributors understand the system. Together, they support better delegation of work, reduce integration errors, and ensure long-term compatibility and structure.
 
 ## Version control
@@ -253,7 +255,8 @@ Coverage test date: 22/01/2026
 >
 > Answer:
 
-Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality. 
+Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality.
+
 In general, using branches is especially important in larger projects, as it isolates experimental or incomplete changes from stable code that is assumed to work correctly. Pull requests provide a controlled and traceable way of merging changes, making the development process more structured, collaborative, and reliable over time.
 
 ### Question 10
@@ -289,8 +292,8 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 Our CI is implemented as two GitHub Actions workflows located in .github/workflows/linting.yaml and .github/workflows/pipeline.yaml, and both are triggered on push and pull requests to the master branch.
 
 **Linting / formatting (linting.yaml):**
-This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: 
-*ruff check .* -> linting / style violations 
+This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: <br>
+*ruff check .* -> linting / style violations <br>
 *ruff format .* -> format enforcement
 
 **Testing pipeline (pipeline.yaml):**
@@ -321,12 +324,14 @@ We enable caching through setup-uv (enable-cache: true), which speeds up repeate
 
 Experiments are configured by dedicated config files, kept in a config folder. Data and model paths are given when running code.
 
+```python
 def main(config_path: str = "configs/experiment/exp1.yaml", 
          config = None, data_path = PATH_DATA / "processed_dataset", 
          model_path = PROJECT_ROOT / "models" / "model.pth",
          max_epochs: int = None):
     data_path = Path(data_path)
     model_path = Path(model_path)
+```
     
 The paths are kept seperate and changed by command line argument rather than config file, such that the trainning function can be used both locally and on the cloud. When we deploy an image for cloud trainning we simply give the bucket directories for the data and model buckets as command line inputs.
 
