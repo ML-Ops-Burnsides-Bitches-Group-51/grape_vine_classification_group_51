@@ -53,7 +53,6 @@ def preprocess():
         contrast = torch.std(img).item()
         gradients = torch.gradient(img, dim=[1,2])
         sharpness = torch.mean(torch.abs(gradients[0]) + torch.abs(gradients[1])).item()
-        species = class_names[label]
         with open(processed_data_dir / "feature_database.csv", "a") as file:
             file.write(f"{avg_brightness}, {contrast}, {sharpness}, {label.item()}\n")
 
