@@ -97,9 +97,9 @@ will check the repositories and the code to verify your answers.
 
 ### Week 3
 
-* [ ] Check how robust your model is towards data drifting (M27)
+* [x] Check how robust your model is towards data drifting (M27)
 * [x] Collect input-output data from deployed application (M27)
-* [ ] Deploy to the cloud a drift detection API (M27)
+* [x] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
 * [ ] Create one or more alert systems in GCP to alert you if your app is not behaving correctly (M28)
@@ -112,9 +112,9 @@ will check the repositories and the code to verify your answers.
 * [ ] Write some documentation for your application (M32)
 * [ ] Publish the documentation to GitHub Pages (M32)
 * [ ] Revisit your initial project description. Did the project turn out as you wanted?
-* [ ] Create an architectural diagram over your MLOps pipeline
+* [x] Create an architectural diagram over your MLOps pipeline
 * [ ] Make sure all group members have an understanding about all parts of the project
-* [ ] Uploaded all your code to GitHub
+* [x] Uploaded all your code to GitHub
 
 ## Group information
 
@@ -620,6 +620,7 @@ We did not manage to implement monitoring. If we had implemented monitoring, we 
 > Answer:
 
 --- question 27 fill here ---
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networkung and storage.
 
 ### Question 28
 
@@ -683,6 +684,14 @@ Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining ve
 > Answer:
 
 --- question 30 fill here ---
+
+The largest problems where cloud and docker, both for cloud training and model deyploment. Google cloud services where difficult to navigate, with extremly many opaque options with unclear effects. It was also a bit difficult to figure out how different systems interacted such as wandb and google cloud. When deyploing to cloud we also couldn't find any log files in the log section, which made debugging extremly hard until we found a command to display them.
+
+When constructing docker images we either had to enable cahcing significantly increasing storage costs, or disable it which made the build process time consuming making debugging hard.
+
+Constructing the code in such a way that the same script could run locally, on GitHub or on Google Cloud was also difficult, until we fiquired the correct pathing structure for typer.
+
+Testing was very usefull, but would at times lack behind new code developments. For example when switching to lightning or DVC, many test where rendered non functional, meaning untested code entered master, which created signficant problem.
 
 ### Question 31
 
