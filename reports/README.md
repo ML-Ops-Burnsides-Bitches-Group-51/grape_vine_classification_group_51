@@ -719,6 +719,11 @@ Student s214728: Worked on, dataloading and preprocess, cloud setup, training co
 
 Student s204354: Worked on, dataloading and preprocessing, tests (model, train, data and raises), codebase refactoring (so local, git and cloud all worked together), bug-fixing, model training scripts, cloud api script, data drift api script, cloud setup
 
+Student s211222: Worked on, dockerfiles, testing, API's, raport writing, bug-fixing, cloud services 
+
+
+Student s214722; Worked on implementing the lightning model and training, converting the model to onnx and setting up the backend and frontend for the model in cloud and dataversion control using dvc.
+
 Student s211222: Worked on, dockerfiles, testing, API's, report writing, bug-fixing, cloud services 
 
 Use of AI: We used both Chat GPT and Gemini (depending on the group member). We used AI for debugging code especially for analysing cloud deployment errors and for understanding docker erros. It was also used when we were implementing inital APIs and for API deployment.
