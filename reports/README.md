@@ -270,7 +270,7 @@ In general, using branches is especially important in larger projects, as it iso
 >
 > Answer:
 
-We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud. However we imagine that if we added or aumented data dvc would also have been very helpfull in managing the different versions of the data.
+We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud. However we imagine that if we added or augmented data dvc would also have been very helpfull in managing the different versions of the data and keeping everone up to data on which version of the data was in use.
 
 ### Question 11
 
