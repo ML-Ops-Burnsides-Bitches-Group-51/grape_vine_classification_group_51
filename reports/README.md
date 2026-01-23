@@ -612,7 +612,7 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
---- question 26 fill here ---
+We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
 
 ## Overall discussion of project
 
