@@ -137,6 +137,18 @@ will check the repositories and the code to verify your answers.
 *s214722, s214728, s211222, s214705, s204354*
 
 ### Question 3
+> **Did you end up using any open-source frameworks/packages not covered in the course during your project? If so**
+> **which did you use and how did they help you complete the project?**
+>
+> Recommended answer length: 0-200 words.
+>
+> Example:
+> *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
+> *package to do ... and ... in our project*.
+>
+> Answer:
+
+### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
 > **did you choose to work with and did it help you complete the project?**
 >
