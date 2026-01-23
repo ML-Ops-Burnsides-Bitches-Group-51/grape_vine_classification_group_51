@@ -450,11 +450,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
+![Bucket1](figures/Bucket1.png)
 
-
-<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
-
+![Bucket2](figures/Bucket2.png)
 
 
 ### Question 20
@@ -671,8 +669,7 @@ When users send requests to the deployed API, Cloud Run forwards the requests to
 
 Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
-
-<img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
+![Development1](figures/Development1.png)
 
 
 ### Question 30
