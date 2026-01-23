@@ -13,7 +13,7 @@ from PIL import Image, UnidentifiedImageError
 
 import onnxruntime as ort
 import numpy as np
-import subprocess
+from google.cloud import storage
 
 
 # To run the app, use:
@@ -25,18 +25,12 @@ import subprocess
 # ----------------------------
 # Paths that match repo
 # ----------------------------
-# This file lives at: src/grape_vine_classification/api.py
-
 
 PKG_DIR = Path(__file__).resolve().parent 
 # Fallback: if we are at /app, REPO_ROOT is just /app
-try:
-    REPO_ROOT = PKG_DIR.parents[0]
-except IndexError:
-    REPO_ROOT = PKG_DIR 
+REPO_ROOT = PKG_DIR.parents[0] if PKG_DIR.parents else PKG_DIR
 MODELS_DIR = REPO_ROOT / "models"
 
-# You can override these with env vars when deploying
 MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "trained_model.onnx")))
 LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
@@ -49,22 +43,6 @@ GCS_LABELS_URI = os.getenv(
     "GCS_LABELS_URI",
     "gs://models-grape-gang/models/labels.json",
 )
-
-def ensure_model_present():
-    MODELS_DIR.mkdir(parents=True, exist_ok=True)
-
-    if not MODEL_PATH.exists():
-        subprocess.check_call(
-            ["gsutil", "cp", GCS_MODEL_URI, str(MODEL_PATH)]
-        )
-
-    if not LABELS_PATH.exists():
-        subprocess.check_call(
-            ["gsutil", "cp", GCS_LABELS_URI, str(LABELS_PATH)]
-        )
-
-
-
 
 # Convert to B/W and downsize to 128x128
 IMG_SIZE = int(os.getenv("IMG_SIZE", "128"))
@@ -93,6 +71,26 @@ _output_name: Optional[str] = None
 _labels: List[str] = []
 
 # Grayscale + 128x128 as described in README
+
+# ----------------------------
+# Helper functions
+# ----------------------------
+def download_from_gcs(uri: str, local_path: Path):
+    """Download a file from GCS if it doesn't exist locally."""
+    if local_path.exists():
+        return
+    print(f"Downloading {uri} → {local_path}")
+    client = storage.Client()
+    bucket_name, blob_path = uri.replace("gs://", "").split("/", 1)
+    bucket = client.bucket(bucket_name)
+    blob = bucket.blob(blob_path)
+    local_path.parent.mkdir(parents=True, exist_ok=True)
+    blob.download_to_filename(local_path)
+    print(f"Downloaded {local_path}")
+
+def ensure_model_present():
+    download_from_gcs(GCS_MODEL_URI, MODEL_PATH)
+    download_from_gcs(GCS_LABELS_URI, LABELS_PATH)
 
 def preprocess_pil(img: Image.Image) -> np.ndarray:
     """
