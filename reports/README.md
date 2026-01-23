@@ -149,6 +149,7 @@ will check the repositories and the code to verify your answers.
 > Answer:
 
 In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
+
 Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
 
 ## Coding environment
@@ -202,6 +203,7 @@ The code is organised into folders following the cookiecutter template. All sour
 > Answer:
 
 We implemented explicit rules for code quality and formatting using pre-commit and ruff. Pre-commit ensures that all commits follow basic hygiene rules such as removing trailing whitespace, enforcing end-of-file newlines, validating YAML/JSON files, and preventing large files from being committed. Ruff was used both for linting (PEP8-style rules) and automatic code formatting, ensuring a consistent coding style across the entire project without relying on manual reviews.
+
 These concepts are especially important in larger projects because they improve reproducibility, collaboration, and maintainability. Consistent formatting and linting make the code easier to read and debug, typing clarifies expected inputs and outputs, and documentation helps new contributors understand the system. Together, they support better delegation of work, reduce integration errors, and ensure long-term compatibility and structure.
 
 ## Version control
@@ -253,7 +255,8 @@ Coverage test date: 22/01/2026
 >
 > Answer:
 
-Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality. 
+Each group member worked on their own branch and then merged changes into the master branch using pull requests. This allowed everyone to develop features independently without interfering with each other’s work. Before a pull request could be merged, all continuous integration (CI) checks, including unit tests, had to pass. This ensured that new code met the project’s quality standards and did not introduce regressions or break existing functionality.
+
 In general, using branches is especially important in larger projects, as it isolates experimental or incomplete changes from stable code that is assumed to work correctly. Pull requests provide a controlled and traceable way of merging changes, making the development process more structured, collaborative, and reliable over time.
 
 ### Question 10
@@ -289,8 +292,8 @@ We did use DVC for managing data and to load it to the cloud. It helped us ensur
 Our CI is implemented as two GitHub Actions workflows located in .github/workflows/linting.yaml and .github/workflows/pipeline.yaml, and both are triggered on push and pull requests to the master branch.
 
 **Linting / formatting (linting.yaml):**
-This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: 
-*ruff check .* -> linting / style violations 
+This workflow focuses on code quality and consistency. It checks out the repository, sets up uv, installs dependencies with uv sync --dev, and then runs Ruff for both linting and formatting: <br>
+*ruff check .* -> linting / style violations <br>
 *ruff format .* -> format enforcement
 
 **Testing pipeline (pipeline.yaml):**
@@ -321,12 +324,14 @@ We enable caching through setup-uv (enable-cache: true), which speeds up repeate
 
 Experiments are configured by dedicated config files, kept in a config folder. Data and model paths are given when running code.
 
+```python
 def main(config_path: str = "configs/experiment/exp1.yaml", 
          config = None, data_path = PATH_DATA / "processed_dataset", 
          model_path = PROJECT_ROOT / "models" / "model.pth",
          max_epochs: int = None):
     data_path = Path(data_path)
     model_path = Path(model_path)
+```
     
 The paths are kept seperate and changed by command line argument rather than config file, such that the trainning function can be used both locally and on the cloud. When we deploy an image for cloud trainning we simply give the bucket directories for the data and model buckets as command line inputs.
 
@@ -377,7 +382,15 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 15 fill here ---
+In our project we used Docker to make the training, evaluation, and inference/API steps reproducible and easy to run on any machine (local or cloud) without manual environment setup. We created separate images for: training (train.dockerfile), evaluation (evaluate.dockerfile), and serving an API (both a local ONNX backend in backend.dockerfile and a cloud-oriented FastAPI in cloud_api.dockerfile). All images are based on Astral’s uv Python images (Python 3.12) and install dependencies via uv sync / uv pip install, which keeps builds consistent.
+
+An example run of the trainning docker image is below. Here we give the local file directory as it is not being run on the cloud, but for cloud run we simply change the data and model directory, to the matching buckets. An wandb api key must be added as an enviroment variable.
+```
+docker run --rm   -e WANDB_API_KEY=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   -v "$(pwd)/data:/data"   -v "$(pwd)/models:/models"   grape-vine-trainer
+```
+Link to the train.dockerfile which constructs the image:
+
+https://github.com/ML-Ops-Burnsides-Bitches-Group-51/grape_vine_classification_group_51/blob/master/dockerfiles/train.dockerfile
 
 ### Question 16
 
@@ -392,7 +405,12 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 16 fill here ---
+When running into bugs during our experiments, the debugging approach varied between group members, as debugging is often a personal and experience-driven process. A common first step was carefully reading and interpreting error messages, as these often point directly to the source of the problem (e.g. missing files/paths, shape mismatches, or configuration errors). We also relied heavily on incremental debugging techniques such as adding print statements to inspect intermediate values and verify assumptions about data flow and model behavior. 
+
+In addition, we sometimes used AI tools and online resources to clarify unfamiliar error messages, understand library-specific behavior, or get suggestions for potential fixes. Some group members preferred using debuggers or running isolated code snippets to reproduce errors in a controlled setting, while others focused on simplifying the code in full until the bug was cleared. 
+
+We did not consider the code to be “perfect” and did not perform extensive profiling. Overall, our focus was on correctness and reproducibility rather than heavy optimization.
+
 
 ## Working in the cloud
 
@@ -409,7 +427,7 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 17 fill here ---
+We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Cloud Run. Buckets are used for storage, such as data, trained models, and information about API input queries which is later used to detect data drift. The Artifact Repository stores images for later deployment. Images from the repository are run using either Vertex AI or Cloud Run depending on the task. Training is done using Vertex AI, while model inference is using an API deployd from the Artifact Repository to Cloud Run.
 
 ### Question 18
 
@@ -432,8 +450,12 @@ We use wandb to log experiment results, which also stores the experiment config 
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
 
---- question 19 fill here ---
+
+<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
+
+
 
 ### Question 20
 
@@ -442,7 +464,9 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 20 fill here ---
+
+<img width="1636" height="373" alt="image" src="https://github.com/user-attachments/assets/f3f4940d-73dc-42fc-9416-15c9df7b5baa" />
+
 
 ### Question 21
 
@@ -450,8 +474,10 @@ We use wandb to log experiment results, which also stores the experiment config 
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
+<img width="1702" height="615" alt="image" src="https://github.com/user-attachments/assets/1ee19914-d9db-4945-914c-4517d1e9e92b" />
 
---- question 21 fill here ---
+<img width="1585" height="526" alt="image" src="https://github.com/user-attachments/assets/bacabbf8-aaa0-4f98-a10c-22ddd5fed85f" />
+
 
 ### Question 22
 
@@ -466,7 +492,30 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 22 fill here ---
+We intially began working with the Engine but found working with the virtual machine instances to be cumbersome, so switched to Vertex AI. Trainning was done by running the relevant image, with the argiments specefied by a local configuration file.
+
+```
+gcloud ai custom-jobs create   --region=europe-west1   --display-name=grapevine-v9-final   --config=cloud_config.yaml   --service-account=dvc-sa@grapevine-gang.iam.gserviceaccount.com
+```
+
+``` yaml
+workerPoolSpecs:
+  machineSpec:
+    machineType: n1-standard-4
+  replicaCount: 1
+  containerSpec:
+    imageUri: europe-west1-docker.pkg.dev/grapevine-gang/grape-functions/trainer:v2
+    env:
+      - name: WANDB_API_KEY
+        value: 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
+    args:
+      - --config-path
+      - configs/experiment/exp1.yaml
+      - --data-path
+      - /gcs/grapevine_data/data/processed_dataset/
+      - --model-path
+      - /gcs/models_grape_gang/cloud_model.pth
+```
 
 ## Deployment
 
@@ -483,7 +532,16 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 23 fill here ---
+Yes, we did manage to write an API for our model, and we implemented it using FastAPI in multiple variants to support different deployment scenarios. 
+
+The main API loads a trained PyTorch model at startup using FastAPI’s lifespan mechanism and exposes a /predict endpoint that accepts one or more image files. Uploaded images are validated, preprocessed (resized, converted to grayscale, and normalized), and passed through the model to produce predictions. The API returns structured JSON responses defined with Pydantic models, including the predicted label, confidence score, and optional top-k probabilities. A /health endpoint was also added to verify that the service is running correctly and that the model and labels are loaded as expected. 
+
+In addition, we implemented a cloud-focused API that downloads the model from Google Cloud Storage at startup and asynchronously logs prediction metadata back to the cloud using background tasks. This is useful for monitoring and later analysis. 
+
+Finally, we created an ONNX-based API that runs inference using ONNX Runtime instead of PyTorch, making the service lighter and more portable for deployment environments where PyTorch is not ideal. 
+
+Overall, the APIs go beyond a minimal setup by handling batching, validation, health checks, and multiple inference backends.
+
 
 ### Question 24
 
@@ -499,7 +557,15 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 24 fill here ---
+Yes, we successfully deployed our API locally using FastAPI. The model was wrapped in a FastAPI application defined in api.py. We served the API locally using Uvicorn, which allowed us to test the full prediction flow end to end. The deployed service can be invoked by sending HTTP requests to endpoints such as /predict and /health. For example, predictions can be triggered by posting image files to the /predict endpoint while the service is running locally.
+
+In api.py, the concrete command to run the FastAPI app is given in the comment at the bottom of the file. You start the application using Uvicorn with the following command: <br>
+```bash
+uvicorn --reload --port 8000 src.grape_vine_classification.api:app
+```
+This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
+
+#### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
 
@@ -514,7 +580,12 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 25 fill here ---
+Yes, we performed both unit testing and load testing of our API. 
+
+For unit testing, we used pytest to validate the core functionality of the application, including data handling, model behavior, training logic, and error handling. These tests were integrated into our CI pipeline and executed automatically on each push and pull request, ensuring that changes did not break existing functionality. 
+
+For load testing, we used Locust to evaluate how the API behaves under concurrent user traffic. We implemented a custom Locust user that simulates realistic API usage by repeatedly calling the /health endpoint and sending image files to the /predict endpoint with a configurable request ratio. The test uploads a processed sample image and mimics real inference requests, making the load test representative of actual usage locustfile. No crashes or errors were observed, indicating that the API is robust and can handle moderate concurrent usage reliably.
+
 
 ### Question 26
 
@@ -581,7 +652,10 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 29 fill here ---
+
+
+<img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
+
 
 ### Question 30
 
@@ -613,14 +687,4 @@ We use wandb to log experiment results, which also stores the experiment config 
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
 
-fewafewubaofewnafioewnifowf ewafw afew afewafewafionewoanf waf ewonfieownaf fewnaiof newio fweanøf wea fewa
- fweafewa fewiagonwa ognwra'g
- wa
- gwreapig ipweroang w rag
- wa grwa
-  g
-  ew
-  gwea g
-  ew ag ioreabnguorwa bg̈́aw
-   wa
-   gew4igioera giroeahgi0wra gwa
+

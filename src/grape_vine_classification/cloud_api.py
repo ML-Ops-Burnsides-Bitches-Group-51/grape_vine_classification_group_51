@@ -4,7 +4,7 @@ from google.cloud import storage
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, UploadFile, File, BackgroundTasks
 from contextlib import asynccontextmanager
-from grape_vine_classification import default_transform
+from grape_vine_classification import default_transform, class_names
 from PIL import Image
 import io
 import datetime
@@ -15,12 +15,10 @@ MODEL_FILE = "cloud_model.pth"
 LOCAL_MODEL_PATH = "/tmp/model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-class_names = ["Ak","Ala_Idris","Buzgule","Dimnit","Nazli"]
-
 class PredictionOutput(BaseModel):
     species: str
 
-def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], species: str) -> None:
+def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], prediction: int, species: str) -> None:
     client = storage.Client()
     bucket = client.bucket(BUCKET_NAME)
     
@@ -34,11 +32,12 @@ def save_prediction_to_gcp(img: torch.Tensor, outputs: list[float], species: str
 
     # construct data to be saved
     data = {  
-        "avg_brightness": avg_brightness,  
+        "brightness": avg_brightness,  
         "contrast": contrast,   
         "sharpness": sharpness,  
         "timestamp": time.isoformat(), 
         "class_probabilities": outputs,
+        "prediction": prediction,
         "species": species,
     }
 
@@ -54,7 +53,7 @@ def download_model():
 
     blob.download_to_filename(LOCAL_MODEL_PATH)
 
-    print("Model downloaded completed successfully: ", os.path.isfile(LOCAL_MODEL_PATH))
+    print("Model downloaded completed successfully:", os.path.isfile(LOCAL_MODEL_PATH))
 
 
 @asynccontextmanager
@@ -88,7 +87,7 @@ async def predict_species(background_tasks: BackgroundTasks, file: UploadFile = 
             prediction = torch.argmax(outputs, dim=1)
             species = class_names[prediction]
 
-        background_tasks.add_task(save_prediction_to_gcp, input_tensor, outputs.softmax(-1).squeeze().tolist(), species)
+        background_tasks.add_task(save_prediction_to_gcp, input_tensor, outputs.softmax(-1).squeeze().tolist(), prediction.item(), species)
 
         return PredictionOutput(species = species)
 
