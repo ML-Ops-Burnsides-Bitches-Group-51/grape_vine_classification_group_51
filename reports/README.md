@@ -450,6 +450,8 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+
+
 <img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
 
 
@@ -464,8 +466,7 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
-
-<img width="1636" height="373" alt="image" src="https://github.com/user-attachments/assets/f3f4940d-73dc-42fc-9416-15c9df7b5baa" />
+![Artifact1](reports/figures/Artifact1.png)
 
 
 ### Question 21
@@ -474,9 +475,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
-<img width="1702" height="615" alt="image" src="https://github.com/user-attachments/assets/1ee19914-d9db-4945-914c-4517d1e9e92b" />
 
-<img width="1585" height="526" alt="image" src="https://github.com/user-attachments/assets/bacabbf8-aaa0-4f98-a10c-22ddd5fed85f" />
+![Artifact2](reports/figures/Artifact2.png)
+![Artifact3](reports/figures/Artifact3.png)
 
 
 ### Question 22
