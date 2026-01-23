@@ -652,6 +652,19 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
+The diagram illustrates the end-to-end development, training, and deployment workflow of the system. 
+
+The process starts with the development team, who work on separate branches and submit their changes through pull requests. These pull requests automatically trigger GitHub Actions, where linting, testing, and other CI checks are executed. Only when all tests pass is the code merged into the main GitHub repository. 
+
+Once the code is merged, Docker images can be built manually from the repository. These images encapsulate the application and its dependencies. The resulting Docker images are pushed to Artifact Registry, which serves as the central container image storage. 
+
+From there, the API image is deployed to Cloud Run, which hosts the inference API as a scalable cloud service. Cloud Run exposes the API endpoint that users can interact with. 
+
+Model development and experimentation happen both on the local machine and on Vertex AI. During training, experiment metadata and metrics are logged to Weights & Biases, while datasets and trained model artifacts are stored in Google Cloud Storage buckets. Trained models are saved to these buckets and can be accessed by the API during deployment. 
+
+When users send requests to the deployed API, Cloud Run forwards the requests to the model, which loads the trained model artifacts from cloud storage. The model then generates predictions and returns the results back to the users. 
+
+Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
 
 <img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
