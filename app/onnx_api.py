@@ -5,6 +5,7 @@ import json
 from io import BytesIO
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel
@@ -12,10 +13,11 @@ from PIL import Image, UnidentifiedImageError
 
 import onnxruntime as ort
 import numpy as np
+import subprocess
 
 
 # To run the app, use:
-# uvicorn --reload --port 8000 src.grape_vine_classification.onnx_api:app
+# uv run uvicorn --reload --port 8000 app.onnx_api:app
 
 # Url:
 # http://localhost:8000/docs#/
@@ -25,20 +27,46 @@ import numpy as np
 # ----------------------------
 # This file lives at: src/grape_vine_classification/api.py
 
+
 PKG_DIR = Path(__file__).resolve().parent 
 # Fallback: if we are at /app, REPO_ROOT is just /app
 try:
-    REPO_ROOT = PKG_DIR.parents[1]
+    REPO_ROOT = PKG_DIR.parents[0]
 except IndexError:
     REPO_ROOT = PKG_DIR 
-
 MODELS_DIR = REPO_ROOT / "models"
 
 # You can override these with env vars when deploying
-MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "model.onnx")))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "trained_model.onnx")))
 LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
-# From your README: you convert to B/W and downsize to 128x128
+
+GCS_MODEL_URI = os.getenv(
+    "GCS_MODEL_URI",
+    "gs://models-grape-gang/models/trained_model.onnx",
+)
+GCS_LABELS_URI = os.getenv(
+    "GCS_LABELS_URI",
+    "gs://models-grape-gang/models/labels.json",
+)
+
+def ensure_model_present():
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not MODEL_PATH.exists():
+        subprocess.check_call(
+            ["gsutil", "cp", GCS_MODEL_URI, str(MODEL_PATH)]
+        )
+
+    if not LABELS_PATH.exists():
+        subprocess.check_call(
+            ["gsutil", "cp", GCS_LABELS_URI, str(LABELS_PATH)]
+        )
+
+
+
+
+# Convert to B/W and downsize to 128x128
 IMG_SIZE = int(os.getenv("IMG_SIZE", "128"))
 TOP_K_DEFAULT = int(os.getenv("#_TOP_PREDS_DEFAULT", "3"))
 
@@ -51,6 +79,7 @@ class PredictionResponse(BaseModel):
     filename: str
     predicted_label: str
     confidence: float
+    probabilities: List[float]
     top_k: Optional[List[Dict[str, Any]]] = None
 
 
@@ -117,7 +146,7 @@ def load_model() -> None:
 
 def predict_pil(
     img: Image.Image, top_k: int
-) -> Tuple[str, float, List[Tuple[str, float]]]:
+) -> Tuple[str, float, List[float], List[Tuple[str, float]]]:
     if _ort_session is None:
         raise RuntimeError("Model not loaded")
 
@@ -143,29 +172,32 @@ def predict_pil(
 
     pred_label = _labels[idx] if _labels and idx < len(_labels) else str(idx)
 
-    k = max(1, min(int(top_k), probs.shape[0]))
-    top_idxs = probs.argsort()[-k:][::-1]
+    top_idxs = probs.argsort()
 
     top_list = []
     for i in top_idxs:
         label = _labels[i] if _labels and i < len(_labels) else str(i)
         top_list.append((label, float(probs[i])))
-
-    return pred_label, conf, top_list
+   
+    return pred_label, conf, top_list, probs
 
 # ----------------------------
 # FastAPI app
 # ----------------------------
-app = FastAPI(title="Grape Vine Classification API", version="1.0.0")
 
 
-@app.on_event("startup")
-def _startup():
-    try:
-        load_model()
-    except Exception as e:
-        # fail fast so Docker / deployment catches it immediately
-        raise RuntimeError(f"Startup failed loading model: {e}") from e
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Starting up, ensuring model exists...")
+    ensure_model_present()
+    load_model()
+    print(f"Model loaded: {_ort_session}")
+    
+    yield
+    print("Shutting down")
+    
+app = FastAPI(title="Grape Vine Classification API", version="1.0.0", lifespan=lifespan)
+
 
 @app.get("/health")
 def health():
@@ -181,7 +213,7 @@ def health():
 @app.post("/predict", response_model=BatchPredictionResponse)
 async def predict(
     files: List[UploadFile] = File(...),
-    num_predictions: int = 3,
+    num_predictions: int = 5,
 ):
     results: List[PredictionResponse] = []
 
@@ -200,13 +232,14 @@ async def predict(
             raise HTTPException(status_code=400, detail=f"Invalid image: {file.filename}")
 
         # --- inference ---
-        label, conf, top_list = predict_pil(img, top_k=num_predictions)
-
+        label, conf, top_list, probs = predict_pil(img, top_k=num_predictions)
+        
         results.append(
             PredictionResponse(
                 filename=file.filename,
                 predicted_label=label,
                 confidence=conf,
+                probabilities = [prob for prob in probs],
                 top_k=[{"label": lbl, "score": s} for lbl, s in top_list],
             )
         )
