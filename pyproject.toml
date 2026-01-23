@@ -43,6 +43,7 @@ dependencies = [
     "python-multipart>=0.0.9",
     "google-api-python-client>=2.187.0",
     "timeout-decorator>=0.5.0",
+    "pandas>=2.3.3",
     "evidently>=0.7.20",
 ]
 

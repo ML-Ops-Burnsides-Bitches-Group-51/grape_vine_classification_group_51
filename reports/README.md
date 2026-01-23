@@ -97,9 +97,9 @@ will check the repositories and the code to verify your answers.
 
 ### Week 3
 
-* [ ] Check how robust your model is towards data drifting (M27)
+* [x] Check how robust your model is towards data drifting (M27)
 * [x] Collect input-output data from deployed application (M27)
-* [ ] Deploy to the cloud a drift detection API (M27)
+* [x] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
 * [ ] Create one or more alert systems in GCP to alert you if your app is not behaving correctly (M28)
@@ -112,9 +112,9 @@ will check the repositories and the code to verify your answers.
 * [ ] Write some documentation for your application (M32)
 * [ ] Publish the documentation to GitHub Pages (M32)
 * [ ] Revisit your initial project description. Did the project turn out as you wanted?
-* [ ] Create an architectural diagram over your MLOps pipeline
+* [x] Create an architectural diagram over your MLOps pipeline
 * [ ] Make sure all group members have an understanding about all parts of the project
-* [ ] Uploaded all your code to GitHub
+* [x] Uploaded all your code to GitHub
 
 ## Group information
 
@@ -137,10 +137,10 @@ will check the repositories and the code to verify your answers.
 *s214722, s214728, s211222, s214705, s204354*
 
 ### Question 3
-> **A requirement to the project is that you include a third-party package not covered in the course. What framework**
-> **did you choose to work with and did it help you complete the project?**
+> **Did you end up using any open-source frameworks/packages not covered in the course during your project? If so**
+> **which did you use and how did they help you complete the project?**
 >
-> Recommended answer length: 100-200 words.
+> Recommended answer length: 0-200 words.
 >
 > Example:
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
@@ -148,9 +148,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
-In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
-
-Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
+In our project, we focussed on learning the core aspects on the course, and implementing the extra modules that we found most interesting. Therefore, we did not end up using any third-party packages not covered in the course.
 
 ## Coding environment
 
@@ -272,7 +270,7 @@ In general, using branches is especially important in larger projects, as it iso
 >
 > Answer:
 
-We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data.
+We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud, however we imagine that if we added or aumented data dvc would also have been very helpfull in managing the different versions of the data.
 
 ### Question 11
 
@@ -367,8 +365,16 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 14 fill here ---
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, including hyperparameter sweeps, where we varied settings such as learning rate, optimizer, and random initialization. 
 
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices. 
+
+The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
+
+Below the plots, W&B also logs configuration parameters such as batch size, learning rate, optimizer type, momentum, number of epochs, and early stopping patience. Finally, the summary metrics (final accuracy, validation loss, and training step) provide a concise comparison between runs and help us select the best model checkpoint for further evaluation or deployment. Overall, W&B enabled systematic experimentation, clear visualization, and reproducible model selection.
+
+![Wandb1](figures/Wandb1.png)
+![Wandb2](figures/Wandb2.png)
 ### Question 15
 
 > **Docker is an important tool for creating containerized applications. Explain how you used docker in your**
@@ -384,7 +390,13 @@ We use wandb to log experiment results, which also stores the experiment config 
 
 In our project we used Docker to make the training, evaluation, and inference/API steps reproducible and easy to run on any machine (local or cloud) without manual environment setup. We created separate images for: training (train.dockerfile), evaluation (evaluate.dockerfile), and serving an API (both a local ONNX backend in backend.dockerfile and a cloud-oriented FastAPI in cloud_api.dockerfile). All images are based on Astral’s uv Python images (Python 3.12) and install dependencies via uv sync / uv pip install, which keeps builds consistent.
 
-#### **MANGLER EXEMPEL PÅ AT KØRE OG LINK**
+An example run of the trainning docker image is below. Here we give the local file directory as it is not being run on the cloud, but for cloud run we simply change the data and model directory, to the matching buckets. An wandb api key must be added as an enviroment variable.
+```
+docker run --rm   -e WANDB_API_KEY=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   -v "$(pwd)/data:/data"   -v "$(pwd)/models:/models"   grape-vine-trainer
+```
+Link to the train.dockerfile which constructs the image:
+
+https://github.com/ML-Ops-Burnsides-Bitches-Group-51/grape_vine_classification_group_51/blob/master/dockerfiles/train.dockerfile
 
 ### Question 16
 
@@ -421,7 +433,7 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 17 fill here ---
+We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Cloud Run. Buckets are used for storage, such as data, trained models, and information about API input queries which is later used to detect data drift. The Artifact Repository stores images for later deployment. Images from the repository are run using either Vertex AI or Cloud Run depending on the task. Training is done using Vertex AI, while model inference is using an API deployd from the Artifact Repository to Cloud Run.
 
 ### Question 18
 
@@ -444,8 +456,10 @@ We did not consider the code to be “perfect” and did not perform extensive p
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+![Bucket1](figures/Bucket1.png)
 
---- question 19 fill here ---
+![Bucket2](figures/Bucket2.png)
+
 
 ### Question 20
 
@@ -454,7 +468,8 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 20 fill here ---
+![Artifact1](figures/Artifact1.png)
+
 
 ### Question 21
 
@@ -463,7 +478,9 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 21 fill here ---
+![Artifact2](figures/Artifact2.png)
+![Artifact3](figures/Artifact3.png)
+
 
 ### Question 22
 
@@ -478,7 +495,30 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 22 fill here ---
+We intially began working with the Engine but found working with the virtual machine instances to be cumbersome, so switched to Vertex AI. Trainning was done by running the relevant image, with the argiments specefied by a local configuration file.
+
+```
+gcloud ai custom-jobs create   --region=europe-west1   --display-name=grapevine-v9-final   --config=cloud_config.yaml   --service-account=dvc-sa@grapevine-gang.iam.gserviceaccount.com
+```
+
+``` yaml
+workerPoolSpecs:
+  machineSpec:
+    machineType: n1-standard-4
+  replicaCount: 1
+  containerSpec:
+    imageUri: europe-west1-docker.pkg.dev/grapevine-gang/grape-functions/trainer:v2
+    env:
+      - name: WANDB_API_KEY
+        value: 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
+    args:
+      - --config-path
+      - configs/experiment/exp1.yaml
+      - --data-path
+      - /gcs/grapevine_data/data/processed_dataset/
+      - --model-path
+      - /gcs/models_grape_gang/cloud_model.pth
+```
 
 ## Deployment
 
@@ -528,6 +568,8 @@ uvicorn --reload --port 8000 src.grape_vine_classification.api:app
 ```
 This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
 
+Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
+
 #### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
@@ -563,7 +605,9 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
---- question 26 fill here ---
+We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
+
+Implementing monitoring would also generate logs, which can be used to locate and fix potential problems. Additionally, it would also allow for easier debugging if the model stops working as we were expecting.
 
 ## Overall discussion of project
 
@@ -582,7 +626,7 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
---- question 27 fill here ---
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networking and storage.
 
 ### Question 28
 
@@ -615,7 +659,22 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
---- question 29 fill here ---
+The diagram illustrates the end-to-end development, training, and deployment workflow of the system. 
+
+The process starts with the development team, who work on separate branches and submit their changes through pull requests. These pull requests automatically trigger GitHub Actions, where linting, testing, and other CI checks are executed. Only when all tests pass is the code merged into the main GitHub repository. 
+
+Once the code is merged, Docker images can be built manually from the repository. These images encapsulate the application and its dependencies. The resulting Docker images are pushed to Artifact Registry, which serves as the central container image storage. 
+
+From there, the API image is deployed to Cloud Run, which hosts the inference API as a scalable cloud service. Cloud Run exposes the API endpoint that users can interact with. 
+
+Model development and experimentation happen both on the local machine and on Vertex AI. During training, experiment metadata and metrics are logged to Weights & Biases, while datasets and trained model artifacts are stored in Google Cloud Storage buckets. Trained models are saved to these buckets and can be accessed by the API during deployment. 
+
+When users send requests to the deployed API, Cloud Run forwards the requests to the model, which loads the trained model artifacts from cloud storage. The model then generates predictions and returns the results back to the users. 
+
+Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
+
+![Development1](figures/Development1.png)
+
 
 ### Question 30
 
@@ -630,6 +689,14 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 > Answer:
 
 --- question 30 fill here ---
+
+The largest problems where cloud and docker, both for cloud training and model deyploment. Google cloud services where difficult to navigate, with extremly many opaque options with unclear effects. It was also a bit difficult to figure out how different systems interacted such as wandb and google cloud. When deyploing to cloud we also couldn't find any log files in the log section, which made debugging extremly hard until we found a command to display them.
+
+When constructing docker images we either had to enable cahcing significantly increasing storage costs, or disable it which made the build process time consuming making debugging hard.
+
+Constructing the code in such a way that the same script could run locally, on GitHub or on Google Cloud was also difficult, until we fiquired the correct pathing structure for typer.
+
+Testing was very usefull, but would at times lack behind new code developments. For example when switching to lightning or DVC, many test where rendered non functional, meaning untested code entered master, which created signficant problem.
 
 ### Question 31
 

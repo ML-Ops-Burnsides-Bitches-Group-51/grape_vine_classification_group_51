@@ -15,6 +15,7 @@ MLOps_Project_Checklist.md
 # ignore almost all models
 models/
 !models/trained_model.pth
+!models/trained_model.onnx
 
 # test cache
 manual_test/
