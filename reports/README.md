@@ -725,4 +725,6 @@ Student s211222: Worked on, dockerfiles, testing, API's, raport writing, bug-fix
 
 
 
+Use of AI: We used both Chat GPT and Gemini (depending on the group member). We used AI for debugging code especially for analysing cloud deployment errors and for understanding docker erros. It was also used when we were implementing inital APIs and for API deployment.
+
 Student s214705: Worked on creation of docker files, tests, dataloading and preprocess, model training scripts, and general bug-fixing.
