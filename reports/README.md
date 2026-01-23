@@ -586,7 +586,7 @@ For unit testing, we used pytest to validate the core functionality of the appli
 
 For load testing, we used Locust to evaluate how the API behaves under concurrent user traffic. We implemented a custom Locust user that simulates realistic API usage by repeatedly calling the /health endpoint and sending image files to the /predict endpoint with a configurable request ratio. The test uploads a processed sample image and mimics real inference requests, making the load test representative of actual usage locustfile. No crashes or errors were observed, indicating that the API is robust and can handle moderate concurrent usage reliably.
 
-
+Load testing was not done on the APIs deployd to cloud.
 ### Question 26
 
 > **Did you manage to implement monitoring of your deployed model? If yes, explain how it works. If not, explain how**
@@ -639,6 +639,8 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 > Answer:
 
 --- question 28 fill here ---
+
+We implimented datadrift detection, using an API. Whenever an user prompt the inference API, the predictions and image features are stored.
 
 ### Question 29
 
@@ -710,5 +712,7 @@ Testing was very usefull, but would at times lack behind new code developments. 
 > *All members contributed to code by...*
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
+
+Student s214728: Worked on, dataloading and preprocess, workflow for pytest, docker files for cloud trainning and cloud api, the cloud api script, added wandb to all trainning scripts and did the early implimentation of hyperparameter sweeping.
 
 
