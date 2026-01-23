@@ -28,10 +28,9 @@ import numpy as np
 PKG_DIR = Path(__file__).resolve().parent 
 # Fallback: if we are at /app, REPO_ROOT is just /app
 try:
-    REPO_ROOT = PKG_DIR.parents[1]
+    REPO_ROOT = PKG_DIR.parents[0]
 except IndexError:
     REPO_ROOT = PKG_DIR 
-
 MODELS_DIR = REPO_ROOT / "models"
 
 # You can override these with env vars when deploying
@@ -51,6 +50,7 @@ class PredictionResponse(BaseModel):
     filename: str
     predicted_label: str
     confidence: float
+    probabilities: List[float]
     top_k: Optional[List[Dict[str, Any]]] = None
 
 
@@ -117,7 +117,7 @@ def load_model() -> None:
 
 def predict_pil(
     img: Image.Image, top_k: int
-) -> Tuple[str, float, List[Tuple[str, float]]]:
+) -> Tuple[str, float, List[float], List[Tuple[str, float]]]:
     if _ort_session is None:
         raise RuntimeError("Model not loaded")
 
@@ -143,15 +143,14 @@ def predict_pil(
 
     pred_label = _labels[idx] if _labels and idx < len(_labels) else str(idx)
 
-    k = max(1, min(int(top_k), probs.shape[0]))
-    top_idxs = probs.argsort()[-k:][::-1]
+    top_idxs = probs.argsort()
 
     top_list = []
     for i in top_idxs:
         label = _labels[i] if _labels and i < len(_labels) else str(i)
         top_list.append((label, float(probs[i])))
-
-    return pred_label, conf, top_list
+   
+    return pred_label, conf, top_list, probs
 
 # ----------------------------
 # FastAPI app
@@ -181,7 +180,7 @@ def health():
 @app.post("/predict", response_model=BatchPredictionResponse)
 async def predict(
     files: List[UploadFile] = File(...),
-    num_predictions: int = 3,
+    num_predictions: int = 5,
 ):
     results: List[PredictionResponse] = []
 
@@ -200,13 +199,14 @@ async def predict(
             raise HTTPException(status_code=400, detail=f"Invalid image: {file.filename}")
 
         # --- inference ---
-        label, conf, top_list = predict_pil(img, top_k=num_predictions)
-
+        label, conf, top_list, probs = predict_pil(img, top_k=num_predictions)
+        
         results.append(
             PredictionResponse(
                 filename=file.filename,
                 predicted_label=label,
                 confidence=conf,
+                probabilities = [prob for prob in probs],
                 top_k=[{"label": lbl, "score": s} for lbl, s in top_list],
             )
         )
