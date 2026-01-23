@@ -365,7 +365,13 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 14 fill here ---
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, including hyperparameter sweeps, where we varied settings such as learning rate, optimizer, and random initialization. 
+
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices. 
+
+The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
+
+Below the plots, W&B also logs configuration parameters such as batch size, learning rate, optimizer type, momentum, number of epochs, and early stopping patience. Finally, the summary metrics (final accuracy, validation loss, and training step) provide a concise comparison between runs and help us select the best model checkpoint for further evaluation or deployment. Overall, W&B enabled systematic experimentation, clear visualization, and reproducible model selection.
 
 ![Wandb1](figures/Wandb1.png)
 ![Wandb2](figures/Wandb2.png)
