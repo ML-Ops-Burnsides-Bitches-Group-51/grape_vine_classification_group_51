@@ -270,7 +270,7 @@ In general, using branches is especially important in larger projects, as it iso
 >
 > Answer:
 
-We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data.
+We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud, however we imagine that if we added or aumented data dvc would also have been very helpfull in managing the different versions of the data.
 
 ### Question 11
 
@@ -365,7 +365,13 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 14 fill here ---
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, including hyperparameter sweeps, where we varied settings such as learning rate, optimizer, and random initialization. 
+
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices. 
+
+The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
+
+Below the plots, W&B also logs configuration parameters such as batch size, learning rate, optimizer type, momentum, number of epochs, and early stopping patience. Finally, the summary metrics (final accuracy, validation loss, and training step) provide a concise comparison between runs and help us select the best model checkpoint for further evaluation or deployment. Overall, W&B enabled systematic experimentation, clear visualization, and reproducible model selection.
 
 ![Wandb1](figures/Wandb1.png)
 ![Wandb2](figures/Wandb2.png)
@@ -450,11 +456,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
+![Bucket1](figures/Bucket1.png)
 
-
-<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
-
+![Bucket2](figures/Bucket2.png)
 
 
 ### Question 20
@@ -464,8 +468,7 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
-
-<img width="1636" height="373" alt="image" src="https://github.com/user-attachments/assets/f3f4940d-73dc-42fc-9416-15c9df7b5baa" />
+![Artifact1](figures/Artifact1.png)
 
 
 ### Question 21
@@ -474,9 +477,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
-<img width="1702" height="615" alt="image" src="https://github.com/user-attachments/assets/1ee19914-d9db-4945-914c-4517d1e9e92b" />
 
-<img width="1585" height="526" alt="image" src="https://github.com/user-attachments/assets/bacabbf8-aaa0-4f98-a10c-22ddd5fed85f" />
+![Artifact2](figures/Artifact2.png)
+![Artifact3](figures/Artifact3.png)
 
 
 ### Question 22
@@ -565,6 +568,8 @@ uvicorn --reload --port 8000 src.grape_vine_classification.api:app
 ```
 This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
 
+Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
+
 #### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
@@ -602,7 +607,7 @@ Load testing was not done on the APIs deployd to cloud.
 
 We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
 
-Implementing monitoring would also generate logs, which can be used to locate and fix potential problems and allow for easier debugging. 
+Implementing monitoring would also generate logs, which can be used to locate and fix potential problems. Additionally, it would also allow for easier debugging if the model stops working as we were expecting.
 
 ## Overall discussion of project
 
@@ -621,8 +626,7 @@ Implementing monitoring would also generate logs, which can be used to locate an
 >
 > Answer:
 
---- question 27 fill here ---
-Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networkung and storage.
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networking and storage.
 
 ### Question 28
 
@@ -671,8 +675,7 @@ When users send requests to the deployed API, Cloud Run forwards the requests to
 
 Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
-
-<img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
+![Development1](figures/Development1.png)
 
 
 ### Question 30
