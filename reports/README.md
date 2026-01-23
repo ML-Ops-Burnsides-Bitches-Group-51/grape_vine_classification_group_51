@@ -462,7 +462,7 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
-![Artifact1](reports/figures/Artifact1.png)
+![Artifact1](figures/Artifact1.png)
 
 
 ### Question 21
@@ -472,8 +472,8 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
-![Artifact2](reports/figures/Artifact2.png)
-![Artifact3](reports/figures/Artifact3.png)
+![Artifact2](figures/Artifact2.png)
+![Artifact3](figures/Artifact3.png)
 
 
 ### Question 22
