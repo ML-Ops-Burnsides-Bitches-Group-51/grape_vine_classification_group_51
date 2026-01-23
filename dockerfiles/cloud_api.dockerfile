@@ -24,7 +24,7 @@ COPY src/ src/
 
 EXPOSE 8011
 
-CMD exec uv run uvicorn grape_vine_classification.cloud_api:app --app-dir src --port ${PORT:-8011} --host 0.0.0.0
+CMD exec uv run uvicorn grape_vine_classification.cloud_api:app --app-dir src --port $PORT --host 0.0.0.0
 
 # CMD ["uv", "run", "uvicorn", "cloud_api:app", "--host", "0.0.0.0", "--port", "8080"]
 

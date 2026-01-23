@@ -26,6 +26,7 @@ def download_reference_data() -> None:
     client = storage.Client()
     bucket = client.bucket(DATA_BUCKET_NAME)
     blob = bucket.blob(REFERENCE_DATA_NAME)
+    os.makedirs("tmp/", exist_ok=True)
     blob.download_to_filename(LOCAL_REFERENCE_DATA_PATH)
 
 def lifespan(app: FastAPI):
