@@ -1,7 +1,7 @@
 program: src/grape_vine_classification/train_lightning.py
 name: sweep1
 project: grape_vine_classification
-method: bayes
+method: grid
 
 command:
   - ${env}
@@ -16,7 +16,7 @@ parameters:
   optim:
     values: ["Adam","SGD"]
   lr:
-    values: [1e-4,1e-3,5e-3]
+    values: [1e-4,1e-3,1e-2]
     # distribution: log_uniform_values
     # min: 0.0001
     # max: 0.1
@@ -25,10 +25,8 @@ parameters:
     values: [16]
 
   epochs:
-    values: [5]
+    values: [20]
   patience:
     values: [3]
   momentum:
     values: [0.9]
-
-run_cap: 10
