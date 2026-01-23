@@ -452,6 +452,8 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 
 --- question 18 fill here ---
 
+We intially used the compute engine for cloud trainning but found working with the VM instances directly to be cumbersome. We therfore moved over to using Vertex AI for trainning and Cloud Run for API deployment, both of which are based on the cloud engine VM instances.
+
 ### Question 19
 
 > **Insert 1-2 images of your GCP bucket, such that we can see what data you have stored in it.**
