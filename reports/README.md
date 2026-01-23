@@ -480,7 +480,7 @@ We intially used the compute engine for cloud trainning but found working with t
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
-
+![Artifact2](figures/Artifact1.png)
 ![Artifact2](figures/Artifact2.png)
 ![Artifact3](figures/Artifact3.png)
 
