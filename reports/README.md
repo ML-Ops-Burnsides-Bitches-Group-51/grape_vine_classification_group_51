@@ -450,7 +450,6 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
---- question 18 fill here ---
 
 We intially used the compute engine for cloud trainning but found working with the VM instances directly to be cumbersome. We therfore moved over to using Vertex AI for trainning and Cloud Run for API deployment, both of which are based on the cloud engine VM instances.
 
@@ -646,8 +645,6 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 >
 > Answer:
 
---- question 28 fill here ---
-
 We have implemented an api for data drift detection and monitoring, which runs on the cloud. When the endpoint /report is envoked the most recent data gathered by the prediction cloud api will be compared to the training data. This is done with evidently, and a report containing data summary and data drift detection is generated and saved. The endpoint is invoked with an integer indicating the number of recent datapoints that should be compared to the training data. The data features being compared are average pixel intensity, contrast, sharpness and target/prediction species.
 
 ### Question 29
@@ -693,8 +690,6 @@ Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining ve
 > *The biggest challenges in the project was using ... tool to do ... . The reason for this was ...*
 >
 > Answer:
-
---- question 30 fill here ---
 
 The largest problems where cloud and docker, both for cloud training and model deyploment. Google cloud services where difficult to navigate, with extremly many opaque options with unclear effects. It was also a bit difficult to figure out how different systems interacted such as wandb and google cloud. When deyploing to cloud we also couldn't find any log files in the log section, which made debugging extremly hard until we found a command to display them.
 
