@@ -1,7 +1,7 @@
 # Web Framework & Server
 fastapi==0.116.1
 uvicorn[standard]==0.35.0
-python-multipart==0.0.20
+python-multipart==0.0.21
 
 # Machine Learning & Vision
 --index-url https://download.pytorch.org/whl/cpu
