@@ -236,7 +236,7 @@ In total, we implemented around 15 tests focusing primarily on the data pipeline
 >
 > Answer:
 
-The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs.
+The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs. Note also that api tests were only implemented for api.py, and not for the other api scripts.
 
 Coverage test date: 22/01/2026 
 
@@ -365,9 +365,11 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
-We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, including hyperparameter sweeps, where we varied settings such as learning rate, optimizer, and random initialization. 
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, done by a hyperparameter sweep. The sweep is a simple test demonstration where we very the learning rate, and the optimizer.
 
-In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices. 
+We chooce to use validation accuracy as the primary tool for model evaluation. Note that some runs have significantly fewer epochs than others. This is beacuse we use early stopping, when validation accuracy fails to increase for 3 epochs.
+
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices.  gai
 
 The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
 
@@ -448,7 +450,8 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
---- question 18 fill here ---
+
+We intially used the compute engine for cloud trainning but found working with the VM instances directly to be cumbersome. We therfore moved over to using Vertex AI for trainning and Cloud Run for API deployment, both of which are based on the cloud engine VM instances.
 
 ### Question 19
 
@@ -591,7 +594,7 @@ For unit testing, we used pytest to validate the core functionality of the appli
 
 For load testing, we used Locust to evaluate how the API behaves under concurrent user traffic. We implemented a custom Locust user that simulates realistic API usage by repeatedly calling the /health endpoint and sending image files to the /predict endpoint with a configurable request ratio. The test uploads a processed sample image and mimics real inference requests, making the load test representative of actual usage locustfile. No crashes or errors were observed, indicating that the API is robust and can handle moderate concurrent usage reliably.
 
-
+Load testing was not done on the APIs deployd to cloud.
 ### Question 26
 
 > **Did you manage to implement monitoring of your deployed model? If yes, explain how it works. If not, explain how**
@@ -642,7 +645,7 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 >
 > Answer:
 
---- question 28 fill here ---
+We have implemented an api for data drift detection and monitoring, which runs on the cloud. When the endpoint /report is envoked the most recent data gathered by the prediction cloud api will be compared to the training data. This is done with evidently, and a report containing data summary and data drift detection is generated and saved. The endpoint is invoked with an integer indicating the number of recent datapoints that should be compared to the training data. The data features being compared are average pixel intensity, contrast, sharpness and target/prediction species.
 
 ### Question 29
 
@@ -688,8 +691,6 @@ Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining ve
 >
 > Answer:
 
---- question 30 fill here ---
-
 The largest problems where cloud and docker, both for cloud training and model deyploment. Google cloud services where difficult to navigate, with extremly many opaque options with unclear effects. It was also a bit difficult to figure out how different systems interacted such as wandb and google cloud. When deyploing to cloud we also couldn't find any log files in the log section, which made debugging extremly hard until we found a command to display them.
 
 When constructing docker images we either had to enable cahcing significantly increasing storage costs, or disable it which made the build process time consuming making debugging hard.
@@ -713,5 +714,9 @@ Testing was very usefull, but would at times lack behind new code developments. 
 > *All members contributed to code by...*
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
+
+Student s214728: Worked on, dataloading and preprocess, cloud setup, training config, workflow for pytest, docker files for cloud trainning and cloud api, the cloud api script, added wandb to all trainning scripts and did the early implimentation of hyperparameter sweeping.
+
+Student s204354: Worked on, dataloading and preprocessing, tests (model, train, data and raises), codebase refactoring (so local, git and cloud all worked together), bug-fixing, model training scripts, cloud api script, data drift api script, cloud setup
 
 
