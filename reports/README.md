@@ -722,7 +722,7 @@ Student s204354: Worked on, dataloading and preprocessing, tests (model, train, 
 Student s211222: Worked on, dockerfiles, testing, API's, raport writing, bug-fixing, cloud services 
 
 
-
+Student s214722; Worked on implementing the lightning model and training, converting the model to onnx and setting up the backend and frontend for the model in cloud and dataversion control using dvc.
 
 
 Student s214705: Worked on creation of docker files, tests, dataloading and preprocess, model training scripts, and general bug-fixing.
