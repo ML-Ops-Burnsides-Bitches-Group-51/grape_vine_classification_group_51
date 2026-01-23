@@ -17,5 +17,5 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ENV MODEL_PATH=/models/model.onnx
 ENV LABELS_PATH=/models/labels.json
 
-EXPOSE 8000
-CMD ["uvicorn", "onnx_api:app", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 8080
+CMD ["uvicorn", "onnx_api:app", "--host", "0.0.0.0", "--port", "8080"]
