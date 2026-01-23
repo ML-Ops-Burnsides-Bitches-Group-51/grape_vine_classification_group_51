@@ -270,7 +270,7 @@ In general, using branches is especially important in larger projects, as it iso
 >
 > Answer:
 
-We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud, however we imagine that if we added or aumented data dvc would also have been very helpfull in managing the different versions of the data.
+We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud. However we imagine that if we added or augmented data dvc would also have been very helpfull in managing the different versions of the data and keeping everone up to data on which version of the data was in use.
 
 ### Question 11
 
@@ -480,7 +480,7 @@ We intially used the compute engine for cloud trainning but found working with t
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
-
+![Artifact2](figures/Artifact1.png)
 ![Artifact2](figures/Artifact2.png)
 ![Artifact3](figures/Artifact3.png)
 
@@ -573,8 +573,6 @@ This tells Uvicorn to load the app object from api.py, enable auto-reload for lo
 
 Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
 
-#### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
-
 ### Question 25
 
 > **Did you perform any unit testing and load testing of your API? If yes, explain how you did it and what results for**
@@ -644,6 +642,8 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 > *implemented using ...*
 >
 > Answer:
+
+We have implemented a frontend for the project which at the point of writing can be run locally from the dockerfiles, and we are trying to push it to cloud run but are having some troubles with the cloudbuild files.
 
 We have implemented an api for data drift detection and monitoring, which runs on the cloud. When the endpoint /report is envoked the most recent data gathered by the prediction cloud api will be compared to the training data. This is done with evidently, and a report containing data summary and data drift detection is generated and saved. The endpoint is invoked with an integer indicating the number of recent datapoints that should be compared to the training data. The data features being compared are average pixel intensity, contrast, sharpness and target/prediction species.
 
