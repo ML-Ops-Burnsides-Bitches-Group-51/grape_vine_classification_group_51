@@ -236,7 +236,7 @@ In total, we implemented around 15 tests focusing primarily on the data pipeline
 >
 > Answer:
 
-The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs.
+The total code coverage of our project is 78%, measured using coverage.py while running our pytest test suite. This coverage includes the Python source code in src/grape_vine_classification/, where files like api.py are around 76% covered and the training script reaches 95%. We are not at 100% because some code paths (for example error handling, edge cases, and less common branches) were not triggered during testing. Even if we achieved close to 100% coverage, we would not automatically trust the system to be error free. Coverage only shows that lines were executed, not that the tests assert the correct behavior in all scenarios. Bugs can still exist due to missing assertions, untested edge cases, integration issues, and ML-specific problems such as distribution shift or unexpected inputs. Note also that api tests were only implemented for api.py, and not for the other api scripts.
 
 Coverage test date: 22/01/2026 
 
@@ -365,7 +365,15 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
---- question 14 fill here ---
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, done by a hyperparameter sweep. The sweep is a simple test demonstration where we very the learning rate, and the optimizer.
+
+We chooce to use validation accuracy as the primary tool for model evaluation. Note that some runs have significantly fewer epochs than others. This is beacuse we use early stopping, when validation accuracy fails to increase for 3 epochs.
+
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices.  gai
+
+The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
+
+Below the plots, W&B also logs configuration parameters such as batch size, learning rate, optimizer type, momentum, number of epochs, and early stopping patience. Finally, the summary metrics (final accuracy, validation loss, and training step) provide a concise comparison between runs and help us select the best model checkpoint for further evaluation or deployment. Overall, W&B enabled systematic experimentation, clear visualization, and reproducible model selection.
 
 ![Wandb1](figures/Wandb1.png)
 ![Wandb2](figures/Wandb2.png)
@@ -444,17 +452,17 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 
 --- question 18 fill here ---
 
+We intially used the compute engine for cloud trainning but found working with the VM instances directly to be cumbersome. We therfore moved over to using Vertex AI for trainning and Cloud Run for API deployment, both of which are based on the cloud engine VM instances.
+
 ### Question 19
 
 > **Insert 1-2 images of your GCP bucket, such that we can see what data you have stored in it.**
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
-<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
+![Bucket1](figures/Bucket1.png)
 
-
-<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
-
+![Bucket2](figures/Bucket2.png)
 
 
 ### Question 20
@@ -464,8 +472,7 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 >
 > Answer:
 
-
-<img width="1636" height="373" alt="image" src="https://github.com/user-attachments/assets/f3f4940d-73dc-42fc-9416-15c9df7b5baa" />
+![Artifact1](figures/Artifact1.png)
 
 
 ### Question 21
@@ -474,9 +481,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
-<img width="1702" height="615" alt="image" src="https://github.com/user-attachments/assets/1ee19914-d9db-4945-914c-4517d1e9e92b" />
 
-<img width="1585" height="526" alt="image" src="https://github.com/user-attachments/assets/bacabbf8-aaa0-4f98-a10c-22ddd5fed85f" />
+![Artifact2](figures/Artifact2.png)
+![Artifact3](figures/Artifact3.png)
 
 
 ### Question 22
@@ -588,7 +595,7 @@ For unit testing, we used pytest to validate the core functionality of the appli
 
 For load testing, we used Locust to evaluate how the API behaves under concurrent user traffic. We implemented a custom Locust user that simulates realistic API usage by repeatedly calling the /health endpoint and sending image files to the /predict endpoint with a configurable request ratio. The test uploads a processed sample image and mimics real inference requests, making the load test representative of actual usage locustfile. No crashes or errors were observed, indicating that the API is robust and can handle moderate concurrent usage reliably.
 
-
+Load testing was not done on the APIs deployd to cloud.
 ### Question 26
 
 > **Did you manage to implement monitoring of your deployed model? If yes, explain how it works. If not, explain how**
@@ -604,7 +611,7 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 
 We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
 
-Implementing monitoring would also generate logs, which can be used to locate and fix potential problems and allow for easier debugging. 
+Implementing monitoring would also generate logs, which can be used to locate and fix potential problems. Additionally, it would also allow for easier debugging if the model stops working as we were expecting.
 
 ## Overall discussion of project
 
@@ -623,8 +630,7 @@ Implementing monitoring would also generate logs, which can be used to locate an
 >
 > Answer:
 
---- question 27 fill here ---
-Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networkung and storage.
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networking and storage.
 
 ### Question 28
 
@@ -641,6 +647,8 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 > Answer:
 
 We have implemented a frontend for the project which at the point of writing can be run locally from the dockerfiles, and we are trying to push it to cloud run but are having some troubles with the cloudbuild files.
+
+We have implemented an api for data drift detection and monitoring, which runs on the cloud. When the endpoint /report is envoked the most recent data gathered by the prediction cloud api will be compared to the training data. This is done with evidently, and a report containing data summary and data drift detection is generated and saved. The endpoint is invoked with an integer indicating the number of recent datapoints that should be compared to the training data. The data features being compared are average pixel intensity, contrast, sharpness and target/prediction species.
 
 ### Question 29
 
@@ -671,8 +679,7 @@ When users send requests to the deployed API, Cloud Run forwards the requests to
 
 Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
-
-<img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
+![Development1](figures/Development1.png)
 
 
 ### Question 30
@@ -712,5 +719,9 @@ Testing was very usefull, but would at times lack behind new code developments. 
 > *All members contributed to code by...*
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
+
+Student s214728: Worked on, dataloading and preprocess, cloud setup, training config, workflow for pytest, docker files for cloud trainning and cloud api, the cloud api script, added wandb to all trainning scripts and did the early implimentation of hyperparameter sweeping.
+
+Student s204354: Worked on, dataloading and preprocessing, tests (model, train, data and raises), codebase refactoring (so local, git and cloud all worked together), bug-fixing, model training scripts, cloud api script, data drift api script, cloud setup
 
 
