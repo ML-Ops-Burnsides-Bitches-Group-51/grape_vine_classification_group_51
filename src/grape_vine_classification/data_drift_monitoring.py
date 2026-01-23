@@ -10,10 +10,11 @@ from evidently.presets import DataDriftPreset, DataSummaryPreset
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from google.cloud import storage
-from grape_vine_classification import PATH_DATA
 
 MODEL_BUCKET_NAME = "models_grape_gang"
 DATA_BUCKET_NAME = "grapevine_data"
+REFERENCE_DATA_NAME = "data/processed_dataset/feature_database.csv"
+LOCAL_REFERENCE_DATA_PATH = "tmp/feataure_database.csv"
 
 def run_analysis(reference_data: pd.DataFrame, current_data: pd.DataFrame) -> None:
     """Run the analysis and return the report."""
@@ -21,11 +22,17 @@ def run_analysis(reference_data: pd.DataFrame, current_data: pd.DataFrame) -> No
     report_eval = report.run(reference_data=reference_data, current_data=current_data)
     report_eval.save_html("tmp/report.html")
 
+def download_reference_data() -> None:
+    client = storage.Client()
+    bucket = client.bucket(DATA_BUCKET_NAME)
+    blob = bucket.blob(REFERENCE_DATA_NAME)
+    blob.download_to_filename(LOCAL_REFERENCE_DATA_PATH)
 
 def lifespan(app: FastAPI):
     """Load the data and class names before the application starts."""
     global reference_data
-    reference_data = pd.read_csv(PATH_DATA / "processed_dataset" / "feature_database.csv")
+    download_reference_data()
+    reference_data = pd.read_csv(LOCAL_REFERENCE_DATA_PATH)
     reference_data = reference_data.rename(columns={'target': 'prediction'})
 
     yield
