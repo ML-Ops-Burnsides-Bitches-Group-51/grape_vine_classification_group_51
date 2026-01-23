@@ -367,6 +367,8 @@ We use wandb to log experiment results, which also stores the experiment config 
 
 --- question 14 fill here ---
 
+![Wandb1](figures/Wandb1.png)
+![Wandb2](figures/Wandb2.png)
 ### Question 15
 
 > **Docker is an important tool for creating containerized applications. Explain how you used docker in your**
@@ -563,6 +565,8 @@ uvicorn --reload --port 8000 src.grape_vine_classification.api:app
 ```
 This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
 
+Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
+
 #### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
@@ -599,6 +603,8 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 > Answer:
 
 We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
+
+Implementing monitoring would also generate logs, which can be used to locate and fix potential problems and allow for easier debugging. 
 
 ## Overall discussion of project
 
