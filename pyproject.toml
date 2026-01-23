@@ -45,6 +45,8 @@ dependencies = [
     "timeout-decorator>=0.5.0",
     "pandas>=2.3.3",
     "evidently>=0.7.20",
+    "google-cloud>=0.34.0",
+    "google-cloud-storage>=3.8.0",
 ]
 
 [dependency-groups]

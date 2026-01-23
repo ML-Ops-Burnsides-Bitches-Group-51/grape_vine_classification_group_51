@@ -5,3 +5,4 @@ pillow>=10.0
 pydantic>=2.5
 numpy>=2.4.1
 python-multipart>=0.0.9
+google-cloud-storage>=3.8.0
