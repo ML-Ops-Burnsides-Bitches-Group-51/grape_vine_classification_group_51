@@ -563,6 +563,8 @@ uvicorn --reload --port 8000 src.grape_vine_classification.api:app
 ```
 This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
 
+Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
+
 #### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
