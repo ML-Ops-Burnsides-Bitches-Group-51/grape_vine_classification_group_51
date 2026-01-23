@@ -10,7 +10,6 @@ ENV UV_LINK_MODE=copy
 
 COPY app/requirements_backend.txt /app/requirements_backend.txt
 COPY app/onnx_api.py /app/onnx_api.py
-COPY models/ /models/
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip install --system --no-cache -r requirements_backend.txt

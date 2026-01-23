@@ -270,7 +270,7 @@ In general, using branches is especially important in larger projects, as it iso
 >
 > Answer:
 
-We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data.
+We did use DVC for managing data and to load it to the cloud. It helped us ensure that google cloud and each group member had the newest version of the data. The most important usecase for us, was that it made it easy to push the data to google cloud such that we could train models in the cloud, however we imagine that if we added or aumented data dvc would also have been very helpfull in managing the different versions of the data.
 
 ### Question 11
 
@@ -450,13 +450,9 @@ We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Clou
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+![Bucket1](figures/Bucket1.png)
 
-
-<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
-
-
-<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
-
+![Bucket2](figures/Bucket2.png)
 
 
 ### Question 20
@@ -566,6 +562,8 @@ uvicorn --reload --port 8000 src.grape_vine_classification.api:app
 ```
 This tells Uvicorn to load the app object from api.py, enable auto-reload for local development, and serve the API on port 8000. Once running, the API is accessible at http://localhost:8000.
 
+Furthermore, we altered the api such that it works with onnx, and created a front end for the api. The onnx and frontend api are located in the app/ folder. We also created an api for predicting species for user input that runs on the cloud, specified in the cloud_api.py script. And finally, we made an api for data drift monitoring that runs on the cloud, and generates a data drift report using evidently when the user envokes the endpoint /report.
+
 #### **MANGLER MÅSKE NOGET OM ANDRE API'ER END FastAPI??**
 
 ### Question 25
@@ -670,8 +668,7 @@ When users send requests to the deployed API, Cloud Run forwards the requests to
 
 Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
-
-<img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
+![Development1](figures/Development1.png)
 
 
 ### Question 30
