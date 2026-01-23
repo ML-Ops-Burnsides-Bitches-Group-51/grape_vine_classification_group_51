@@ -8,7 +8,7 @@ python-multipart==0.0.20
 --extra-index-url https://pypi.org/simple
 
 torch==2.3.1
-torchvision==0.18.1
+torchvision==0.25.0+cpu
 Pillow
 lightning
 
