@@ -719,4 +719,6 @@ Student s214728: Worked on, dataloading and preprocess, cloud setup, training co
 
 Student s204354: Worked on, dataloading and preprocessing, tests (model, train, data and raises), codebase refactoring (so local, git and cloud all worked together), bug-fixing, model training scripts, cloud api script, data drift api script, cloud setup
 
+Student s211222: Worked on, dockerfiles, testing, API's, raport writing, bug-fixing, cloud services 
+
 
