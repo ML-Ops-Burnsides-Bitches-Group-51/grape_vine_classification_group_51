@@ -13,7 +13,6 @@ from PIL import Image, UnidentifiedImageError
 
 import onnxruntime as ort
 import numpy as np
-import subprocess
 from google.cloud import storage
 
 
