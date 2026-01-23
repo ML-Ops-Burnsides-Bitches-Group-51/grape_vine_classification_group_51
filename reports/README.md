@@ -367,6 +367,8 @@ We use wandb to log experiment results, which also stores the experiment config 
 
 --- question 14 fill here ---
 
+![Wandb1](figures/Wandb1.png)
+![Wandb2](figures/Wandb2.png)
 ### Question 15
 
 > **Docker is an important tool for creating containerized applications. Explain how you used docker in your**
