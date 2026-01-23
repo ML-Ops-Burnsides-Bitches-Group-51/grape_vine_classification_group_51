@@ -620,8 +620,7 @@ Implementing monitoring would also generate logs, which can be used to locate an
 >
 > Answer:
 
---- question 27 fill here ---
-Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networkung and storage.
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networking and storage.
 
 ### Question 28
 
