@@ -97,9 +97,9 @@ will check the repositories and the code to verify your answers.
 
 ### Week 3
 
-* [ ] Check how robust your model is towards data drifting (M27)
+* [x] Check how robust your model is towards data drifting (M27)
 * [x] Collect input-output data from deployed application (M27)
-* [ ] Deploy to the cloud a drift detection API (M27)
+* [x] Deploy to the cloud a drift detection API (M27)
 * [ ] Instrument your API with a couple of system metrics (M28)
 * [ ] Setup cloud monitoring of your instrumented application (M28)
 * [ ] Create one or more alert systems in GCP to alert you if your app is not behaving correctly (M28)
@@ -112,9 +112,9 @@ will check the repositories and the code to verify your answers.
 * [ ] Write some documentation for your application (M32)
 * [ ] Publish the documentation to GitHub Pages (M32)
 * [ ] Revisit your initial project description. Did the project turn out as you wanted?
-* [ ] Create an architectural diagram over your MLOps pipeline
+* [x] Create an architectural diagram over your MLOps pipeline
 * [ ] Make sure all group members have an understanding about all parts of the project
-* [ ] Uploaded all your code to GitHub
+* [x] Uploaded all your code to GitHub
 
 ## Group information
 
@@ -137,10 +137,10 @@ will check the repositories and the code to verify your answers.
 *s214722, s214728, s211222, s214705, s204354*
 
 ### Question 3
-> **A requirement to the project is that you include a third-party package not covered in the course. What framework**
-> **did you choose to work with and did it help you complete the project?**
+> **Did you end up using any open-source frameworks/packages not covered in the course during your project? If so**
+> **which did you use and how did they help you complete the project?**
 >
-> Recommended answer length: 100-200 words.
+> Recommended answer length: 0-200 words.
 >
 > Example:
 > *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
@@ -148,9 +148,7 @@ will check the repositories and the code to verify your answers.
 >
 > Answer:
 
-In our project, we used the third-party package Pillow (PIL) for image handling and preprocessing in the machine learning API. Pillow was used to load and validate uploaded image files received through the FastAPI endpoints, specifically by decoding raw byte streams into image objects using Image.open(BytesIO(data)). This functionality was essential for handling user-uploaded images safely and reliably, including error handling for invalid or corrupted image files via UnidentifiedImageError.
-
-Additionally, Pillow was used to standardize image formats before inference by converting images to RGB when necessary. This ensured consistent preprocessing regardless of the input image mode and prevented runtime errors during model inference. The decoded images were then passed into a TorchVision preprocessing pipeline for resizing, grayscale conversion, and tensor transformation.
+In our project, we focussed on learning the core aspects on the course, and implementing the extra modules that we found most interesting. Therefore, we did not end up using any third-party packages not covered in the course.
 
 ## Coding environment
 
@@ -600,7 +598,7 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
---- question 26 fill here ---
+We did not manage to implement monitoring. If we had implemented monitoring, we would have been able to measure different metrics, such as run time, classification size, and more. These metrics could be used to measure the performance of our model over time, which we could use to find possible areas for improvement in our model.
 
 ## Overall discussion of project
 
@@ -620,6 +618,7 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 > Answer:
 
 --- question 27 fill here ---
+Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor or Johan used any credits. Of the credits used during the course 0.25 was used for the project, compute engine used 0.13, cloud run used 0.04 and vertex ai used 0.04. The rest was split between networkung and storage.
 
 ### Question 28
 
@@ -652,6 +651,19 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 >
 > Answer:
 
+The diagram illustrates the end-to-end development, training, and deployment workflow of the system. 
+
+The process starts with the development team, who work on separate branches and submit their changes through pull requests. These pull requests automatically trigger GitHub Actions, where linting, testing, and other CI checks are executed. Only when all tests pass is the code merged into the main GitHub repository. 
+
+Once the code is merged, Docker images can be built manually from the repository. These images encapsulate the application and its dependencies. The resulting Docker images are pushed to Artifact Registry, which serves as the central container image storage. 
+
+From there, the API image is deployed to Cloud Run, which hosts the inference API as a scalable cloud service. Cloud Run exposes the API endpoint that users can interact with. 
+
+Model development and experimentation happen both on the local machine and on Vertex AI. During training, experiment metadata and metrics are logged to Weights & Biases, while datasets and trained model artifacts are stored in Google Cloud Storage buckets. Trained models are saved to these buckets and can be accessed by the API during deployment. 
+
+When users send requests to the deployed API, Cloud Run forwards the requests to the model, which loads the trained model artifacts from cloud storage. The model then generates predictions and returns the results back to the users. 
+
+Overall, the diagram shows a complete CI/CD-enabled MLOps pipeline, combining version control, automated testing, containerization, cloud-based training, experiment tracking, and scalable model deployment.
 
 
 <img width="580" height="582" alt="Grape_Gang_DevelopmentOrg drawio" src="https://github.com/user-attachments/assets/e6e20f26-264c-4112-a014-428f41bd3192" />
@@ -670,6 +682,14 @@ For load testing, we used Locust to evaluate how the API behaves under concurren
 > Answer:
 
 --- question 30 fill here ---
+
+The largest problems where cloud and docker, both for cloud training and model deyploment. Google cloud services where difficult to navigate, with extremly many opaque options with unclear effects. It was also a bit difficult to figure out how different systems interacted such as wandb and google cloud. When deyploing to cloud we also couldn't find any log files in the log section, which made debugging extremly hard until we found a command to display them.
+
+When constructing docker images we either had to enable cahcing significantly increasing storage costs, or disable it which made the build process time consuming making debugging hard.
+
+Constructing the code in such a way that the same script could run locally, on GitHub or on Google Cloud was also difficult, until we fiquired the correct pathing structure for typer.
+
+Testing was very usefull, but would at times lack behind new code developments. For example when switching to lightning or DVC, many test where rendered non functional, meaning untested code entered master, which created signficant problem.
 
 ### Question 31
 
