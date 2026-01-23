@@ -384,7 +384,13 @@ We use wandb to log experiment results, which also stores the experiment config 
 
 In our project we used Docker to make the training, evaluation, and inference/API steps reproducible and easy to run on any machine (local or cloud) without manual environment setup. We created separate images for: training (train.dockerfile), evaluation (evaluate.dockerfile), and serving an API (both a local ONNX backend in backend.dockerfile and a cloud-oriented FastAPI in cloud_api.dockerfile). All images are based on Astral’s uv Python images (Python 3.12) and install dependencies via uv sync / uv pip install, which keeps builds consistent.
 
-#### **MANGLER EXEMPEL PÅ AT KØRE OG LINK**
+An example run of the trainning docker image is below. Here we give the local file directory as it is not being run on the cloud, but for cloud run we simply change the data and model directory, to the matching buckets. An wandb api key must be added as an enviroment variable.
+```
+docker run --rm   -e WANDB_API_KEY=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   -v "$(pwd)/data:/data"   -v "$(pwd)/models:/models"   grape-vine-trainer
+```
+Link to the train.dockerfile which constructs the image:
+
+https://github.com/ML-Ops-Burnsides-Bitches-Group-51/grape_vine_classification_group_51/blob/master/dockerfiles/train.dockerfile
 
 ### Question 16
 
@@ -421,7 +427,7 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 17 fill here ---
+We use 4 cloud services, Buckets, Artifact Repository, Vertex AI and Google Cloud Run. Buckets are used for storage, such as data, trained models, and information about API input queries which is later used to detect data drift. The Artifact Repository stores images for later deployment. Images from the repository are run using either Vertex AI or Cloud Run depending on the task. Training is done using Vertex AI, while model inference is using an API deployd from the Artifact Repository to Cloud Run.
 
 ### Question 18
 
@@ -444,8 +450,12 @@ We did not consider the code to be “perfect” and did not perform extensive p
 > **You can take inspiration from [this figure](figures/bucket.png).**
 >
 > Answer:
+<img width="2248" height="471" alt="image" src="https://github.com/user-attachments/assets/f1c3c50c-d15c-4237-8879-a98e30751744" />
 
---- question 19 fill here ---
+
+<img width="1825" height="649" alt="image" src="https://github.com/user-attachments/assets/abcbc914-a771-4f88-8872-5db8cdafcde3" />
+
+
 
 ### Question 20
 
@@ -454,7 +464,9 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 20 fill here ---
+
+<img width="1636" height="373" alt="image" src="https://github.com/user-attachments/assets/f3f4940d-73dc-42fc-9416-15c9df7b5baa" />
+
 
 ### Question 21
 
@@ -462,8 +474,10 @@ We did not consider the code to be “perfect” and did not perform extensive p
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
+<img width="1702" height="615" alt="image" src="https://github.com/user-attachments/assets/1ee19914-d9db-4945-914c-4517d1e9e92b" />
 
---- question 21 fill here ---
+<img width="1585" height="526" alt="image" src="https://github.com/user-attachments/assets/bacabbf8-aaa0-4f98-a10c-22ddd5fed85f" />
+
 
 ### Question 22
 
@@ -478,7 +492,30 @@ We did not consider the code to be “perfect” and did not perform extensive p
 >
 > Answer:
 
---- question 22 fill here ---
+We intially began working with the Engine but found working with the virtual machine instances to be cumbersome, so switched to Vertex AI. Trainning was done by running the relevant image, with the argiments specefied by a local configuration file.
+
+```
+gcloud ai custom-jobs create   --region=europe-west1   --display-name=grapevine-v9-final   --config=cloud_config.yaml   --service-account=dvc-sa@grapevine-gang.iam.gserviceaccount.com
+```
+
+``` yaml
+workerPoolSpecs:
+  machineSpec:
+    machineType: n1-standard-4
+  replicaCount: 1
+  containerSpec:
+    imageUri: europe-west1-docker.pkg.dev/grapevine-gang/grape-functions/trainer:v2
+    env:
+      - name: WANDB_API_KEY
+        value: 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
+    args:
+      - --config-path
+      - configs/experiment/exp1.yaml
+      - --data-path
+      - /gcs/grapevine_data/data/processed_dataset/
+      - --model-path
+      - /gcs/models_grape_gang/cloud_model.pth
+```
 
 ## Deployment
 
