@@ -5,6 +5,7 @@ import json
 from io import BytesIO
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from pydantic import BaseModel
@@ -12,10 +13,11 @@ from PIL import Image, UnidentifiedImageError
 
 import onnxruntime as ort
 import numpy as np
+import subprocess
 
 
 # To run the app, use:
-# uvicorn --reload --port 8000 src.grape_vine_classification.onnx_api:app
+# uv run uvicorn --reload --port 8000 app.onnx_api:app
 
 # Url:
 # http://localhost:8000/docs#/
@@ -24,6 +26,7 @@ import numpy as np
 # Paths that match repo
 # ----------------------------
 # This file lives at: src/grape_vine_classification/api.py
+
 
 PKG_DIR = Path(__file__).resolve().parent 
 # Fallback: if we are at /app, REPO_ROOT is just /app
@@ -34,10 +37,36 @@ except IndexError:
 MODELS_DIR = REPO_ROOT / "models"
 
 # You can override these with env vars when deploying
-MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "model.onnx")))
+MODEL_PATH = Path(os.getenv("MODEL_PATH", str(MODELS_DIR / "trained_model.onnx")))
 LABELS_PATH = Path(os.getenv("LABELS_PATH", str(MODELS_DIR / "labels.json")))
 
-# From your README: you convert to B/W and downsize to 128x128
+
+GCS_MODEL_URI = os.getenv(
+    "GCS_MODEL_URI",
+    "gs://models-grape-gang/models/trained_model.onnx",
+)
+GCS_LABELS_URI = os.getenv(
+    "GCS_LABELS_URI",
+    "gs://models-grape-gang/models/labels.json",
+)
+
+def ensure_model_present():
+    MODELS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not MODEL_PATH.exists():
+        subprocess.check_call(
+            ["gsutil", "cp", GCS_MODEL_URI, str(MODEL_PATH)]
+        )
+
+    if not LABELS_PATH.exists():
+        subprocess.check_call(
+            ["gsutil", "cp", GCS_LABELS_URI, str(LABELS_PATH)]
+        )
+
+
+
+
+# Convert to B/W and downsize to 128x128
 IMG_SIZE = int(os.getenv("IMG_SIZE", "128"))
 TOP_K_DEFAULT = int(os.getenv("#_TOP_PREDS_DEFAULT", "3"))
 
@@ -155,16 +184,20 @@ def predict_pil(
 # ----------------------------
 # FastAPI app
 # ----------------------------
-app = FastAPI(title="Grape Vine Classification API", version="1.0.0")
 
 
-@app.on_event("startup")
-def _startup():
-    try:
-        load_model()
-    except Exception as e:
-        # fail fast so Docker / deployment catches it immediately
-        raise RuntimeError(f"Startup failed loading model: {e}") from e
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Starting up, ensuring model exists...")
+    ensure_model_present()
+    load_model()
+    print(f"Model loaded: {_ort_session}")
+    
+    yield
+    print("Shutting down")
+    
+app = FastAPI(title="Grape Vine Classification API", version="1.0.0", lifespan=lifespan)
+
 
 @app.get("/health")
 def health():
