@@ -722,3 +722,7 @@ Student s204354: Worked on, dataloading and preprocessing, tests (model, train, 
 Student s211222: Worked on, dockerfiles, testing, API's, raport writing, bug-fixing, cloud services 
 
 
+
+
+
+Student s214705: Worked on creation of docker files, tests, dataloading and preprocess, model training scripts, and general bug-fixing.
