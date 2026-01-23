@@ -365,9 +365,11 @@ We use wandb to log experiment results, which also stores the experiment config 
 >
 > Answer:
 
-We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, including hyperparameter sweeps, where we varied settings such as learning rate, optimizer, and random initialization. 
+We used Weights & Biases (W&B) to track and compare our training experiments in a structured and reproducible way. The uploaded screenshots show results from multiple experiment runs, done by a hyperparameter sweep. The sweep is a simple test demonstration where we very the learning rate, and the optimizer.
 
-In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices. 
+We chooce to use validation accuracy as the primary tool for model evaluation. Note that some runs have significantly fewer epochs than others. This is beacuse we use early stopping, when validation accuracy fails to increase for 3 epochs.
+
+In the first screenshot, we track validation loss (val_loss) over training steps for several runs. This metric is critical because it measures how well the model generalizes to unseen data. While training loss can decrease even when the model overfits, validation loss gives a more reliable signal of true performance. From the plot, we can see that some runs converge smoothly to a lower validation loss, while others show instability or divergence, indicating suboptimal hyperparameter choices.  gai
 
 The second screenshot shows validation accuracy (acc) across the same experiments. Accuracy is an intuitive and task-relevant metric for our classification problem, as it directly reflects how often the model predicts the correct class. Comparing accuracy curves allows us to quickly identify which runs learn faster and which plateau at lower performance.
 
