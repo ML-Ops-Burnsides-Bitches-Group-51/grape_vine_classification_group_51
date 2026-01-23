@@ -644,7 +644,7 @@ Anton used 0.55 credits, Karl used 0.29 credits, Clara used 4.8, neither Viktor 
 
 --- question 28 fill here ---
 
-We implimented datadrift detection, using an API. Whenever an user prompt the inference API, the predictions and image features are stored.
+We have implemented an api for data drift detection and monitoring, which runs on the cloud. When the endpoint /report is envoked the most recent data gathered by the prediction cloud api will be compared to the training data. This is done with evidently, and a report containing data summary and data drift detection is generated and saved. The endpoint is invoked with an integer indicating the number of recent datapoints that should be compared to the training data. The data features being compared are average pixel intensity, contrast, sharpness and target/prediction species.
 
 ### Question 29
 
